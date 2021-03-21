@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain;
 
-/**
- *
- * @author Alumno
- */
 public class SucursalProducto {
     private int idSP ;
     private int idSucursal ;
     private int idProducto ;
     private int stock ;
     
-    public SucursalProducto () {
-        
+    public SucursalProducto () {   
     }
     
     public SucursalProducto (int idSP) {
@@ -43,10 +34,6 @@ public class SucursalProducto {
 
     public int getStock() {
         return stock;
-    }
-
-    public void setIdSP(int idSP) {
-        this.idSP = idSP;
     }
 
     public void setIdSucursal(int idSucursal) {

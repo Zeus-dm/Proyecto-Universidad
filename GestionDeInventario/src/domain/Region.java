@@ -1,27 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain;
 
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
 public class Region {
     private int idRegion ;
     private String nombre ;
     private List <Sucursal> sucursales ;
     
-    public Region() {
-        
+    public Region() {   
     }
 
-    
-    
     public Region(int idRegion) {
         this.idRegion = idRegion ;
     }
@@ -47,10 +36,6 @@ public class Region {
         return sucursales;
     }
 
-    public void setIdRegion(int idRegion) {
-        this.idRegion = idRegion;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -69,5 +54,4 @@ public class Region {
         return sb.toString();
     }
 
-    
 }

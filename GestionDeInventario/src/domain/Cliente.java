@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain;
 
-/**
- *
- * @author Alumno
- */
 public class Cliente extends Persona {
     private int idCliente ;
     private String direccion ;
     private int telefono ;
     private String email ;
     
-    public Cliente (){
-        
+    public Cliente (){    
     }
     
     public Cliente (int idCliente) {
@@ -55,17 +46,15 @@ public class Cliente extends Persona {
     public String getEmail() {
         return email;
     }
+    
     @Override
     public String getNombre() {
         return nombre;
     }
+    
     @Override
     public int getEdad() {
         return edad;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
     }
 
     public void setDireccion(String direccion) {

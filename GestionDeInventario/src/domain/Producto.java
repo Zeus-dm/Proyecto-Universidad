@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Alumno
- */
 public class Producto {
     private int idProducto ;
     private List <Integer> idsSucursales ;
@@ -21,34 +14,42 @@ public class Producto {
     private String descripcion ;
     
     public Producto(){
-        
     }
+    
     public Producto(int idProducto){
         this.idProducto = idProducto ;
     }
     
-    public Producto(String nombre, String barCode, int stockTotal, long precio, String descripcion){
+    public Producto(String nombre, String idsSucursales, String barCode, int stockTotal, long precio, String descripcion){
         this.nombre = nombre ;
         this.barCode = barCode ;
         this.stockTotal = stockTotal ;
         this.precio = precio ;
         this.descripcion = descripcion ;
+        
+        this.setIdsSucursales(idsSucursales);
     }
     
-    public Producto(int idProducto, String nombre, String barCode, int stockTotal, long precio, String descripcion){
+    public Producto(int idProducto, String nombre, String idsSucursales, String barCode, int stockTotal, long precio, String descripcion){
         this.idProducto = idProducto ;
         this.nombre = nombre ;
         this.barCode = barCode ;
         this.stockTotal = stockTotal ;
         this.precio = precio ;
         this.descripcion = descripcion ;
+        
+        this.setIdsSucursales(idsSucursales);
     }
 
     public int getIdProducto() {
         return idProducto;
     }
 
-    public List<Integer> getIdsSucursales() {
+    public String getIdsSucursales() {
+        String idsSucursales = "";
+        for (Integer id : this.idsSucursales) {
+            idsSucursales += id+",";
+        }
         return idsSucursales;
     }
 
@@ -71,13 +72,13 @@ public class Producto {
     public String getDescripcion() {
         return descripcion;
     }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public void setIdsSucursales(List<Integer> idsSucursales) {
-        this.idsSucursales = idsSucursales;
+    
+    public void setIdsSucursales(String idsSucursales) {
+        this.idsSucursales = new ArrayList<>();
+        String arrayIds[] = idsSucursales.split(",");
+        for (String arrayId : arrayIds) {
+            this.idsSucursales.add(Integer.parseInt(arrayId));
+        }
     }
 
     public void setNombre(String nombre) {

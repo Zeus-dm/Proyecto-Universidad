@@ -1,21 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain;
 
-/**
- *
- * @author Alumno
- */
 public class JefeSucursal extends Persona {
     private int idJefe ;
     private int idSucursal ;
     
-    public JefeSucursal() {
-        
+    public JefeSucursal() {   
     }
+    
     public JefeSucursal(int idJefe) {
         this.idJefe = idJefe ;
     }
@@ -49,10 +41,6 @@ public class JefeSucursal extends Persona {
     @Override
     public int getEdad() {
         return edad;
-    }
-
-    public void setIdJefe(int idJefe) {
-        this.idJefe = idJefe;
     }
 
     public void setIdSucursal(int idSucursal) {
