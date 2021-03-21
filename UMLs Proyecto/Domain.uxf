@@ -1,0 +1,119 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>10</x><y>10</y><w>1200</w><h>930</h></coordinates><panel_attributes>Domain
+--
+bg=White
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>290</y><w>380</w><h>380</h></coordinates><panel_attributes>Sucursal
+--
+- idSucursal: Int
+- idRegion: Int
+- nombreSucursal: String
+- direccionSucursal: String
+- telefonoSucursal: String
+- jefeSucursal: JefeSucursal
+- productos[]: Productos(Mapa)
+--
++ Sucursal()
++ Sucursal( idSucursal: Int )
+
++ Sucursal( idRegion: Int, nombreSucursal: String, 
+direccionSucursal: String telefonoSucursal: String, 
+jefeSucursal: JefeSucursal )
+
++ Sucursal( idSucursal: Int, idRegion: Int, nombreSucursal: String, 
+direccionSucursal: String telefonoSucursal: String, 
+jefeSucursal: JefeSucursal )
+
++ toString(): String
+--
+Responsibilidad
+- Crear Get and Set de cada propiedad
+- Administra los Productos</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>40</y><w>380</w><h>220</h></coordinates><panel_attributes>Region
+--
+- idRegion: Int
+- nombreRegion: String
+- sucursales[]: Sucursal
+--
++ Region()
++ Region( idRegion: Int )
++ Region( nombreRegion: String )
++ Region( idRegion: Int, nombreRegion: String )
++ toString(): String
+--
+Responsabilidad
+- Crear Get and Set de cada propiedad
+- Administra las Sucursales</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>248</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>38</y><w>340</w><h>150</h></coordinates><panel_attributes>/AbstractClass/
+Persona
+--
+- nombre: String
+- edad: Int
+--
++ Persona( nombre: String, edad: Int )
++ toString(): String
+--
+Responsibilidad
+- Crear Get and Set de cada propiedad</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>228</y><w>380</w><h>140</h></coordinates><panel_attributes>JefeSucursal
+--
+- idJefe: Int
+- idSucursal: Int
+--
++ JefeSucursal()
++ JefeSucursal( idJefe: Int )
++ JefeSucursal( nombre: String, edad: Int, idSucursal: Int )
++ JefeSucursal( idJefe: Int, nombre: String, edad: Int, idSucursal: Int )
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>178</y><w>200</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;10;180;30;10;30;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>228</y><w>380</w><h>250</h></coordinates><panel_attributes>Cliente
+--
+- idCliente: Int
+- direccionCliente: String
+- telefonoCliente: String
+- emailCliente: String
+--
++ Cliente()
++ Cliente( idCliente: Int )
+
++ Cliente( nombre: String, edad: String, direccionCliente: String, 
+telefonoCliente: String, emailCliente: String )
+
++ Cliente( idCliente: Int, nombre: String, edad: String, 
+direccionCliente: String, telefonoCliente: String, emailCliente: String )
+
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>178</y><w>350</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30;330;30;330;50</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>358</y><w>360</w><h>360</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;310;10;340;340;340;340;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>498</y><w>380</w><h>360</h></coordinates><panel_attributes>Producto
+--
+- idProducto: Int
+- idsSucursales[]: Int
+- nombreProducto: String
+- barCodeProducto: String
+- stockTotal: Int 
+- precio: Long
+- descripcion: String
+--
++ Producto()
++ Producto( idProducto: Int )
+
++ producto( idsSucursales: String, nombreProducto: String, 
+barCode: String, stockTotal: Int, precio: Long, descripcion: String )
+
++ producto( idProducto: Int, idsSucursales: String, 
+nombreProducto: String, barCode: String, stockTotal: Int, 
+precio: Long, descripcion: String )
+
++ toString(): String
+--
+Responsibilidad
+- Crear Get and Set de cada Propiedad
+- Creacion de Productos</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>658</y><w>490</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40;340;40;340;20;470;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>718</y><w>440</w><h>210</h></coordinates><panel_attributes>SucursalProducto
+--
+- idSP: Int
+- idProducto: Int
+- idSucursal: Int
+- stock: Int
+--
++ SucursalProductoStock()
++ SucursalProductoStock( idSP: Int )
++ SucursalProductoStock( idProducto: Int, idSucursal: Int, stock: Int )
++ SucursalProductoStock( idSP: Int, idProducto: Int, idSucursal: Int, stock: Int )
+--
+Responsibilidad
+- Crear Get and Set de cada Propiedad
+- Manejar el stock de cada producto en las sucursales especificas</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>660</y><w>70</w><h>80</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>710</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element></diagram>

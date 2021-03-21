@@ -1,0 +1,21 @@
+base de datos(mySQL)
+2 niveles de anidacion de colecciones de objetos
+sobrecarga de metodos
+1 clase mapa
+-implementacion grafica*
+1 clase abstracta que sea padre de 2 clases
+1 interfaz que sea implementada por almenos 2 clases
+-generar documentacion con javadoc*
+2 clases que extiendan de una excepcion
+aplicacion del patron strategy
+
+
+Gestión de Inventario - Descripcion: Se debe considerar la gestión de los 
+			productos, stock, clientes, sucursales a nivel nacional.
+
+
+- sucursal son a la region
+- productos son a la sucursal
+- Jefe de sucursal es a la sucursal
+
+- Jefe de sucursal y cliente heredan de persona

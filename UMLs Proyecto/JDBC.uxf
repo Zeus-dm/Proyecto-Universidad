@@ -1,0 +1,232 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>10</x><y>10</y><w>1330</w><h>820</h></coordinates><panel_attributes>JDBC
+--
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>130</y><w>210</w><h>170</h></coordinates><panel_attributes>// Class Element
+
+Conexion
+--
+- JDBC_STRING: String
+- JDBC_URL: String
+- JDBC_USER: String
+- JDBC_PASS: String
+--
++ getConnection(): Connection
++ close( rs: ResultSet )
++ close( ps: PreparedStatement )
++ close( c: Connection )
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>380</x><y>30</y><w>180</w><h>130</h></coordinates><panel_attributes>IRegionDao
+--
+insert( region: Region ): void
+update( region: Region ): void
+delete( region: Region ): void
+select(): List&lt;Region&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>140</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;implements&gt;&gt;</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>110</x><y>290</y><w>120</w><h>420</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes><additional_attributes>100;400;10;400;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>190</y><w>320</w><h>220</h></coordinates><panel_attributes>// Class Element
+
+RegionJDBC
+--
+- userConn: Connection
+- SQL_INSERT: String
+- SQL_UPDATE: String
+- SQL_DELETE: String
+- SQL_SELECT: String
+--
++ RegionJDBC()
++ RegionJDBC( c: Connection )
++ insert( region: Region ): void
++ update( region: Region ): void
++ delete( region: Region ): void
++ select(): List&lt;Region&gt;
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>710</x><y>30</y><w>200</w><h>130</h></coordinates><panel_attributes>ISucursalDao
+--
+insert( sucursal: Sucursal ): void
+update( sucursal: Sucursal ): void
+delete( sucursal: Sucursal ): void
+select(): List&lt;Sucursal&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>190</y><w>320</w><h>220</h></coordinates><panel_attributes>// Class Element
+
+SucursalJDBC
+--
+- userConn: Connection
+- SQL_INSERT: String
+- SQL_UPDATE: String
+- SQL_DELETE: String
+- SQL_SELECT: String
+--
++ SucursalJDBC()
++ SucursalJDBC( c: Connection )
++ insert( sucursal: Sucursal ): void
++ update( sucursal: Sucursal ): void
++ delete( sucursal: Sucursal ): void
++ select(): List&lt;Sucursal&gt;
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>140</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;implements&gt;&gt;</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>170</y><w>460</w><h>270</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>440;110;430;110;430;250;40;250;40;10;10;10</additional_attributes></element><element><id>UMLInterface</id><coordinates><x>1040</x><y>30</y><w>240</w><h>130</h></coordinates><panel_attributes>IJefeSucursalDao
+--
+insert( jefeSucursal: JefeSucursal ): void
+update( jefeSucursal: JefeSucursal ): void
+delete( jefeSucursal: JefeSucursal ): void
+select( idSucursal: Int): JefeSucursal</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1010</x><y>190</y><w>320</w><h>220</h></coordinates><panel_attributes>// Class Element
+
+JefeSucursalJDBC
+--
+- userConn: Connection
+- SQL_INSERT: String
+- SQL_UPDATE: String
+- SQL_DELETE: String
+- SQL_SELECT: String
+--
++ JefeSucursalJDBC()
++ JefeSucursalJDBC( c: Connection )
++ insert( jefeSucursal: JefeSucursal ): void
++ update( jefeSucursal: JefeSucursal ): void
++ delete( jefeSucursal: JefeSucursal ): void
++ select( idSucursal: Int ): JefeSucursal
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1150</x><y>140</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;implements&gt;&gt;</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>170</y><w>810</w><h>270</h></coordinates><panel_attributes>lt=.&gt;
+</panel_attributes><additional_attributes>790;110;780;110;780;250;40;250;40;10;10;10</additional_attributes></element><element><id>UMLInterface</id><coordinates><x>280</x><y>430</y><w>180</w><h>130</h></coordinates><panel_attributes>IClienteDao
+--
+insert( cliente: Cliente ): void
+update( cliente: Cliente ): void
+delete( cliente: Cliente ): void
+select(): List&lt;Cliente&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>590</y><w>320</w><h>220</h></coordinates><panel_attributes>// Class Element
+
+ClienteJDBC
+--
+- userConn: Connection
+- SQL_INSERT: String
+- SQL_UPDATE: String
+- SQL_DELETE: String
+- SQL_SELECT: String
+--
++ ClienteJDBC()
++ ClienteJDBC( c: Connection )
++ insert( cliente: Cliente ): void
++ update( cliente: Cliente ): void
++ delete( cliente: Cliente ): void
++ select(): List&lt;Cliente&gt;
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>540</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;implements&gt;&gt;</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>170</y><w>110</w><h>130</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes><additional_attributes>90;110;40;110;40;10;10;10</additional_attributes></element><element><id>UMLInterface</id><coordinates><x>650</x><y>430</y><w>220</w><h>130</h></coordinates><panel_attributes>IProductoDao
+--
+insert( producto: Producto ): void
+update( producto: Producto ): void
+delete( producto: Producto ): void
+select( idSucursal :Int): List&lt;Producto&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>590</y><w>320</w><h>220</h></coordinates><panel_attributes>// Class Element
+
+ProductoJDBC
+--
+- userConn: Connection
+- SQL_INSERT: String
+- SQL_UPDATE: String
+- SQL_DELETE: String
+- SQL_SELECT: String
+--
++ ProductoJDBC()
++ ProductoJDBC( c: Connection )
++ insert( producto: Producto ): void
++ update( producto: Producto ): void
++ delete( producto: Producto ): void
++ select( idSucursal: Int ): List&lt;Producto&gt;
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>540</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;implements&gt;&gt;</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>110</x><y>290</y><w>510</w><h>550</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes><additional_attributes>490;400;440;400;440;530;10;530;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>980</x><y>590</y><w>330</w><h>220</h></coordinates><panel_attributes>// Class Element
+
+SucursalProductoJDBC
+--
+- userConn: Connection
+- SQL_INSERT: String
+- SQL_UPDATE: String
+- SQL_DELETE: String
+- SQL_SELECT: String
+--
++ SucursalProductoJDBC()
++ SucursalProductoJDBC( c: Connection )
++ insert( SP: SucursalProducto ): void
++ update( SP: SucursalProducto ): void
++ delete( SP: SucursalProducto ): void
++ select( idProducto: Int, idSucursal: Int ): SucursalProducto
+
+customelement=
+// DB Symbol
+drawArc(5,5,26,8,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,5,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawRectangle(5,9,26,15) lw=0.1 bg=#222222 //Parameters (x, y, width, height)
+drawLine(5,9,5,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawLine(31,9,31,24)fg=black //Parameters (x1, y1, x2, y2) 
+drawArc(5,10,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,15,26,8,180,180,true) fg=black //Parameters (x, y, width, height, start, extent, open)
+drawArc(5,20,26,8,180,180,true)fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>980</x><y>430</y><w>320</w><h>130</h></coordinates><panel_attributes>ISucursalProductoDao
+--
+insert( SP: SucursalProducto ): void
+update( SP: SucursalProducto ): void
+delete( SP: SucursalProducto ): void
+select( idProducto: Int, idSucursal :Int): SucursalProducto</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1130</x><y>540</y><w>100</w><h>70</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;implements&gt;&gt;</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>110</x><y>290</y><w>890</w><h>550</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;uses&gt;&gt;</panel_attributes><additional_attributes>870;400;820;400;820;530;10;530;10;10</additional_attributes></element></diagram>
