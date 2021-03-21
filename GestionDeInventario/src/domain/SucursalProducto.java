@@ -14,10 +14,17 @@ public class SucursalProducto {
         this.idSP = idSP ;
     }
     
-    public SucursalProducto (int idSucursal, int idProducto, int stock){
+    public SucursalProducto (int idProducto, int idSucursal, int stock){
         this.idSucursal = idSucursal ;
         this.idProducto = idProducto ;
         this.stock = stock ;
+    }
+
+    public SucursalProducto(int idSP, int idProducto, int idSucursal, int stock) {
+        this.idSP = idSP;
+        this.idSucursal = idSucursal;
+        this.idProducto = idProducto;
+        this.stock = stock;
     }
 
     public int getIdSP() {

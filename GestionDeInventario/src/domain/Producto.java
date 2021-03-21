@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Producto {
     private int idProducto ;
-    private List <Integer> idsSucursales ;
+    private List <Integer> idsSucursales = new ArrayList<>() ;
     private String nombre ;
     private String barCode ;
     private int stockTotal ;
-    private long precio ;
+    private int precio ;
     private String descripcion ;
     
     public Producto(){
@@ -20,25 +20,21 @@ public class Producto {
         this.idProducto = idProducto ;
     }
     
-    public Producto(String nombre, String idsSucursales, String barCode, int stockTotal, long precio, String descripcion){
+    public Producto(String nombre, String barCode, int stockTotal, int precio, String descripcion){
         this.nombre = nombre ;
         this.barCode = barCode ;
         this.stockTotal = stockTotal ;
         this.precio = precio ;
         this.descripcion = descripcion ;
-        
-        this.setIdsSucursales(idsSucursales);
     }
     
-    public Producto(int idProducto, String nombre, String idsSucursales, String barCode, int stockTotal, long precio, String descripcion){
+    public Producto(int idProducto, String nombre, String barCode, int stockTotal, int precio, String descripcion){
         this.idProducto = idProducto ;
         this.nombre = nombre ;
         this.barCode = barCode ;
         this.stockTotal = stockTotal ;
         this.precio = precio ;
         this.descripcion = descripcion ;
-        
-        this.setIdsSucursales(idsSucursales);
     }
 
     public int getIdProducto() {
@@ -46,11 +42,11 @@ public class Producto {
     }
 
     public String getIdsSucursales() {
-        String idsSucursales = "";
+        String stringIdsSucursales = "";
         for (Integer id : this.idsSucursales) {
-            idsSucursales += id+",";
+            stringIdsSucursales += id+",";
         }
-        return idsSucursales;
+        return stringIdsSucursales;
     }
 
     public String getNombre() {
@@ -65,7 +61,7 @@ public class Producto {
         return stockTotal;
     }
 
-    public long getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
@@ -74,7 +70,6 @@ public class Producto {
     }
     
     public void setIdsSucursales(String idsSucursales) {
-        this.idsSucursales = new ArrayList<>();
         String arrayIds[] = idsSucursales.split(",");
         for (String arrayId : arrayIds) {
             this.idsSucursales.add(Integer.parseInt(arrayId));
@@ -93,7 +88,7 @@ public class Producto {
         this.stockTotal = stockTotal;
     }
 
-    public void setPrecio(long precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
