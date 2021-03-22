@@ -100,19 +100,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(192, 222));
 
         jPanel3.setBackground(new java.awt.Color(255, 0, 204));
-        jPanel3.setPreferredSize(new java.awt.Dimension(150, 150));
+        jPanel3.setMaximumSize(new java.awt.Dimension(152, 152));
+        jPanel3.setMinimumSize(new java.awt.Dimension(152, 152));
+        jPanel3.setPreferredSize(new java.awt.Dimension(152, 152));
 
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/chefcito_150.png"))); // NOI18N
+        imagen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -122,7 +125,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
