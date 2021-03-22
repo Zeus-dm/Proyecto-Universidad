@@ -1,7 +1,7 @@
 
 package domain;
 
-public class SucursalProducto {
+public class SucursalProducto implements IGenerico{
     private int idSP ;
     private int idSucursal ;
     private int idProducto ;

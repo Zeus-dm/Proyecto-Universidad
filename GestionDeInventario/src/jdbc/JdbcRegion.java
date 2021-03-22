@@ -1,12 +1,13 @@
 
 package jdbc;
 
+import domain.IGenerico;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import domain.Region;
 
-public class JdbcRegion implements IRegionDao{
+public class JdbcRegion implements IGenericoDao, IGenericoSelectListDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.region(nombre) VALUES(?)";
@@ -22,7 +23,8 @@ public class JdbcRegion implements IRegionDao{
     }
     
     @Override
-    public void insert(Region region) throws SQLException {
+    public void insert(IGenerico generico) throws SQLException {
+        Region region = (Region)generico;
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -38,9 +40,11 @@ public class JdbcRegion implements IRegionDao{
             }
         }
     }
-
+    
     @Override
-    public void update(Region region) throws SQLException {
+    public void update(IGenerico generico) throws SQLException {
+        Region region = (Region)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -57,9 +61,10 @@ public class JdbcRegion implements IRegionDao{
             }
         }
     }
-
+    
     @Override
-    public void delete(Region region) throws SQLException {
+    public void delete(IGenerico generico) throws SQLException {
+        Region region = (Region)generico;
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -77,13 +82,13 @@ public class JdbcRegion implements IRegionDao{
     }
 
     @Override
-    public List<Region> select() throws SQLException {
+    public List<IGenerico> select() throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         Region region = null;
-        List<Region> listaRegiones = new ArrayList<>();
+        List<IGenerico> listaRegiones = new ArrayList<>();
         
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
@@ -107,5 +112,5 @@ public class JdbcRegion implements IRegionDao{
         
         return listaRegiones;
     }
-    
+   
 }

@@ -1,10 +1,11 @@
 
 package jdbc;
 
+import domain.IGenerico;
 import java.sql.*;
 import domain.SucursalProducto;
 
-public class JdbcSucursalProducto implements ISucursalProductoDao{
+public class JdbcSucursalProducto implements IGenericoDao, IGenericoTwoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.sucursal_producto(id_producto, id_sucursal, stock) VALUES(?, ?, ?)";
@@ -20,7 +21,9 @@ public class JdbcSucursalProducto implements ISucursalProductoDao{
     }
     
     @Override
-    public void insert(SucursalProducto sp) throws SQLException {
+    public void insert(IGenerico generico) throws SQLException {
+        SucursalProducto sp = (SucursalProducto)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -40,7 +43,9 @@ public class JdbcSucursalProducto implements ISucursalProductoDao{
     }
 
     @Override
-    public void update(SucursalProducto sp) throws SQLException {
+    public void update(IGenerico generico) throws SQLException {
+        SucursalProducto sp = (SucursalProducto)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -61,7 +66,9 @@ public class JdbcSucursalProducto implements ISucursalProductoDao{
     }
 
     @Override
-    public void delete(SucursalProducto sp) throws SQLException {
+    public void delete(IGenerico generico) throws SQLException {
+        SucursalProducto sp = (SucursalProducto)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -79,7 +86,7 @@ public class JdbcSucursalProducto implements ISucursalProductoDao{
     }
 
     @Override
-    public SucursalProducto select(int idProducto, int idSucursal) throws SQLException {
+    public IGenerico select(int idProducto, int idSucursal) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -111,5 +118,5 @@ public class JdbcSucursalProducto implements ISucursalProductoDao{
         
         return sp;
     }
-    
+
 }

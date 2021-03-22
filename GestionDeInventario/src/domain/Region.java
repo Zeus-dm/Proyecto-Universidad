@@ -4,7 +4,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Region {
+public class Region implements IGenerico{
     private int idRegion;
     private String nombre;
     List<Sucursal> sucursales = new ArrayList<>();

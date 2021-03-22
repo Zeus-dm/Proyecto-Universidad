@@ -1,7 +1,7 @@
 
 package domain;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements IGenerico{
     private int idCliente ;
     private String direccion ;
     private int telefono ;
