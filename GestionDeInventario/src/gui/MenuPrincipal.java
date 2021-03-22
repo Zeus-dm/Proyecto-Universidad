@@ -196,12 +196,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
     }
-    
-    @Override
-    public Image getIconImage(){
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("gui/images/chefcito_icon_80.png"));
-        return retValue;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClientes;
