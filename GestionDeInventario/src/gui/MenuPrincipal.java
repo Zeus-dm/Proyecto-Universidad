@@ -2,8 +2,6 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -186,6 +184,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
