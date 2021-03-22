@@ -135,14 +135,16 @@ public class JdbcCliente implements IClienteDao{
             ps.setInt(1, idCliente);
             rs = ps.executeQuery();
             
-            int newIdCliente = rs.getInt("id_cliente");
-            String nombre = rs.getString("nombre");
-            int edad = rs.getInt("edad");
-            String direccion = rs.getString("direccion");
-            int telefono = rs.getInt("telefono");
-            String email = rs.getString("email");
+            while(rs.next()){
+                int newIdCliente = rs.getInt("id_cliente");
+                String nombre = rs.getString("nombre");
+                int edad = rs.getInt("edad");
+                String direccion = rs.getString("direccion");
+                int telefono = rs.getInt("telefono");
+                String email = rs.getString("email");
                 
-            cliente = new Cliente(newIdCliente, nombre, edad, direccion, telefono, email);  
+                cliente = new Cliente(newIdCliente, nombre, edad, direccion, telefono, email);
+            }
         }finally{
             Conexion.close(rs);
             Conexion.close(ps);

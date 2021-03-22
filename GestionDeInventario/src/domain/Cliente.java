@@ -84,6 +84,8 @@ public class Cliente extends Persona {
         sb.append(", direccion=").append(direccion);
         sb.append(", telefono=").append(telefono);
         sb.append(", email=").append(email);
+        sb.append(", nombre=").append(super.getNombre());
+        sb.append(", edad=").append(super.getEdad());
         sb.append('}');
         return sb.toString();
     }

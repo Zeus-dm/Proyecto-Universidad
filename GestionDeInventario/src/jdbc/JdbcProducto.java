@@ -112,6 +112,7 @@ public class JdbcProducto implements IProductoDao{
                 String descripcion = rs.getString("descripcion");
                 
                 producto = new Producto(idProducto, nombre, barCode, stockTotal, precio, descripcion);
+                producto.setIdsSucursales(idsSucursales);
                 mapaProductos.put(barCode, producto);
             }
         }finally{
@@ -151,6 +152,7 @@ public class JdbcProducto implements IProductoDao{
                 String descripcion = rs.getString("descripcion");
                 
                 producto = new Producto(idProducto, nombre, barCode, stockTotal, precio, descripcion);
+                producto.setIdsSucursales(idsSucursales);
                 mapaProductos.put(barCode, producto);
             }
         }finally{

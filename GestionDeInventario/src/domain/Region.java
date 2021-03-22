@@ -1,27 +1,28 @@
 
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Region {
-    private int idRegion ;
-    private String nombre ;
-    private List <Sucursal> sucursales ;
-    
-    public Region() {   
+    private int idRegion;
+    private String nombre;
+    List<Sucursal> sucursales = new ArrayList<>();
+
+    public Region() {
     }
 
     public Region(int idRegion) {
-        this.idRegion = idRegion ;
+        this.idRegion = idRegion;
     }
-    
+
     public Region(String nombre) {
-        this.nombre = nombre ;
+        this.nombre = nombre;
     }
-    
+
     public Region(int idRegion, String nombre) {
-        this.idRegion = idRegion ;
-        this.nombre = nombre ;
+        this.idRegion = idRegion;
+        this.nombre = nombre;
     }
 
     public int getIdRegion() {
@@ -32,7 +33,7 @@ public class Region {
         return nombre;
     }
 
-    public List getSucursales() {
+    public List<Sucursal> getSucursales() {
         return sucursales;
     }
 
@@ -40,7 +41,7 @@ public class Region {
         this.nombre = nombre;
     }
 
-    public void setSucursales(List sucursales) {
+    public void setSucursales(List<Sucursal> sucursales) {
         this.sucursales = sucursales;
     }
 
@@ -49,7 +50,6 @@ public class Region {
         StringBuilder sb = new StringBuilder();
         sb.append("Region{idRegion=").append(idRegion);
         sb.append(", nombre=").append(nombre);
-        sb.append(", sucursales=").append(sucursales);
         sb.append('}');
         return sb.toString();
     }

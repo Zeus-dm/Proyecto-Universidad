@@ -132,13 +132,15 @@ public class JdbcSucursal implements ISucursalDao{
             ps.setInt(1, idSucursal);
             rs = ps.executeQuery();
             
-            int newIdSucursal = rs.getInt("id_sucursal");
-            int idRegion = rs.getInt("id_region");
-            String nombre = rs.getString("nombre");
-            String direccion = rs.getString("direccion");
-            int telefono = rs.getInt("telefono");
-                
-            sucursal = new Sucursal(newIdSucursal, idRegion, nombre, direccion, telefono);
+            while(rs.next()){
+                int newIdSucursal = rs.getInt("id_sucursal");
+                int idRegion = rs.getInt("id_region");
+                String nombre = rs.getString("nombre");
+                String direccion = rs.getString("direccion");
+                int telefono = rs.getInt("telefono");
+
+                sucursal = new Sucursal(newIdSucursal, idRegion, nombre, direccion, telefono);
+            }
         }finally{
             Conexion.close(rs);
             Conexion.close(ps);

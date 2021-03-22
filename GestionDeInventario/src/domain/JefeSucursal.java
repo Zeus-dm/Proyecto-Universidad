@@ -62,6 +62,8 @@ public class JefeSucursal extends Persona {
         StringBuilder sb = new StringBuilder();
         sb.append("JefeSucursal{idJefe=").append(idJefe);
         sb.append(", idSucursal=").append(idSucursal);
+        sb.append(", nombre=").append(super.getNombre());
+        sb.append(", edad=").append(super.getEdad());
         sb.append('}');
         return sb.toString();
     }

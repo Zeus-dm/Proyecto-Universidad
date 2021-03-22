@@ -92,12 +92,14 @@ public class JdbcJefeSucursal implements IJefeSucursalDao{
             ps.setInt(1, idSucursal);
             rs = ps.executeQuery();
             
-            int idJefeSucursal = rs.getInt("id_jefe_sucursal");
-            int newIdSucursal = rs.getInt("id_sucursal");
-            String nombre = rs.getString("nombre");
-            int edad = rs.getInt("edad");
+            while(rs.next()){
+                int idJefeSucursal = rs.getInt("id_jefe_sucursal");
+                int newIdSucursal = rs.getInt("id_sucursal");
+                String nombre = rs.getString("nombre");
+                int edad = rs.getInt("edad");
                 
-            jefeSucursal = new JefeSucursal(idJefeSucursal, nombre, edad, newIdSucursal);
+                jefeSucursal = new JefeSucursal(idJefeSucursal, nombre, edad, newIdSucursal);
+            }
         }finally{
             Conexion.close(rs);
             Conexion.close(ps);

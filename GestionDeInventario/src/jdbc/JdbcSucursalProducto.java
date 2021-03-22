@@ -93,12 +93,14 @@ public class JdbcSucursalProducto implements ISucursalProductoDao{
             ps.setInt(2, idSucursal);
             rs = ps.executeQuery();
             
-            int idSP = rs.getInt("id_sucursal_producto");
-            int newIdProducto = rs.getInt("id_producto");
-            int newIdSucursal = rs.getInt("id_sucursales");
-            int stock = rs.getInt("stock");
+            while(rs.next()){
+                int idSP = rs.getInt("id_sucursal_producto");
+                int newIdProducto = rs.getInt("id_producto");
+                int newIdSucursal = rs.getInt("id_sucursal");
+                int stock = rs.getInt("stock");
                 
-            sp = new SucursalProducto(idSP, newIdProducto, newIdSucursal, stock);  
+                sp = new SucursalProducto(idSP, newIdProducto, newIdSucursal, stock);  
+            }
         }finally{
             Conexion.close(rs);
             Conexion.close(ps);
