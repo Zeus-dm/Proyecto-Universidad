@@ -4,7 +4,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Producto {
+public class Producto implements IGenerico{
     private int idProducto ;
     private List <Integer> idsSucursales = new ArrayList<>() ;
     private String nombre ;

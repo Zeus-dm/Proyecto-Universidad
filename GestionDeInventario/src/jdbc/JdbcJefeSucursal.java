@@ -1,10 +1,11 @@
 
 package jdbc;
 
+import domain.IGenerico;
 import java.sql.*;
 import domain.JefeSucursal;
 
-public class JdbcJefeSucursal implements IJefeSucursalDao{
+public class JdbcJefeSucursal implements IGenericoDao, IGenericoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.jefe_sucursal(id_sucursal, nombre, edad) VALUES(?, ?, ?)";
@@ -20,7 +21,9 @@ public class JdbcJefeSucursal implements IJefeSucursalDao{
     }
     
     @Override
-    public void insert(JefeSucursal jefe) throws SQLException {
+    public void insert(IGenerico generico) throws SQLException {
+        JefeSucursal jefe = (JefeSucursal)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -40,7 +43,9 @@ public class JdbcJefeSucursal implements IJefeSucursalDao{
     }
 
     @Override
-    public void update(JefeSucursal jefe) throws SQLException {
+    public void update(IGenerico generico) throws SQLException {
+        JefeSucursal jefe = (JefeSucursal)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -61,7 +66,9 @@ public class JdbcJefeSucursal implements IJefeSucursalDao{
     }
 
     @Override
-    public void delete(JefeSucursal jefe) throws SQLException {
+    public void delete(IGenerico generico) throws SQLException {
+        JefeSucursal jefe = (JefeSucursal)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -77,9 +84,9 @@ public class JdbcJefeSucursal implements IJefeSucursalDao{
             }
         }
     }
-
+    
     @Override
-    public JefeSucursal select(int idSucursal) throws SQLException {
+    public IGenerico select(int idSucursal) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -110,5 +117,5 @@ public class JdbcJefeSucursal implements IJefeSucursalDao{
         
         return jefeSucursal;
     }
-    
+
 }

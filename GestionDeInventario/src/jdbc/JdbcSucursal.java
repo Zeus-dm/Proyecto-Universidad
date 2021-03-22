@@ -1,12 +1,13 @@
 
 package jdbc;
 
+import domain.IGenerico;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 import domain.Sucursal;
 
-public class JdbcSucursal implements ISucursalDao{
+public class JdbcSucursal implements IGenericoDao, IGenericoSelectListDao, IGenericoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.sucursal(id_region, nombre, direccion, telefono) VALUES(?, ?, ?, ?)";
@@ -23,7 +24,9 @@ public class JdbcSucursal implements ISucursalDao{
     }
     
     @Override
-    public void insert(Sucursal sucursal) throws SQLException {
+    public void insert(IGenerico generico) throws SQLException {
+        Sucursal sucursal = (Sucursal)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -44,7 +47,9 @@ public class JdbcSucursal implements ISucursalDao{
     }
 
     @Override
-    public void update(Sucursal sucursal) throws SQLException {
+    public void update(IGenerico generico) throws SQLException {
+        Sucursal sucursal = (Sucursal)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -66,7 +71,9 @@ public class JdbcSucursal implements ISucursalDao{
     }
 
     @Override
-    public void delete(Sucursal sucursal) throws SQLException {
+    public void delete(IGenerico generico) throws SQLException {
+        Sucursal sucursal = (Sucursal)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -84,13 +91,13 @@ public class JdbcSucursal implements ISucursalDao{
     }
 
     @Override
-    public List<Sucursal> select() throws SQLException {
+    public List<IGenerico> select() throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         Sucursal sucursal = null;
-        List<Sucursal> listaSucursales = new ArrayList<>();
+        List<IGenerico> listaSucursales = new ArrayList<>();
         
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
@@ -119,7 +126,7 @@ public class JdbcSucursal implements ISucursalDao{
     }
 
     @Override
-    public Sucursal select(int idSucursal) throws SQLException {
+    public IGenerico select(int idSucursal) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -151,5 +158,5 @@ public class JdbcSucursal implements ISucursalDao{
         
         return sucursal;
     }
-    
+
 }

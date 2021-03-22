@@ -3,7 +3,7 @@ package domain;
 
 import java.util.Map;
 
-public class Sucursal {
+public class Sucursal implements IGenerico{
     private int idSucursal ;
     private int idRegion ;
     private String nombre ;

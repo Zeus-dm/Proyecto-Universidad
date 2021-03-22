@@ -5,8 +5,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import domain.Cliente;
+import domain.IGenerico;
 
-public class JdbcCliente implements IClienteDao{
+public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGenericoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.cliente(nombre, edad, direccion, telefono, email) VALUES(?, ?, ?, ?, ?)";
@@ -21,9 +22,11 @@ public class JdbcCliente implements IClienteDao{
     public JdbcCliente(Connection userConn) {
         this.userConn = userConn;
     }
-    
+
     @Override
-    public void insert(Cliente cliente) throws SQLException {
+    public void insert(IGenerico generico) throws SQLException {
+        Cliente cliente = (Cliente)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -45,7 +48,9 @@ public class JdbcCliente implements IClienteDao{
     }
 
     @Override
-    public void update(Cliente cliente) throws SQLException {
+    public void update(IGenerico generico) throws SQLException {
+        Cliente cliente = (Cliente)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -68,7 +73,9 @@ public class JdbcCliente implements IClienteDao{
     }
 
     @Override
-    public void delete(Cliente cliente) throws SQLException {
+    public void delete(IGenerico generico) throws SQLException {
+        Cliente cliente = (Cliente)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -84,15 +91,15 @@ public class JdbcCliente implements IClienteDao{
             }
         }
     }
-
+    
     @Override
-    public List<Cliente> select() throws SQLException {
+    public List<IGenerico> select() throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         Cliente cliente = null;
-        List<Cliente> listaClientes = new ArrayList<>();
+        List<IGenerico> listaClientes = new ArrayList<>();
         
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
@@ -120,9 +127,9 @@ public class JdbcCliente implements IClienteDao{
         
         return listaClientes;
     }
-
+    
     @Override
-    public Cliente select(int idCliente) throws SQLException {
+    public IGenerico select(int idCliente) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

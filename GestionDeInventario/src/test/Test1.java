@@ -24,22 +24,23 @@ public class Test1 {
         }
         */
         
-        /* -Clientes Funciona
-        Cliente x = new Cliente(1,"Sebastian Muñoz", 20, "Psj. Tolten #0881", 72559399, "rafael.carvacho@gmail.com");
-        IClienteDao c1 = new JdbcCliente();
+        //-Clientes Funciona
+        //Cliente x = new Cliente(2,"Rafael Carvacho", 20, "Psj. Tolten #0881", 72559399, "rafael.carvacho@gmail.com");
+        //JdbcCliente c1 = new JdbcCliente();
+        //c1.insert(x);
         //c1.update(x);
         
         /*
-        List<Cliente> xd = c1.select();
-        for (Cliente cliente : xd) {
+        List<IGenerico> xd = c1.select();
+        for (IGenerico cliente : xd) {
             System.out.println(cliente.toString());
-        }
+        }*/
         
-        Cliente cl = c1.select(1);
-        System.out.println(cl.toString());
+        //IGenerico cl = c1.select(2);
+        //System.out.println(cl.toString());
         
-        c1.delete(x);
-        */
+        //c1.delete(x);
+        
         
         /* -Jefes de Sucursal Funciona
         JefeSucursal js = new JefeSucursal(1,"armando", 30, 2);
@@ -53,19 +54,19 @@ public class Test1 {
         j1.delete(js);
         */
         
-        /* -Region Funciona
-        Region r = new Region(3,"Bio Bio");
-        IRegionDao r1 = new JdbcRegion();
+        //-Region Funciona
+        //Region r = new Region(4,"Bio Bio");
+        //IRegionDao r1 = new JdbcRegion();
         //r1.insert(r);
         //r1.update(r);
-        
+        /*
         List<Region> xd = r1.select();
         for (Region region : xd) {
             System.out.println("region = " + region.toString());
         }
-        
-        r1.delete(r);
         */
+        //r1.delete(r);
+        
         
         /* -Sucursal funciona
         Sucursal x = new Sucursal(1,3, "aaaa", "calle falsa 123", 44445555);
@@ -84,7 +85,7 @@ public class Test1 {
         s1.delete(x);
         */
         
-        
+        /* -Sucursal producto funciona
         SucursalProducto sp = new SucursalProducto(1, 3, 4, 30);
         ISucursalProductoDao xd = new JdbcSucursalProducto();
         //xd.insert(sp);
@@ -93,6 +94,7 @@ public class Test1 {
         System.out.println("pp = " + pp.toString());
         
         xd.delete(sp);
+        */
         
     }
 }

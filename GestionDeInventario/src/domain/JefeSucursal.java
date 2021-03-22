@@ -1,7 +1,7 @@
 
 package domain;
 
-public class JefeSucursal extends Persona {
+public class JefeSucursal extends Persona implements IGenerico{
     private int idJefe ;
     private int idSucursal ;
     

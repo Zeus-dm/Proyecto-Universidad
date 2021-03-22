@@ -1,12 +1,13 @@
 
 package jdbc;
 
+import domain.IGenerico;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import domain.Producto;
 
-public class JdbcProducto implements IProductoDao{
+public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.producto(ids_sucursales, nombre, barcode, stock_total, precio, descripcion) VALUES(?, ?, ?, ?, ?, ?)";
@@ -24,7 +25,9 @@ public class JdbcProducto implements IProductoDao{
     }
     
     @Override
-    public void insert(Producto producto) throws SQLException {
+    public void insert(IGenerico generico) throws SQLException {
+        Producto producto = (Producto)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -47,7 +50,9 @@ public class JdbcProducto implements IProductoDao{
     }
 
     @Override
-    public void update(Producto producto) throws SQLException {
+    public void update(IGenerico generico) throws SQLException {
+        Producto producto = (Producto)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -71,7 +76,9 @@ public class JdbcProducto implements IProductoDao{
     }
 
     @Override
-    public void delete(Producto producto) throws SQLException {
+    public void delete(IGenerico generico) throws SQLException {
+        Producto producto = (Producto)generico;
+        
         Connection conn = null;
         PreparedStatement ps = null;
         
@@ -89,13 +96,13 @@ public class JdbcProducto implements IProductoDao{
     }
 
     @Override
-    public Map<String,Producto> select() throws SQLException {
+    public Map<String,IGenerico> select() throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         Producto producto = null;
-        Map<String,Producto> mapaProductos = new HashMap<>();
+        Map<String,IGenerico> mapaProductos = new HashMap<>();
         
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
@@ -127,13 +134,13 @@ public class JdbcProducto implements IProductoDao{
     }
     
     @Override
-    public Map<String,Producto> select(int min, int max) throws SQLException {
+    public Map<String,IGenerico> select(int min, int max) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         Producto producto = null;
-        Map<String,Producto> mapaProductos = new HashMap<>();
+        Map<String,IGenerico> mapaProductos = new HashMap<>();
         
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
@@ -167,7 +174,7 @@ public class JdbcProducto implements IProductoDao{
     }
     
     @Override
-    public Producto select(int idProducto) throws SQLException {
+    public IGenerico select(int idProducto) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
