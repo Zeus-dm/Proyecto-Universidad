@@ -2,7 +2,12 @@
 package gui;
 
 public enum Colors {
-    FONDO("#3C3F42");
+    FONDO("#3C3F42"),
+    TITULO("#FFFFFF"),
+    FONDO_BOTON("#4C5053"),
+    TEXTO_BOTON("#FFFFFF"),
+    BORDE_BOTON("#5C5E5F");
+    
     
     private final String color;
 
