@@ -6,7 +6,9 @@ public enum Colors {
     TITULO("#FFFFFF"),
     FONDO_BOTON("#4C5053"),
     TEXTO_BOTON("#FFFFFF"),
-    BORDE_BOTON("#5C5E5F");
+    BORDE_BOTON("#EFB810"),
+    DORADO("#EFB810"),
+    GRIS("5C5E5F");
     
     
     private final String color;
