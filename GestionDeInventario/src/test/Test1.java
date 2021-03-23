@@ -11,12 +11,13 @@ public class Test1 {
     public static void main(String[] args) throws SQLException {
         System.out.println("Funcion Main");
         
-        /* -Productos Funcionan
-        Producto x = new Producto("Vodka", "DMG1234", 30, 4000, "Un vodka pl");
-        x.setIdsSucursales("1,4,6,7,");
+        /*
+        //Productos Funcionan
+        Producto x = new Producto(4,"Vodka", "DMG1234", 30, 4000, "Un vodka pl");
+        x.setIdsSucursales("1,4,6,9,");
         
-        IProductoDao p1 = new JdbcProducto();
-        //p1.insert(x);
+        JdbcProducto p1 = new JdbcProducto();
+        p1.update(x);
         
         Map<String,Producto> xd = p1.select(4000, 5000);
         for (Producto pro : xd.values()) {
