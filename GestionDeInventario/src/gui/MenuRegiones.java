@@ -2,20 +2,46 @@
 package gui;
 
 import java.awt.Color;
+import FuncionesGeneral.FunRegion;
+import domain.Region;
+import java.sql.SQLException;
+import java.util.List;
 
 public class MenuRegiones extends javax.swing.JFrame {
 
-    public MenuRegiones() {
+    public MenuRegiones() throws SQLException {
         initComponents();
+        
+        mostrar(FunRegion.listarRegiones());
     }
     
-    public void ItemsCombo(){
+    public void mostrar(List<Region> regiones){
+        String matriz[][]=new String[regiones.size()][1];
+        Region region;
+        
+        for(int i=0; i<regiones.size(); i++){
+            region = regiones.get(i);
+            matriz[i][0] = "  "+region.getNombre();
+        }
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String [] {
+                ""
+            }
+        ));
+    }
+    
+    public void ItemsCombo(List<Region> regiones){
         this.listaRegiones.removeAllItems();
-        this.listaRegiones.addItem("Ejemplo 1");
-        this.listaRegiones.addItem("Ejemplo 2");
-        this.listaRegiones.addItem("Ejemplo 3");
-        this.listaRegiones.addItem("Ejemplo 4");
-        this.listaRegiones.addItem("Ejemplo 5");
+        
+        if(regiones.isEmpty()){
+            return;
+        }
+
+        for (Region region : regiones) {
+            this.listaRegiones.addItem(region.getNombre());
+        }
         this.listaRegiones.setSelectedIndex(0);
     }
 
@@ -41,6 +67,7 @@ public class MenuRegiones extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         imagen = new javax.swing.JLabel();
         btnAgrRegion = new javax.swing.JButton();
@@ -86,6 +113,11 @@ public class MenuRegiones extends javax.swing.JFrame {
         btnAceptarAgr.setMaximumSize(new java.awt.Dimension(110, 30));
         btnAceptarAgr.setMinimumSize(new java.awt.Dimension(110, 30));
         btnAceptarAgr.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnAceptarAgr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarAgrActionPerformed(evt);
+            }
+        });
 
         btnCancelarAgr.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnCancelarAgr.setText("Cancelar");
@@ -182,6 +214,11 @@ public class MenuRegiones extends javax.swing.JFrame {
         btnAceptarElim.setMaximumSize(new java.awt.Dimension(110, 30));
         btnAceptarElim.setMinimumSize(new java.awt.Dimension(110, 30));
         btnAceptarElim.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnAceptarElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarElimActionPerformed(evt);
+            }
+        });
 
         btnCancelarElim.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnCancelarElim.setText("Cancelar");
@@ -275,9 +312,32 @@ public class MenuRegiones extends javax.swing.JFrame {
         jScrollPane1.getViewport().setBackground(Color.decode(Colors.FONDO.getColor()));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
 
+        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jTable1.setBackground(Color.decode(Colors.GRIS.getColor()));
+
+        jTable1.setForeground(Color.decode(Colors.TEXTO.getColor()));
+        jTable1.setColumnSelectionAllowed(true);
+        jTable1.setGridColor(Color.decode(Colors.FONDO.getColor()));
+        jTable1.setFocusable(false);
+        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 0));
+        jTable1.setRowHeight(35);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
         jPanel2.setBackground(new java.awt.Color(204, 0, 204));
 
-        imagen.setIcon(new javax.swing.ImageIcon("C:\\Users\\rafae\\Desktop\\Proyecto Universidad\\GestionDeInventario\\src\\gui\\images\\chefcito_100.png")); // NOI18N
         imagen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -406,6 +466,7 @@ public class MenuRegiones extends javax.swing.JFrame {
     private void btnAgrRegionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgrRegionActionPerformed
         this.AgrRegion.setLocationRelativeTo(null);
         this.textNombre.setText("");
+        this.textErrorAgr.setText("");
         this.AgrRegion.setVisible(true);
     }//GEN-LAST:event_btnAgrRegionActionPerformed
 
@@ -420,16 +481,66 @@ public class MenuRegiones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarElimActionPerformed
 
     private void btnElimRegionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimRegionActionPerformed
+        try {
+            this.ItemsCombo(FunRegion.listarRegiones());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
         this.ElimRegion.setLocationRelativeTo(null);
-        this.ItemsCombo();
         this.ElimRegion.setVisible(true);
     }//GEN-LAST:event_btnElimRegionActionPerformed
+
+    private void btnAceptarAgrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarAgrActionPerformed
+        String ok = null;
+        try {
+            ok = FunRegion.agregarRegion(this.textNombre.getText());
+            if(ok == null){
+                this.textErrorAgr.setText("* Error: Campo vacio");
+                return;
+            }
+            
+            this.mostrar(FunRegion.listarRegiones());
+            
+            this.AgrRegion.setVisible(false);
+            this.setLocationRelativeTo(null);
+            
+        } catch (SQLException ex) {
+            this.textErrorAgr.setText("* Error: Conexion SQL");
+        }
+    }//GEN-LAST:event_btnAceptarAgrActionPerformed
+
+    private void btnAceptarElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarElimActionPerformed
+        try {
+            List<Region> regiones = FunRegion.listarRegiones();
+            if(regiones.isEmpty()){
+                this.ElimRegion.setVisible(false);
+                this.setLocationRelativeTo(null);
+                return;
+            }
+            
+            int pos = this.listaRegiones.getSelectedIndex();
+            FunRegion.eliminarRegion(regiones.get(pos));
+            
+            this.mostrar(FunRegion.listarRegiones());
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+   
+        this.ElimRegion.setVisible(false);
+        this.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnAceptarElimActionPerformed
 
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuRegiones().setVisible(true);
+                try {
+                    new MenuRegiones().setVisible(true);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
@@ -452,6 +563,7 @@ public class MenuRegiones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> listaRegiones;
     private javax.swing.JLabel textErrorAgr;
     private javax.swing.JTextField textNombre;

@@ -2,7 +2,9 @@
 package gui;
 
 import java.awt.Color;
-import javax.swing.JPanel;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -202,10 +204,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegionesActionPerformed
-        MenuRegiones mr = new MenuRegiones();
-
-        this.setVisible(false);
-        mr.setVisible(true);
+        try {
+            MenuRegiones mr = new MenuRegiones();
+            
+            this.setVisible(false);
+            mr.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnRegionesActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
