@@ -21,9 +21,7 @@ public class FunRegion {
         }
         
         Region newR = new Region(nombre) ;
-        
         JdbcRegion jr = new JdbcRegion() ;
-        
         jr.insert(newR) ;
         
         return null ;
@@ -31,14 +29,29 @@ public class FunRegion {
     
     public static void eliminarRegion (Region region) throws SQLException {
         JdbcRegion jr = new JdbcRegion () ;
-        
         jr.delete(region);
-       
     }
+    
+    public static String modificarRegion(Region modRegion, String nombre) throws SQLException {
+        if (nombre == null || nombre.length()== 0 ){
+            return "* Error: Campo vacio" ;
+        }
+        List<Region> regiones = FunRegion.listarRegiones();
+        for (Region region : regiones) {
+            if(nombre.equalsIgnoreCase(region.getNombre())){
+                return "* Error: Region Existente";
+            }
+        }
+        
+        modRegion.setNombre(nombre);
+        JdbcRegion jr = new JdbcRegion();
+        jr.update(modRegion);
+        
+        return null;
+    } 
     
     public static List<Region> listarRegiones () throws SQLException {
         List<Region> newR = new ArrayList<>() ;
-        
         JdbcRegion jr = new JdbcRegion() ;
         
         List<IGenerico> nuevoG = jr.select() ;
