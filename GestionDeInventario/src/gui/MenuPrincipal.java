@@ -51,6 +51,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnSalir.setMaximumSize(new java.awt.Dimension(110, 30));
         btnSalir.setMinimumSize(new java.awt.Dimension(110, 30));
         btnSalir.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         btnReportes.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnReportes.setText("Reportes");
@@ -202,6 +207,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         mr.setVisible(true);
     }//GEN-LAST:event_btnRegionesActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     public static void main(String args[]) {
 
