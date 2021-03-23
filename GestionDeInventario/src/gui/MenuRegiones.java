@@ -495,8 +495,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         String ok = null;
         try {
             ok = FunRegion.agregarRegion(this.textNombre.getText());
-            if(ok == null){
-                this.textErrorAgr.setText("* Error: Campo vacio");
+            if(ok != null){
+                this.textErrorAgr.setText(ok);
                 return;
             }
             
