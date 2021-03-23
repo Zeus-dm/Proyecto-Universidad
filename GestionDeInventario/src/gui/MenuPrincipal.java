@@ -2,6 +2,7 @@
 package gui;
 
 import java.awt.Color;
+import javax.swing.JPanel;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -27,7 +28,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Titulo");
         setIconImage(getIconImage());
-        setMaximumSize(new java.awt.Dimension(400, 450));
         setMinimumSize(new java.awt.Dimension(400, 450));
         setResizable(false);
 
@@ -95,6 +95,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnRegiones.setMaximumSize(new java.awt.Dimension(110, 30));
         btnRegiones.setMinimumSize(new java.awt.Dimension(110, 30));
         btnRegiones.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnRegiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegionesActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(Color.decode(Colors.FONDO.getColor()));
         jPanel2.setPreferredSize(new java.awt.Dimension(192, 222));
@@ -140,9 +145,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,6 +155,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,6 +195,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegionesActionPerformed
+        MenuRegiones mr = new MenuRegiones();
+
+        this.setVisible(false);
+        mr.setVisible(true);
+    }//GEN-LAST:event_btnRegionesActionPerformed
 
     public static void main(String args[]) {
 
