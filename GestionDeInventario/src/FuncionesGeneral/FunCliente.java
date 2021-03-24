@@ -40,7 +40,7 @@ public class FunCliente {
         }else {
             
             try{
-                telefonoAux = Integer.parseInt(edad) ;
+                telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
@@ -57,7 +57,7 @@ public class FunCliente {
                 return "*Error: E-mail inválido" ;
             }else if(cadena[0] == null || cadena[0].isEmpty() || cadena[1] == null || cadena[1].isEmpty()) {
                 return "*Error: E-mail inválido" ;
-            }else if(cadena[1].contains(".") && '.' == email.charAt(email.length()-1)) {
+            }else if(!cadena[1].contains(".") || '.' == email.charAt(email.length()-1)) {
                 return "*Error: E-mail inválido" ;
             }
         }
@@ -104,7 +104,7 @@ public class FunCliente {
         }else {
             
             try{
-                telefonoAux = Integer.parseInt(edad) ;
+                telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
@@ -120,7 +120,7 @@ public class FunCliente {
                 return "*Error: E-mail inválido" ;
             }else if(cadena[0] == null || cadena[0].isEmpty() || cadena[1] == null || cadena[1].isEmpty()) {
                 return "*Error: E-mail inválido" ;
-            }else if(cadena[1].contains(".") && '.' == email.charAt(email.length()-1)) {
+            }else if(!cadena[1].contains(".") || '.' == email.charAt(email.length()-1)) {
                 return "*Error: E-mail inválido" ;
             }
         }

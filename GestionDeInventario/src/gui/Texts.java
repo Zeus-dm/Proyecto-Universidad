@@ -15,6 +15,13 @@ public enum Texts {
             
     CLIENTES("Clientes"),
         AGR_CLIENTE("Agr. Cliente"),
+            AGREGAR_CLIENTE("Agregar Nuevo Cliente"),
+            EDAD("Edad"),
+            DIRECCION("Dirección"),
+            TELEFONO("Teléfono"),
+                ID_TELEFONO("+56 9"),
+            EMAIL("E-mail"),
+            
     PRODUCTOS("Productos"),
     REPORTES("Reportes"),
     SALIR("Salir"),
