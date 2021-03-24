@@ -8,33 +8,35 @@ import java.util.ArrayList;
 import java.util.List;
 import jdbc.JdbcCliente;
 
-
 public class FunCliente {
     public static String agregarCliente(String nombre, String edad, String direccion, String telefono, String email) throws SQLException {
         int edadAux = 0 ;
         int telefonoAux = 0 ;
         
         if(nombre == null || nombre.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo nombre vacío" ;
         }
+        
         if(edad == null || edad.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo edad vacío" ;
         }else {
             
             try{
                 edadAux = Integer.parseInt(edad) ;
                 if (edadAux<18 || edadAux>130) {
-                    return "*Error: Edad  fuera de rango" ;
+                    return "*Error: Campo edad  fuera de rango" ;
                 }
             }catch (NumberFormatException e) {
-                return "*Error: Valor ingresado no es un número" ;
+                return "*Error: Campo edad no es un número" ;
             }
         }
+        
         if(direccion == null || direccion.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo dirección vacío" ;
         }
+        
         if(telefono == null || telefono.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo telefono vacío" ;
         }else {
             
             try{
@@ -43,11 +45,12 @@ public class FunCliente {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
             }catch (NumberFormatException e) {
-                return "*Error: Valor ingresado no es un número" ;
+                return "*Error: Campo telefono no es un número" ;
             }
         }
+        
         if(email == null || email.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo E-mail Vacío" ;
         }else {
             String cadena[] = email.split("@") ;
             if (cadena.length != 2){
@@ -60,7 +63,6 @@ public class FunCliente {
         }
         
         Cliente newC = new Cliente(nombre, edadAux, direccion, telefonoAux, email);
-        
         JdbcCliente jc = new JdbcCliente() ;
         
         jc.insert(newC) ;
@@ -70,7 +72,6 @@ public class FunCliente {
     
     public static void eliminarCliente(int id) throws SQLException {
         Cliente newC = new Cliente(id) ;
-        
         JdbcCliente jc = new JdbcCliente() ;
         
         jc.delete(newC);
@@ -81,26 +82,25 @@ public class FunCliente {
         int telefonoAux = 0 ;
         
         if(nombre == null || nombre.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo nombre vacío" ;
         }
         if(edad == null || edad.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo edad vacío" ;
         }else {
-            
             try{
                 edadAux = Integer.parseInt(edad) ;
                 if (edadAux<18 || edadAux>130) {
-                    return "*Error: Edad  fuera de rango" ;
+                    return "*Error: Campo edad fuera de rango" ;
                 }
             }catch (NumberFormatException e) {
-                return "*Error: Valor ingresado no es un número" ;
+                return "*Error: Campo edad no es un número" ;
             }
         }
         if(direccion == null || direccion.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo dirección vacío" ;
         }
         if(telefono == null || telefono.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo telefono vacío" ;
         }else {
             
             try{
@@ -109,11 +109,11 @@ public class FunCliente {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
             }catch (NumberFormatException e) {
-                return "*Error: Valor ingresado no es un número" ;
+                return "*Error: Campo telefono no es un número" ;
             }
         }
         if(email == null || email.isEmpty()) {
-            return "*Error: Campo Vacío" ;
+            return "*Error: Campo E-mail vacío" ;
         }else {
             String cadena[] = email.split("@") ;
             if (cadena.length != 2){
