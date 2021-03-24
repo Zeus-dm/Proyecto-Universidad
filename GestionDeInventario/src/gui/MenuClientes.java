@@ -1,8 +1,11 @@
 
 package gui;
 
+import FuncionesGeneral.FunCliente;
+import domain.Cliente;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MenuClientes extends javax.swing.JFrame {
 
@@ -10,16 +13,16 @@ public class MenuClientes extends javax.swing.JFrame {
         initComponents();
         
         rsscalelabel.RSScaleLabel.setScaleLabel(imagen, "src/gui/images/chefcito_100.png");
-        //mostrar(FunRegion.listarRegiones());
+        mostrar(FunCliente.listarClientes());
     }
-    /*
-    public void mostrar(List<Region> regiones){
-        String matriz[][]=new String[regiones.size()][1];
-        Region region;
+    
+    public void mostrar(List<Cliente> clientes){
+        String matriz[][]=new String[clientes.size()][1];
+        Cliente cliente;
         
-        for(int i=0; i<regiones.size(); i++){
-            region = regiones.get(i);
-            matriz[i][0] = "  "+region.getNombre();
+        for(int i=0; i<clientes.size(); i++){
+            cliente = clientes.get(i);
+            matriz[i][0] = "  "+cliente.getNombre();
         }
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -28,7 +31,7 @@ public class MenuClientes extends javax.swing.JFrame {
                 ""
             }
         ));
-    }*/
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
