@@ -10,6 +10,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        
+        rsscalelabel.RSScaleLabel.setScaleLabel(imagen, "src/gui/images/chefcito_150.png");
     }
 
     @SuppressWarnings("unchecked")
@@ -28,7 +30,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         imagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Titulo");
+        setTitle(Texts.TITULO.getTexto());
         setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(400, 450));
         setResizable(false);
@@ -40,12 +42,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         titulo.setFont(new java.awt.Font("Segoe UI", 3, 34)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo.setText("Titulo");
+        titulo.setText(Texts.TITULO.getTexto());
         titulo.setForeground(Color.decode(Colors.TITULO.getColor()));
 
         btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnSalir.setText("Salir");
-        btnSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnSalir.setText(Texts.SALIR.getTexto());
+        btnSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnSalir.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnSalir.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -60,8 +62,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         btnReportes.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnReportes.setText("Reportes");
-        btnReportes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnReportes.setText(Texts.REPORTES.getTexto());
+        btnReportes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnReportes.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnReportes.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -71,8 +73,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnReportes.setPreferredSize(new java.awt.Dimension(110, 30));
 
         btnProductos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnProductos.setText("Productos");
-        btnProductos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnProductos.setText(Texts.PRODUCTOS.getTexto());
+        btnProductos.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnProductos.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnProductos.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -82,8 +84,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnProductos.setPreferredSize(new java.awt.Dimension(110, 30));
 
         btnClientes.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnClientes.setText("Clientes");
-        btnClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnClientes.setText(Texts.CLIENTES.getTexto());
+        btnClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnClientes.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnClientes.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -93,8 +95,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnClientes.setPreferredSize(new java.awt.Dimension(110, 30));
 
         btnRegiones.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnRegiones.setText("Regiones");
-        btnRegiones.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnRegiones.setText(Texts.REGIONES.getTexto());
+        btnRegiones.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnRegiones.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnRegiones.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -112,22 +114,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(192, 222));
 
         jPanel3.setBackground(new java.awt.Color(255, 0, 204));
-        jPanel3.setMaximumSize(new java.awt.Dimension(152, 152));
-        jPanel3.setMinimumSize(new java.awt.Dimension(152, 152));
-        jPanel3.setPreferredSize(new java.awt.Dimension(152, 152));
+        jPanel3.setMaximumSize(new java.awt.Dimension(151, 151));
+        jPanel3.setMinimumSize(new java.awt.Dimension(151, 151));
+        jPanel3.setPreferredSize(new java.awt.Dimension(151, 151));
 
-        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/chefcito_150.png"))); // NOI18N
-        imagen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        imagen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        imagen.setPreferredSize(new java.awt.Dimension(151, 151));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+            .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+            .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -137,7 +139,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,6 +223,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MenuPrincipal().setVisible(true);
             }
