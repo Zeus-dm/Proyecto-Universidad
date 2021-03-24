@@ -14,6 +14,7 @@ public enum Texts {
             MODIFICAR_REGION("Modificar Región"),
             
     CLIENTES("Clientes"),
+        AGR_CLIENTE("Agr. Cliente"),
     PRODUCTOS("Productos"),
     REPORTES("Reportes"),
     SALIR("Salir"),
