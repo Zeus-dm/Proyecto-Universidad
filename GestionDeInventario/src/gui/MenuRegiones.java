@@ -12,6 +12,7 @@ public class MenuRegiones extends javax.swing.JFrame {
     public MenuRegiones() throws SQLException {
         initComponents();
         
+        rsscalelabel.RSScaleLabel.setScaleLabel(imagen, "src/gui/images/chefcito_100.png");
         mostrar(FunRegion.listarRegiones());
     }
     
@@ -98,7 +99,7 @@ public class MenuRegiones extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnModRegion = new javax.swing.JButton();
 
-        AgrRegion.setTitle("Titulo");
+        AgrRegion.setTitle(Texts.TITULO.getTexto());
         AgrRegion.setMinimumSize(new java.awt.Dimension(365, 240));
         AgrRegion.setLocationRelativeTo(null);
         AgrRegion.setModal(true);
@@ -109,27 +110,27 @@ public class MenuRegiones extends javax.swing.JFrame {
         tituloAgregar.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tituloAgregar.setForeground(Color.decode(Colors.TITULO.getColor()));
         tituloAgregar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloAgregar.setText("Agregar Nueva Región");
+        tituloAgregar.setText(Texts.AGREGAR_REGION.getTexto());
 
         Lnombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Lnombre.setForeground(Color.decode(Colors.TEXTO.getColor()));
-        Lnombre.setText("Nombre");
+        Lnombre.setText(Texts.NOMBRE.getTexto());
         Lnombre.setPreferredSize(new java.awt.Dimension(60, 26));
 
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        textNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         textNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textNombre.setName(""); // NOI18N
         textNombre.setRequestFocusEnabled(false);
-        textNombre.setBackground(Color.decode(Colors.GRIS.getColor()));
+        textNombre.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textNombre.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textErrorAgr.setText("* Posible Error");
         textErrorAgr.setForeground(Color.decode(Colors.TEXT_ERROR.getColor()));
 
         btnAceptarAgr.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnAceptarAgr.setText("Aceptar");
-        btnAceptarAgr.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnAceptarAgr.setText(Texts.ACEPTAR.getTexto());
+        btnAceptarAgr.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnAceptarAgr.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnAceptarAgr.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -144,8 +145,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         });
 
         btnCancelarAgr.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnCancelarAgr.setText("Cancelar");
-        btnCancelarAgr.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnCancelarAgr.setText(Texts.CANCELAR.getTexto());
+        btnCancelarAgr.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnCancelarAgr.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnCancelarAgr.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -212,7 +213,7 @@ public class MenuRegiones extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ElimRegion.setTitle("Titulo");
+        ElimRegion.setTitle(Texts.TITULO.getTexto());
         ElimRegion.setMinimumSize(new java.awt.Dimension(365, 240));
         ElimRegion.setModal(true);
         ElimRegion.setResizable(false);
@@ -222,16 +223,16 @@ public class MenuRegiones extends javax.swing.JFrame {
         tituloEliminar.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tituloEliminar.setForeground(Color.decode(Colors.TITULO.getColor()));
         tituloEliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloEliminar.setText("Eliminar Región");
+        tituloEliminar.setText(Texts.ELIMINAR_REGION.getTexto());
 
         Lregion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Lregion.setText("Region");
+        Lregion.setText(Texts.REGION.getTexto());
         Lregion.setForeground(Color.decode(Colors.TEXTO.getColor()));
         Lregion.setPreferredSize(new java.awt.Dimension(60, 26));
 
         btnAceptarElim.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnAceptarElim.setText("Aceptar");
-        btnAceptarElim.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnAceptarElim.setText(Texts.ACEPTAR.getTexto());
+        btnAceptarElim.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnAceptarElim.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnAceptarElim.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
         btnAceptarElim.setFocusable(false);
@@ -245,8 +246,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         });
 
         btnCancelarElim.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnCancelarElim.setText("Cancelar");
-        btnCancelarElim.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnCancelarElim.setText(Texts.CANCELAR.getTexto());
+        btnCancelarElim.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnCancelarElim.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnCancelarElim.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
         btnCancelarElim.setFocusable(false);
@@ -261,10 +262,10 @@ public class MenuRegiones extends javax.swing.JFrame {
 
         listaRegiones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listaRegiones.setMaximumRowCount(50);
-        listaRegiones.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        listaRegiones.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         listaRegiones.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listaRegiones.setFocusable(false);
-        listaRegiones.setBackground(Color.decode(Colors.GRIS.getColor()));
+        listaRegiones.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         listaRegiones.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -317,7 +318,7 @@ public class MenuRegiones extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        ModRegion.setTitle("Titulo");
+        ModRegion.setTitle(Texts.TITULO.getTexto());
         ModRegion.setMinimumSize(new java.awt.Dimension(365, 290));
         ModRegion.setModal(true);
         ModRegion.setResizable(false);
@@ -327,16 +328,16 @@ public class MenuRegiones extends javax.swing.JFrame {
         tituloModificar.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tituloModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloModificar.setForeground(Color.decode(Colors.TITULO.getColor()));
-        tituloModificar.setText("Modificar Región");
+        tituloModificar.setText(Texts.MODIFICAR_REGION.getTexto());
 
         Lregion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Lregion1.setText("Region");
+        Lregion1.setText(Texts.REGION.getTexto());
         Lregion1.setForeground(Color.decode(Colors.TEXTO.getColor()));
         Lregion1.setPreferredSize(new java.awt.Dimension(60, 26));
 
         btnAceptarMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnAceptarMod.setText("Aceptar");
-        btnAceptarMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnAceptarMod.setText(Texts.ACEPTAR.getTexto());
+        btnAceptarMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnAceptarMod.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnAceptarMod.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
         btnAceptarMod.setFocusable(false);
@@ -350,8 +351,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         });
 
         btnCancelarMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnCancelarMod.setText("Cancelar");
-        btnCancelarMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnCancelarMod.setText(Texts.CANCELAR.getTexto());
+        btnCancelarMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnCancelarMod.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnCancelarMod.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
         btnCancelarMod.setFocusable(false);
@@ -366,23 +367,23 @@ public class MenuRegiones extends javax.swing.JFrame {
 
         listaRegiones1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listaRegiones1.setMaximumRowCount(50);
-        listaRegiones1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        listaRegiones1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         listaRegiones1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listaRegiones1.setFocusable(false);
-        listaRegiones1.setBackground(Color.decode(Colors.GRIS.getColor()));
+        listaRegiones1.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         listaRegiones1.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         Lnombre1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Lnombre1.setText("Nombre");
+        Lnombre1.setText(Texts.NOMBRE.getTexto());
         Lnombre1.setForeground(Color.decode(Colors.TEXTO.getColor()));
         Lnombre1.setPreferredSize(new java.awt.Dimension(60, 26));
 
         textNombre1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textNombre1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        textNombre1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         textNombre1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textNombre1.setName(""); // NOI18N
         textNombre1.setRequestFocusEnabled(false);
-        textNombre1.setBackground(Color.decode(Colors.GRIS.getColor()));
+        textNombre1.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textNombre1.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textErrorAgr1.setText("* Posible Error");
@@ -405,15 +406,14 @@ public class MenuRegiones extends javax.swing.JFrame {
                                 .addComponent(Lnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(textNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(btnAceptarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(70, 70, 70)
-                                    .addComponent(btnCancelarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(Lregion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(listaRegiones1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(btnAceptarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addComponent(btnCancelarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(Lregion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(listaRegiones1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 24, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -451,7 +451,7 @@ public class MenuRegiones extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Titulo");
+        setTitle(Texts.TITULO.getTexto());
         setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(400, 450));
         setResizable(false);
@@ -463,11 +463,11 @@ public class MenuRegiones extends javax.swing.JFrame {
 
         titulo.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo.setText("Regiones");
+        titulo.setText(Texts.REGIONES.getTexto());
         titulo.setForeground(Color.decode(Colors.TITULO.getColor()));
 
         jScrollPane1.getViewport().setBackground(Color.decode(Colors.FONDO.getColor()));
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
 
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -481,7 +481,7 @@ public class MenuRegiones extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setBackground(Color.decode(Colors.GRIS.getColor()));
+        jTable1.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
 
         jTable1.setForeground(Color.decode(Colors.TEXTO.getColor()));
         jTable1.setColumnSelectionAllowed(true);
@@ -495,7 +495,7 @@ public class MenuRegiones extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 0, 204));
 
-        imagen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        imagen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -509,8 +509,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         );
 
         btnAgrRegion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnAgrRegion.setText("Agr. Región");
-        btnAgrRegion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnAgrRegion.setText(Texts.AGR_REGION.getTexto());
+        btnAgrRegion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnAgrRegion.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnAgrRegion.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -525,8 +525,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         });
 
         btnElimRegion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnElimRegion.setText("Elim. Región");
-        btnElimRegion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnElimRegion.setText(Texts.ELIM_REGION.getTexto());
+        btnElimRegion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnElimRegion.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnElimRegion.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -541,8 +541,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         });
 
         btnVolver.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnVolver.setText("Volver");
-        btnVolver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnVolver.setText(Texts.VOLVER.getTexto());
+        btnVolver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnVolver.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
 
         btnVolver.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -557,8 +557,8 @@ public class MenuRegiones extends javax.swing.JFrame {
         });
 
         btnModRegion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnModRegion.setText("Mod. Región");
-        btnModRegion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE_BOTON.getColor())));
+        btnModRegion.setText(Texts.MOD_REGION.getTexto());
+        btnModRegion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnModRegion.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnModRegion.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
         btnModRegion.setFocusable(false);

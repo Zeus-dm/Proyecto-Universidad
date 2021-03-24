@@ -2,16 +2,24 @@
 package gui;
 
 public enum Colors {
-    FONDO("#3C3F42"),
-    TITULO("#FFFFFF"),
-    TEXTO("#FFFFFF"),
-    TEXT_ERROR("#F44336"),
-    FONDO_BOTON("#4C5053"),
-    TEXTO_BOTON("#FFFFFF"),
-    BORDE_BOTON("#EFB810"),
+    BLANCO("#FFFFFF"),
     DORADO("#EFB810"),
-    GRIS("#5C5E5F");
+    GRIS_SUAVE("#5C5E5F"),
+    GRIS("#4C5053"),
+    GRIS_OSCURO("#3C3F42"),
+    ROJO_SUAVE("#F44336"),
     
+    FONDO(Colors.GRIS_OSCURO.getColor()),
+    TITULO(Colors.BLANCO.getColor()),
+    
+    TEXTO(Colors.BLANCO.getColor()),
+    TEXTO_FONDO(Colors.GRIS_SUAVE.getColor()),
+    TEXT_ERROR(Colors.ROJO_SUAVE.getColor()),
+    
+    FONDO_BOTON(Colors.GRIS.getColor()),
+    TEXTO_BOTON(Colors.BLANCO.getColor()),
+    
+    BORDE(Colors.DORADO.getColor());
     
     private final String color;
 
