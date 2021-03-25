@@ -21,6 +21,9 @@ public enum Texts {
             TELEFONO("Teléfono"),
                 ID_TELEFONO("+56 9"),
             EMAIL("E-mail"),
+        ELIM_CLIENTE("Elim. Cliente"),
+        MOD_CLIENTE("Mod. Cliente"),
+            MODIFICAR_CLIENTE("Modificar Cliente"),
             
     PRODUCTOS("Productos"),
     REPORTES("Reportes"),

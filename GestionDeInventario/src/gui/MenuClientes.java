@@ -10,7 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MenuClientes extends javax.swing.JFrame {
-
+    private int id_cliente = -1;
+            
     public MenuClientes() throws SQLException {
         initComponents();
         
@@ -329,7 +330,7 @@ public class MenuClientes extends javax.swing.JFrame {
         jPanel5.setBackground(Color.decode(Colors.FONDO.getColor()));
 
         btnElimCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnElimCliente.setText("Elim. Cliente");
+        btnElimCliente.setText(Texts.ELIM_CLIENTE.getTexto());
         btnElimCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnElimCliente.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnElimCliente.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -344,7 +345,7 @@ public class MenuClientes extends javax.swing.JFrame {
         });
 
         btnModCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnModCliente.setText("Mod. Cliente");
+        btnModCliente.setText(Texts.MOD_CLIENTE.getTexto());
         btnModCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnModCliente.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnModCliente.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -359,7 +360,7 @@ public class MenuClientes extends javax.swing.JFrame {
         });
 
         btnVolverSelect.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnVolverSelect.setText("Volver");
+        btnVolverSelect.setText(Texts.VOLVER.getTexto());
         btnVolverSelect.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
         btnVolverSelect.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
         btnVolverSelect.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
@@ -693,6 +694,8 @@ public class MenuClientes extends javax.swing.JFrame {
             List<Cliente> clientes = FunCliente.listarClientes();
             int pos = jTable1.getSelectedRow();
             
+            id_cliente = clientes.get(pos).getIdCliente();
+            
             //inicia los datos del seleccionado
             this.tituloNombre.setText(clientes.get(pos).getNombre());
             this.LuserEdad.setText(""+clientes.get(pos).getEdad());
@@ -709,7 +712,17 @@ public class MenuClientes extends javax.swing.JFrame {
 
 //Botones de cuando seleccionas 1
     private void btnElimClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimClienteActionPerformed
-        // TODO add your handling code here:
+        try {
+            FunCliente.eliminarCliente(id_cliente);
+            
+            this.mostrar(FunCliente.listarClientes());
+            
+            this.SelectCliente.setVisible(false);
+            this.setLocationRelativeTo(null);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnElimClienteActionPerformed
 
     private void btnModClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModClienteActionPerformed
@@ -717,7 +730,8 @@ public class MenuClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModClienteActionPerformed
 
     private void btnVolverSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverSelectActionPerformed
-        // TODO add your handling code here:
+        this.SelectCliente.setVisible(false);
+        this.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVolverSelectActionPerformed
     
     

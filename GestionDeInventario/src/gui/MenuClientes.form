@@ -669,7 +669,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Elim. Cliente"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Texts.ELIM_CLIENTE.getTexto()" type="code"/>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btnElimCliente.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));&#xa;btnElimCliente.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));">
                       <Connection code="javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor()))" type="code"/>
                     </Property>
@@ -693,7 +695,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Mod. Cliente"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Texts.MOD_CLIENTE.getTexto()" type="code"/>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btnModCliente.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));&#xa;btnModCliente.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));">
                       <Connection code="javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor()))" type="code"/>
                     </Property>
@@ -717,7 +721,9 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="16" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Volver"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Texts.VOLVER.getTexto()" type="code"/>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btnVolverSelect.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));&#xa;btnVolverSelect.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));">
                       <Connection code="javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor()))" type="code"/>
                     </Property>
