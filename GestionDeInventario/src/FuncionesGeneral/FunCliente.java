@@ -20,7 +20,6 @@ public class FunCliente {
         if(edad == null || edad.isEmpty()) {
             return "*Error: Campo edad vacío" ;
         }else {
-            
             try{
                 edadAux = Integer.parseInt(edad) ;
                 if (edadAux<18 || edadAux>130) {
@@ -38,7 +37,6 @@ public class FunCliente {
         if(telefono == null || telefono.isEmpty()) {
             return "*Error: Campo telefono vacío" ;
         }else {
-            
             try{
                 telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
@@ -84,6 +82,7 @@ public class FunCliente {
         if(nombre == null || nombre.isEmpty()) {
             return "*Error: Campo nombre vacío" ;
         }
+        
         if(edad == null || edad.isEmpty()) {
             return "*Error: Campo edad vacío" ;
         }else {
@@ -96,13 +95,14 @@ public class FunCliente {
                 return "*Error: Campo edad no es un número" ;
             }
         }
+        
         if(direccion == null || direccion.isEmpty()) {
             return "*Error: Campo dirección vacío" ;
         }
+        
         if(telefono == null || telefono.isEmpty()) {
             return "*Error: Campo telefono vacío" ;
-        }else {
-            
+        }else { 
             try{
                 telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
@@ -112,6 +112,7 @@ public class FunCliente {
                 return "*Error: Campo telefono no es un número" ;
             }
         }
+        
         if(email == null || email.isEmpty()) {
             return "*Error: Campo E-mail vacío" ;
         }else {
