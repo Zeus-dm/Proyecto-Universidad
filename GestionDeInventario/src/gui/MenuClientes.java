@@ -6,6 +6,8 @@ import domain.Cliente;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MenuClientes extends javax.swing.JFrame {
 
@@ -54,6 +56,22 @@ public class MenuClientes extends javax.swing.JFrame {
         textErrorAgr = new javax.swing.JLabel();
         btnAceptarAgr = new javax.swing.JButton();
         btnCancelarAgr = new javax.swing.JButton();
+        SelectCliente = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        tituloNombre = new javax.swing.JLabel();
+        LedadSelect = new javax.swing.JLabel();
+        LdireccionSelect = new javax.swing.JLabel();
+        LtelefonoSelect = new javax.swing.JLabel();
+        LidTelefonoSelect = new javax.swing.JLabel();
+        LemailSelect = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnElimCliente = new javax.swing.JButton();
+        btnModCliente = new javax.swing.JButton();
+        btnVolverSelect = new javax.swing.JButton();
+        LuserEdad = new javax.swing.JLabel();
+        LuserDireccion = new javax.swing.JLabel();
+        LuserTelefono = new javax.swing.JLabel();
+        LuserEmail = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -265,6 +283,215 @@ public class MenuClientes extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
         );
 
+        SelectCliente.setTitle(Texts.TITULO.getTexto());
+        SelectCliente.setMinimumSize(new java.awt.Dimension(445, 245));
+        SelectCliente.setModal(true);
+        SelectCliente.setResizable(false);
+
+        jPanel4.setBackground(Color.decode(Colors.FONDO.getColor()));
+        jPanel4.setPreferredSize(new java.awt.Dimension(404, 205));
+
+        tituloNombre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        tituloNombre.setText(Texts.AGREGAR_CLIENTE.getTexto());
+        tituloNombre.setForeground(Color.decode(Colors.TITULO.getColor()));
+
+        LedadSelect.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LedadSelect.setText(Texts.EDAD.getTexto());
+        LedadSelect.setMinimumSize(new java.awt.Dimension(60, 20));
+        LedadSelect.setPreferredSize(new java.awt.Dimension(60, 26));
+        LedadSelect.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LdireccionSelect.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LdireccionSelect.setText(Texts.DIRECCION.getTexto());
+        LdireccionSelect.setMinimumSize(new java.awt.Dimension(60, 20));
+        LdireccionSelect.setPreferredSize(new java.awt.Dimension(60, 26));
+        LdireccionSelect.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LtelefonoSelect.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LtelefonoSelect.setText(Texts.TELEFONO.getTexto());
+        LtelefonoSelect.setMinimumSize(new java.awt.Dimension(60, 20));
+        LtelefonoSelect.setPreferredSize(new java.awt.Dimension(60, 26));
+        LtelefonoSelect.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LidTelefonoSelect.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LidTelefonoSelect.setText(Texts.ID_TELEFONO.getTexto());
+        LidTelefonoSelect.setMaximumSize(new java.awt.Dimension(40, 20));
+        LidTelefonoSelect.setMinimumSize(new java.awt.Dimension(40, 20));
+        LidTelefonoSelect.setPreferredSize(new java.awt.Dimension(40, 26));
+        LidTelefonoSelect.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LemailSelect.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LemailSelect.setText(Texts.EMAIL.getTexto());
+        LemailSelect.setMinimumSize(new java.awt.Dimension(60, 20));
+        LemailSelect.setPreferredSize(new java.awt.Dimension(60, 26));
+        LemailSelect.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        jPanel5.setBackground(Color.decode(Colors.FONDO.getColor()));
+
+        btnElimCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnElimCliente.setText("Elim. Cliente");
+        btnElimCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnElimCliente.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnElimCliente.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnElimCliente.setFocusable(false);
+        btnElimCliente.setMaximumSize(new java.awt.Dimension(130, 30));
+        btnElimCliente.setMinimumSize(new java.awt.Dimension(130, 30));
+        btnElimCliente.setPreferredSize(new java.awt.Dimension(130, 30));
+        btnElimCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimClienteActionPerformed(evt);
+            }
+        });
+
+        btnModCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnModCliente.setText("Mod. Cliente");
+        btnModCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnModCliente.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnModCliente.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnModCliente.setFocusable(false);
+        btnModCliente.setMaximumSize(new java.awt.Dimension(130, 30));
+        btnModCliente.setMinimumSize(new java.awt.Dimension(130, 30));
+        btnModCliente.setPreferredSize(new java.awt.Dimension(130, 30));
+        btnModCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModClienteActionPerformed(evt);
+            }
+        });
+
+        btnVolverSelect.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnVolverSelect.setText("Volver");
+        btnVolverSelect.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnVolverSelect.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnVolverSelect.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnVolverSelect.setFocusable(false);
+        btnVolverSelect.setMaximumSize(new java.awt.Dimension(130, 30));
+        btnVolverSelect.setMinimumSize(new java.awt.Dimension(130, 30));
+        btnVolverSelect.setPreferredSize(new java.awt.Dimension(130, 30));
+        btnVolverSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverSelectActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnElimCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVolverSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(btnElimCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnModCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVolverSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        LuserEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LuserEdad.setText("(Edad Usuario)");
+        LuserEdad.setMaximumSize(new java.awt.Dimension(43, 26));
+        LuserEdad.setMinimumSize(new java.awt.Dimension(43, 26));
+        LuserEdad.setPreferredSize(new java.awt.Dimension(43, 26));
+        LuserEdad.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LuserDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LuserDireccion.setText("(Edad Direccion)");
+        LuserDireccion.setToolTipText("");
+        LuserDireccion.setPreferredSize(new java.awt.Dimension(37, 26));
+        LuserDireccion.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LuserTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LuserTelefono.setText("(User Telefono)");
+        LuserTelefono.setMaximumSize(new java.awt.Dimension(43, 26));
+        LuserTelefono.setMinimumSize(new java.awt.Dimension(43, 26));
+        LuserTelefono.setPreferredSize(new java.awt.Dimension(43, 26));
+        LuserTelefono.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LuserEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LuserEmail.setText("(User E-mail)");
+        LuserEmail.setMaximumSize(new java.awt.Dimension(43, 26));
+        LuserEmail.setMinimumSize(new java.awt.Dimension(43, 26));
+        LuserEmail.setPreferredSize(new java.awt.Dimension(43, 26));
+        LuserEmail.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(LdireccionSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LuserDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(LedadSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LuserEdad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(LtelefonoSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LidTelefonoSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LuserTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(LemailSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LuserEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tituloNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(tituloNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LedadSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(LuserEdad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LdireccionSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LuserDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LtelefonoSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LidTelefonoSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LuserTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LemailSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LuserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout SelectClienteLayout = new javax.swing.GroupLayout(SelectCliente.getContentPane());
+        SelectCliente.getContentPane().setLayout(SelectClienteLayout);
+        SelectClienteLayout.setHorizontalGroup(
+            SelectClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+        );
+        SelectClienteLayout.setVerticalGroup(
+            SelectClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(Texts.TITULO.getTexto());
         setIconImage(getIconImage());
@@ -305,6 +532,11 @@ public class MenuClientes extends javax.swing.JFrame {
         jTable1.setIntercellSpacing(new java.awt.Dimension(5, 0));
         jTable1.setRowHeight(35);
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -409,6 +641,7 @@ public class MenuClientes extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
 //Botones Menu Clientes
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         MenuPrincipal mp = new MenuPrincipal();
@@ -428,6 +661,7 @@ public class MenuClientes extends javax.swing.JFrame {
         
         this.AgrCliente.setVisible(true);
     }//GEN-LAST:event_btnAgrClienteActionPerformed
+
 //Botones Agregar Cliente
     private void btnCancelarAgrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAgrActionPerformed
         this.AgrCliente.setVisible(false);
@@ -453,6 +687,41 @@ public class MenuClientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAceptarAgrActionPerformed
 
+//Tabla
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        try {
+            List<Cliente> clientes = FunCliente.listarClientes();
+            int pos = jTable1.getSelectedRow();
+            
+            //inicia los datos del seleccionado
+            this.tituloNombre.setText(clientes.get(pos).getNombre());
+            this.LuserEdad.setText(""+clientes.get(pos).getEdad());
+            this.LuserDireccion.setText(clientes.get(pos).getDireccion());
+            this.LuserTelefono.setText(""+clientes.get(pos).getTelefono());
+            this.LuserEmail.setText(clientes.get(pos).getEmail());
+            
+            this.SelectCliente.setLocationRelativeTo(null);
+            this.SelectCliente.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+//Botones de cuando seleccionas 1
+    private void btnElimClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnElimClienteActionPerformed
+
+    private void btnModClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModClienteActionPerformed
+
+    private void btnVolverSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverSelectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverSelectActionPerformed
+    
+    
+    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -470,19 +739,34 @@ public class MenuClientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AgrCliente;
     private javax.swing.JLabel Ldireccion;
+    private javax.swing.JLabel LdireccionSelect;
     private javax.swing.JLabel Ledad;
+    private javax.swing.JLabel LedadSelect;
     private javax.swing.JLabel Lemail;
+    private javax.swing.JLabel LemailSelect;
     private javax.swing.JLabel LidTelefono;
+    private javax.swing.JLabel LidTelefonoSelect;
     private javax.swing.JLabel Lnombre;
     private javax.swing.JLabel Ltelefono;
+    private javax.swing.JLabel LtelefonoSelect;
+    private javax.swing.JLabel LuserDireccion;
+    private javax.swing.JLabel LuserEdad;
+    private javax.swing.JLabel LuserEmail;
+    private javax.swing.JLabel LuserTelefono;
+    private javax.swing.JDialog SelectCliente;
     private javax.swing.JButton btnAceptarAgr;
     private javax.swing.JButton btnAgrCliente;
     private javax.swing.JButton btnCancelarAgr;
+    private javax.swing.JButton btnElimCliente;
+    private javax.swing.JButton btnModCliente;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnVolverSelect;
     private javax.swing.JLabel imagen;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField textDireccion;
@@ -493,5 +777,6 @@ public class MenuClientes extends javax.swing.JFrame {
     private javax.swing.JTextField textTelefono;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel tituloAgregar;
+    private javax.swing.JLabel tituloNombre;
     // End of variables declaration//GEN-END:variables
 }
