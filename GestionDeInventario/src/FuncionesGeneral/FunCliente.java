@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import jdbc.JdbcCliente;
 
+//Que fue
+
 public class FunCliente {
     public static String agregarCliente(String nombre, String edad, String direccion, String telefono, String email) throws SQLException {
         int edadAux = 0 ;
