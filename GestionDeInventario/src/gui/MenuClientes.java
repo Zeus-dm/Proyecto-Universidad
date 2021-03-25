@@ -73,6 +73,23 @@ public class MenuClientes extends javax.swing.JFrame {
         LuserDireccion = new javax.swing.JLabel();
         LuserTelefono = new javax.swing.JLabel();
         LuserEmail = new javax.swing.JLabel();
+        ModCliente = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        tituloModificar = new javax.swing.JLabel();
+        LnombreMod = new javax.swing.JLabel();
+        textNombreMod = new javax.swing.JTextField();
+        LedadMod = new javax.swing.JLabel();
+        textEdadMod = new javax.swing.JTextField();
+        LdireccionMod = new javax.swing.JLabel();
+        textDireccionMod = new javax.swing.JTextField();
+        LtelefonoMod = new javax.swing.JLabel();
+        LidTelefonoMod = new javax.swing.JLabel();
+        textTelefonoMod = new javax.swing.JTextField();
+        LemailMod = new javax.swing.JLabel();
+        textEmailMod = new javax.swing.JTextField();
+        textErrorMod = new javax.swing.JLabel();
+        btnAceptarMod = new javax.swing.JButton();
+        btnCancelarMod = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -399,27 +416,27 @@ public class MenuClientes extends javax.swing.JFrame {
         );
 
         LuserEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LuserEdad.setText("(Edad Usuario)");
+        LuserEdad.setText("(Edad usuario)");
         LuserEdad.setMaximumSize(new java.awt.Dimension(43, 26));
         LuserEdad.setMinimumSize(new java.awt.Dimension(43, 26));
         LuserEdad.setPreferredSize(new java.awt.Dimension(43, 26));
         LuserEdad.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         LuserDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LuserDireccion.setText("(Edad Direccion)");
+        LuserDireccion.setText("(Direccion usuario)");
         LuserDireccion.setToolTipText("");
         LuserDireccion.setPreferredSize(new java.awt.Dimension(37, 26));
         LuserDireccion.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         LuserTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LuserTelefono.setText("(User Telefono)");
+        LuserTelefono.setText("(Telefono usuario)");
         LuserTelefono.setMaximumSize(new java.awt.Dimension(43, 26));
         LuserTelefono.setMinimumSize(new java.awt.Dimension(43, 26));
         LuserTelefono.setPreferredSize(new java.awt.Dimension(43, 26));
         LuserTelefono.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         LuserEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LuserEmail.setText("(User E-mail)");
+        LuserEmail.setText("(E-mail usuario)");
         LuserEmail.setMaximumSize(new java.awt.Dimension(43, 26));
         LuserEmail.setMinimumSize(new java.awt.Dimension(43, 26));
         LuserEmail.setPreferredSize(new java.awt.Dimension(43, 26));
@@ -465,7 +482,6 @@ public class MenuClientes extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(LuserEdad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(4, 4, 4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LdireccionSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LuserDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -478,7 +494,7 @@ public class MenuClientes extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LemailSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LuserEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -491,6 +507,213 @@ public class MenuClientes extends javax.swing.JFrame {
         SelectClienteLayout.setVerticalGroup(
             SelectClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        ModCliente.setTitle(Texts.TITULO.getTexto());
+        ModCliente.setMinimumSize(new java.awt.Dimension(365, 394));
+        ModCliente.setModal(true);
+        ModCliente.setResizable(false);
+
+        jPanel6.setBackground(Color.decode(Colors.FONDO.getColor()));
+        jPanel6.setPreferredSize(new java.awt.Dimension(350, 350));
+
+        tituloModificar.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        tituloModificar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloModificar.setText(Texts.MODIFICAR_CLIENTE.getTexto());
+        tituloModificar.setForeground(Color.decode(Colors.TITULO.getColor()));
+
+        LnombreMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LnombreMod.setText(Texts.NOMBRE.getTexto());
+        LnombreMod.setMaximumSize(new java.awt.Dimension(60, 26));
+        LnombreMod.setMinimumSize(new java.awt.Dimension(60, 26));
+        LnombreMod.setPreferredSize(new java.awt.Dimension(60, 26));
+        LnombreMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textNombreMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textNombreMod.setText("(Nombre usuario)");
+        textNombreMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        textNombreMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
+        textNombreMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LedadMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LedadMod.setText(Texts.EDAD.getTexto());
+        LedadMod.setMinimumSize(new java.awt.Dimension(60, 20));
+        LedadMod.setPreferredSize(new java.awt.Dimension(60, 26));
+        LedadMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textEdadMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textEdadMod.setText("(Edad usuario)");
+        textEdadMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        textEdadMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
+        textEdadMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LdireccionMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LdireccionMod.setText(Texts.DIRECCION.getTexto());
+        LdireccionMod.setMinimumSize(new java.awt.Dimension(60, 20));
+        LdireccionMod.setPreferredSize(new java.awt.Dimension(60, 26));
+        LdireccionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textDireccionMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textDireccionMod.setText("(Direccion usuario)");
+        textDireccionMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        textDireccionMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
+        textDireccionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LtelefonoMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LtelefonoMod.setText(Texts.TELEFONO.getTexto());
+        LtelefonoMod.setMinimumSize(new java.awt.Dimension(60, 20));
+        LtelefonoMod.setPreferredSize(new java.awt.Dimension(60, 26));
+        LtelefonoMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LidTelefonoMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LidTelefonoMod.setText(Texts.ID_TELEFONO.getTexto());
+        LidTelefonoMod.setMaximumSize(new java.awt.Dimension(40, 20));
+        LidTelefonoMod.setMinimumSize(new java.awt.Dimension(40, 20));
+        LidTelefonoMod.setPreferredSize(new java.awt.Dimension(40, 26));
+        LidTelefonoMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textTelefonoMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textTelefonoMod.setText("(Telefono usuario)");
+        textTelefonoMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        textTelefonoMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
+        textTelefonoMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        LemailMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LemailMod.setText(Texts.EMAIL.getTexto());
+        LemailMod.setMinimumSize(new java.awt.Dimension(60, 20));
+        LemailMod.setPreferredSize(new java.awt.Dimension(60, 26));
+        LemailMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textEmailMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textEmailMod.setText("(E-mail usuario)");
+        textEmailMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        textEmailMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
+        textEmailMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textErrorMod.setText("* Posible Error");
+        textErrorMod.setForeground(Color.decode(Colors.TEXT_ERROR.getColor()));
+
+        btnAceptarMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnAceptarMod.setText(Texts.ACEPTAR.getTexto());
+        btnAceptarMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnAceptarMod.setFocusable(false);
+        btnAceptarMod.setMaximumSize(new java.awt.Dimension(110, 30));
+        btnAceptarMod.setMinimumSize(new java.awt.Dimension(110, 30));
+        btnAceptarMod.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnAceptarMod.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnAceptarMod.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnAceptarMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarModActionPerformed(evt);
+            }
+        });
+
+        btnCancelarMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCancelarMod.setText(Texts.CANCELAR.getTexto());
+        btnCancelarMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnCancelarMod.setFocusable(false);
+        btnCancelarMod.setMaximumSize(new java.awt.Dimension(110, 30));
+        btnCancelarMod.setMinimumSize(new java.awt.Dimension(110, 30));
+        btnCancelarMod.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnCancelarMod.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnCancelarMod.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnCancelarMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarModActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tituloModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textErrorMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(LemailMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LedadMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LdireccionMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(LtelefonoMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(textEdadMod, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(textDireccionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                                        .addComponent(LidTelefonoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(textTelefonoMod)))
+                                                .addGap(24, 24, 24))
+                                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                                .addComponent(textEmailMod, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(LnombreMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(textNombreMod, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(btnAceptarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCancelarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)))))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(tituloModificar)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LnombreMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textNombreMod))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LedadMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textEdadMod))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textDireccionMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LdireccionMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LtelefonoMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LidTelefonoMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textTelefonoMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LemailMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textEmailMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textErrorMod)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout ModClienteLayout = new javax.swing.GroupLayout(ModCliente.getContentPane());
+        ModCliente.getContentPane().setLayout(ModClienteLayout);
+        ModClienteLayout.setHorizontalGroup(
+            ModClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        ModClienteLayout.setVerticalGroup(
+            ModClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -681,8 +904,7 @@ public class MenuClientes extends javax.swing.JFrame {
             this.mostrar(FunCliente.listarClientes());
             
             this.AgrCliente.setVisible(false);
-            this.setLocationRelativeTo(null);
-            
+            this.setLocationRelativeTo(null); 
         } catch (SQLException ex) {
             this.textErrorAgr.setText("* Error: Conexion SQL");
         }
@@ -726,16 +948,63 @@ public class MenuClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnElimClienteActionPerformed
 
     private void btnModClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModClienteActionPerformed
-        // TODO add your handling code here:
+        try {
+            Cliente cliente = FunCliente.selecCliente(id_cliente);
+            
+            //Iniciar Datos
+            this.textNombreMod.setText(cliente.getNombre());
+            this.textEdadMod.setText(""+cliente.getEdad());
+            this.textDireccionMod.setText(cliente.getDireccion());
+            this.textTelefonoMod.setText(""+cliente.getTelefono());
+            this.textEmailMod.setText(cliente.getEmail());
+            this.textErrorMod.setText("");
+            
+            this.ModCliente.setLocationRelativeTo(null);
+            this.ModCliente.setVisible(true); 
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnModClienteActionPerformed
 
     private void btnVolverSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverSelectActionPerformed
         this.SelectCliente.setVisible(false);
         this.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVolverSelectActionPerformed
-    
-    
-    
+
+//Botones Modificar    
+    private void btnAceptarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarModActionPerformed
+        String ok = null;
+        try {
+            ok = FunCliente.modificarCliente(id_cliente, this.textNombreMod.getText(), this.textEdadMod.getText(), this.textDireccionMod.getText(), this.textTelefonoMod.getText(), this.textEmailMod.getText());
+            if(ok != null){
+                this.textErrorMod.setText(ok);
+                return;
+            }
+            
+            Cliente cliente = FunCliente.selecCliente(id_cliente);
+            
+            //actualiza los datos del seleccionado
+            this.tituloNombre.setText(cliente.getNombre());
+            this.LuserEdad.setText(""+cliente.getEdad());
+            this.LuserDireccion.setText(cliente.getDireccion());
+            this.LuserTelefono.setText(""+cliente.getTelefono());
+            this.LuserEmail.setText(cliente.getEmail());
+            
+            this.mostrar(FunCliente.listarClientes());
+            
+            this.ModCliente.setVisible(false);
+            this.SelectCliente.setLocationRelativeTo(null);  
+        } catch (SQLException ex) {
+            this.textErrorMod.setText("* Error: Conexion SQL");
+        }
+    }//GEN-LAST:event_btnAceptarModActionPerformed
+
+    private void btnCancelarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarModActionPerformed
+        this.ModCliente.setVisible(false);
+        this.SelectCliente.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnCancelarModActionPerformed
+
+//Main
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -753,24 +1022,33 @@ public class MenuClientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AgrCliente;
     private javax.swing.JLabel Ldireccion;
+    private javax.swing.JLabel LdireccionMod;
     private javax.swing.JLabel LdireccionSelect;
     private javax.swing.JLabel Ledad;
+    private javax.swing.JLabel LedadMod;
     private javax.swing.JLabel LedadSelect;
     private javax.swing.JLabel Lemail;
+    private javax.swing.JLabel LemailMod;
     private javax.swing.JLabel LemailSelect;
     private javax.swing.JLabel LidTelefono;
+    private javax.swing.JLabel LidTelefonoMod;
     private javax.swing.JLabel LidTelefonoSelect;
     private javax.swing.JLabel Lnombre;
+    private javax.swing.JLabel LnombreMod;
     private javax.swing.JLabel Ltelefono;
+    private javax.swing.JLabel LtelefonoMod;
     private javax.swing.JLabel LtelefonoSelect;
     private javax.swing.JLabel LuserDireccion;
     private javax.swing.JLabel LuserEdad;
     private javax.swing.JLabel LuserEmail;
     private javax.swing.JLabel LuserTelefono;
+    private javax.swing.JDialog ModCliente;
     private javax.swing.JDialog SelectCliente;
     private javax.swing.JButton btnAceptarAgr;
+    private javax.swing.JButton btnAceptarMod;
     private javax.swing.JButton btnAgrCliente;
     private javax.swing.JButton btnCancelarAgr;
+    private javax.swing.JButton btnCancelarMod;
     private javax.swing.JButton btnElimCliente;
     private javax.swing.JButton btnModCliente;
     private javax.swing.JButton btnVolver;
@@ -781,16 +1059,24 @@ public class MenuClientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField textDireccion;
+    private javax.swing.JTextField textDireccionMod;
     private javax.swing.JTextField textEdad;
+    private javax.swing.JTextField textEdadMod;
     private javax.swing.JTextField textEmail;
+    private javax.swing.JTextField textEmailMod;
     private javax.swing.JLabel textErrorAgr;
+    private javax.swing.JLabel textErrorMod;
     private javax.swing.JTextField textNombre;
+    private javax.swing.JTextField textNombreMod;
     private javax.swing.JTextField textTelefono;
+    private javax.swing.JTextField textTelefonoMod;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel tituloAgregar;
+    private javax.swing.JLabel tituloModificar;
     private javax.swing.JLabel tituloNombre;
     // End of variables declaration//GEN-END:variables
 }
