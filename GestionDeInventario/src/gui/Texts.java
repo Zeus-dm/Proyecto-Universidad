@@ -2,7 +2,7 @@
 package gui;
 
 public enum Texts {
-    TITULO("Waltmart"),
+    TITULO("Gualmarcito"),
     REGIONES("Regiones"),
         AGR_REGION("Agr. Región"),
             AGREGAR_REGION("Agregar Nueva Región"),
@@ -14,6 +14,17 @@ public enum Texts {
             MODIFICAR_REGION("Modificar Región"),
             
     CLIENTES("Clientes"),
+        AGR_CLIENTE("Agr. Cliente"),
+            AGREGAR_CLIENTE("Agregar Nuevo Cliente"),
+            EDAD("Edad"),
+            DIRECCION("Dirección"),
+            TELEFONO("Teléfono"),
+                ID_TELEFONO("+56 9"),
+            EMAIL("E-mail"),
+        ELIM_CLIENTE("Elim. Cliente"),
+        MOD_CLIENTE("Mod. Cliente"),
+            MODIFICAR_CLIENTE("Modificar Cliente"),
+            
     PRODUCTOS("Productos"),
     REPORTES("Reportes"),
     SALIR("Salir"),

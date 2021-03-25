@@ -20,7 +20,6 @@ public class FunCliente {
         if(edad == null || edad.isEmpty()) {
             return "*Error: Campo edad vacío" ;
         }else {
-            
             try{
                 edadAux = Integer.parseInt(edad) ;
                 if (edadAux<18 || edadAux>130) {
@@ -38,9 +37,8 @@ public class FunCliente {
         if(telefono == null || telefono.isEmpty()) {
             return "*Error: Campo telefono vacío" ;
         }else {
-            
             try{
-                telefonoAux = Integer.parseInt(edad) ;
+                telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
@@ -57,7 +55,7 @@ public class FunCliente {
                 return "*Error: E-mail inválido" ;
             }else if(cadena[0] == null || cadena[0].isEmpty() || cadena[1] == null || cadena[1].isEmpty()) {
                 return "*Error: E-mail inválido" ;
-            }else if(cadena[1].contains(".") && '.' == email.charAt(email.length()-1)) {
+            }else if(!cadena[1].contains(".") || '.' == email.charAt(email.length()-1)) {
                 return "*Error: E-mail inválido" ;
             }
         }
@@ -84,6 +82,7 @@ public class FunCliente {
         if(nombre == null || nombre.isEmpty()) {
             return "*Error: Campo nombre vacío" ;
         }
+        
         if(edad == null || edad.isEmpty()) {
             return "*Error: Campo edad vacío" ;
         }else {
@@ -96,15 +95,16 @@ public class FunCliente {
                 return "*Error: Campo edad no es un número" ;
             }
         }
+        
         if(direccion == null || direccion.isEmpty()) {
             return "*Error: Campo dirección vacío" ;
         }
+        
         if(telefono == null || telefono.isEmpty()) {
             return "*Error: Campo telefono vacío" ;
-        }else {
-            
+        }else { 
             try{
-                telefonoAux = Integer.parseInt(edad) ;
+                telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
@@ -112,6 +112,7 @@ public class FunCliente {
                 return "*Error: Campo telefono no es un número" ;
             }
         }
+        
         if(email == null || email.isEmpty()) {
             return "*Error: Campo E-mail vacío" ;
         }else {
@@ -120,7 +121,7 @@ public class FunCliente {
                 return "*Error: E-mail inválido" ;
             }else if(cadena[0] == null || cadena[0].isEmpty() || cadena[1] == null || cadena[1].isEmpty()) {
                 return "*Error: E-mail inválido" ;
-            }else if(cadena[1].contains(".") && '.' == email.charAt(email.length()-1)) {
+            }else if(!cadena[1].contains(".") || '.' == email.charAt(email.length()-1)) {
                 return "*Error: E-mail inválido" ;
             }
         }

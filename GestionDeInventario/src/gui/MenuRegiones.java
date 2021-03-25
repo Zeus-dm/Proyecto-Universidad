@@ -486,6 +486,7 @@ public class MenuRegiones extends javax.swing.JFrame {
         jTable1.setForeground(Color.decode(Colors.TEXTO.getColor()));
         jTable1.setColumnSelectionAllowed(true);
         jTable1.setGridColor(Color.decode(Colors.FONDO.getColor()));
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setFocusable(false);
         jTable1.setIntercellSpacing(new java.awt.Dimension(5, 0));
         jTable1.setRowHeight(35);
