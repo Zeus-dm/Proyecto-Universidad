@@ -13,7 +13,7 @@ public class FunProducto {
     public static Map<String,Producto> listarProducto() throws SQLException {
         Producto prod ;
         
-        Map<String,Producto> newP = new HashMap() ;
+        Map<String,Producto> newP = new HashMap<>() ;
         
         JdbcProducto jp = new JdbcProducto() ;
         

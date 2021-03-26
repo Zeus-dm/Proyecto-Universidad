@@ -95,7 +95,6 @@ public class Sucursal implements IGenerico{
         sb.append(", direccion=").append(direccion);
         sb.append(", telefono=").append(telefono);
         sb.append(", jefeSucursal=").append(jefeSucursal);
-        sb.append(", productos=").append(productos);
         sb.append('}');
         return sb.toString();
     }
