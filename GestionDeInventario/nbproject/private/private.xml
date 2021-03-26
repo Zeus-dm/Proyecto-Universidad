@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/Texts.java</file>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/MenuClientes.java</file>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/MenuPrincipal.java</file>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/test/Test2.java</file>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/MenuRegiones.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/gui/MenuClientes.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/jdbc/JdbcRegion.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/gui/Colors.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/jdbc/Conexion.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/domain/Cliente.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/jdbc/IGenericoSelectListDao.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/FuncionesGeneral/FunCliente.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/jdbc/IGenericoMapDao.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/jdbc/JdbcCliente.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/jdbc/IGenericoDao.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Proyecto-Universidad/GestionDeInventario/src/domain/Sucursal.java</file>
         </group>
     </open-files>
 </project-private>

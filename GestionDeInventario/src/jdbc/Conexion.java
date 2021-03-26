@@ -12,6 +12,7 @@ public class Conexion {
     public static Connection getConnection() throws SQLException{
         return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
     }
+        
     
     public static void close(ResultSet rs) throws SQLException{
         rs.close();
