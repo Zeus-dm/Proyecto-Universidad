@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Text0 {
+public class Test0 {
     public static void main(String[] args) {
         //Se inicializan los Productos del programa
         Producto p1 = new Producto(1, "Pisco 1L Mistral", "#123456789", 50, 6500, "Un Pisco pa las junta");
