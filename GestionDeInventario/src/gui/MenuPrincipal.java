@@ -82,6 +82,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnProductos.setMaximumSize(new java.awt.Dimension(110, 30));
         btnProductos.setMinimumSize(new java.awt.Dimension(110, 30));
         btnProductos.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductosActionPerformed(evt);
+            }
+        });
 
         btnClientes.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnClientes.setText(Texts.CLIENTES.getTexto());
@@ -235,6 +240,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        try {
+            MenuProducto mp = new MenuProducto();
+            
+            this.setVisible(false);
+            mp.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnProductosActionPerformed
 
     public static void main(String args[]) {
 

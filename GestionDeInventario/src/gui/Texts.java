@@ -26,6 +26,11 @@ public enum Texts {
             MODIFICAR_CLIENTE("Modificar Cliente"),
             
     PRODUCTOS("Productos"),
+        BUSCAR("Buscar"),
+        PRECIO("Precio"),
+        MIN("Min"),
+        MAX("Max"),
+    
     REPORTES("Reportes"),
     SALIR("Salir"),
     ACEPTAR("Aceptar"),
