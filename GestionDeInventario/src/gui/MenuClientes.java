@@ -120,7 +120,7 @@ public class MenuClientes extends javax.swing.JFrame {
         Lnombre.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textNombre.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
+        textNombre.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
         )));
         textNombre.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textNombre.setForeground(Color.decode(Colors.TEXTO.getColor()));
@@ -132,7 +132,7 @@ public class MenuClientes extends javax.swing.JFrame {
         Ledad.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textEdad.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textEdad.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textEdad.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textEdad.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -143,7 +143,7 @@ public class MenuClientes extends javax.swing.JFrame {
         Ldireccion.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textDireccion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textDireccion.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textDireccion.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textDireccion.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -161,7 +161,7 @@ public class MenuClientes extends javax.swing.JFrame {
         LidTelefono.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textTelefono.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textTelefono.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textTelefono.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textTelefono.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -172,7 +172,7 @@ public class MenuClientes extends javax.swing.JFrame {
         Lemail.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        textEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textEmail.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textEmail.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textEmail.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -532,7 +532,7 @@ public class MenuClientes extends javax.swing.JFrame {
 
         textNombreMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textNombreMod.setText("(Nombre usuario)");
-        textNombreMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textNombreMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textNombreMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textNombreMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -544,7 +544,7 @@ public class MenuClientes extends javax.swing.JFrame {
 
         textEdadMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textEdadMod.setText("(Edad usuario)");
-        textEdadMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textEdadMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textEdadMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textEdadMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -556,7 +556,7 @@ public class MenuClientes extends javax.swing.JFrame {
 
         textDireccionMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textDireccionMod.setText("(Direccion usuario)");
-        textDireccionMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textDireccionMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textDireccionMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textDireccionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -575,7 +575,7 @@ public class MenuClientes extends javax.swing.JFrame {
 
         textTelefonoMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textTelefonoMod.setText("(Telefono usuario)");
-        textTelefonoMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textTelefonoMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textTelefonoMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textTelefonoMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
@@ -587,7 +587,7 @@ public class MenuClientes extends javax.swing.JFrame {
 
         textEmailMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textEmailMod.setText("(E-mail usuario)");
-        textEmailMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
+        textEmailMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor()))));
         textEmailMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textEmailMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 

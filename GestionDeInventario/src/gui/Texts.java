@@ -30,6 +30,10 @@ public enum Texts {
         PRECIO("Precio"),
         MIN("Min"),
         MAX("Max"),
+            BARCODE("BarCode"),
+            STOCK_TOTAL("Stock Total"),
+            DESCRIPCION("Descripción"),
+        MODIFICAR_PRODUCTO("Modificar Producto"),
     
     REPORTES("Reportes"),
     SALIR("Salir"),

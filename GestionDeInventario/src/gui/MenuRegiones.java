@@ -119,7 +119,7 @@ public class MenuRegiones extends javax.swing.JFrame {
 
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textNombre.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())
-        ), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
+        ), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
         )));
         textNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textNombre.setName(""); // NOI18N
@@ -382,7 +382,7 @@ public class MenuRegiones extends javax.swing.JFrame {
 
         textNombre1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textNombre1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())
-        ), javax.swing.BorderFactory.createMatteBorder(0, 3, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
+        ), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
         )));
         textNombre1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textNombre1.setName(""); // NOI18N
