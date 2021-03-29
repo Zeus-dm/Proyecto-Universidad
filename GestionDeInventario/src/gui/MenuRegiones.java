@@ -7,6 +7,7 @@ import domain.Region;
 import java.sql.SQLException;
 import java.util.List;
 
+
 public class MenuRegiones extends javax.swing.JFrame {
 
     public MenuRegiones() throws SQLException {
