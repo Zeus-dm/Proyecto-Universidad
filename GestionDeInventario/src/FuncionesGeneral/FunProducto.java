@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import jdbc.JdbcProducto;
 
+
 public class FunProducto {
     public static Producto selecProducto(int id) throws SQLException {
         JdbcProducto jp = new JdbcProducto() ;
