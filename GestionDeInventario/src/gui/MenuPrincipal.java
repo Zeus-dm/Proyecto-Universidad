@@ -243,7 +243,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         try {
-            MenuProducto mp = new MenuProducto();
+            MenuProductos mp = new MenuProductos();
             
             this.setVisible(false);
             mp.setVisible(true);

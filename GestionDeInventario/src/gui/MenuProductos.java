@@ -15,10 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class MenuProducto extends javax.swing.JFrame {
+public class MenuProductos extends javax.swing.JFrame {
     private int id_producto = -1;
             
-    public MenuProducto() throws SQLException {
+    public MenuProductos() throws SQLException {
         initComponents();
         
         rsscalelabel.RSScaleLabel.setScaleLabel(imagen, "src/gui/images/chefcito_100.png");
@@ -766,7 +766,7 @@ public class MenuProducto extends javax.swing.JFrame {
         try {
             this.mostrar(FunProducto.listarProducto(this.textPrecioMin.getText(), this.textPrecioMax.getText(), this.textBuscar.getText()));
         } catch (SQLException ex) {
-            Logger.getLogger(MenuProducto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -798,7 +798,7 @@ public class MenuProducto extends javax.swing.JFrame {
             this.SelectProducto.setLocationRelativeTo(null);
             this.SelectProducto.setVisible(true);
         }catch(SQLException ex){
-            Logger.getLogger(MenuProducto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -868,7 +868,7 @@ public class MenuProducto extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new MenuProducto().setVisible(true);
+                    new MenuProductos().setVisible(true);
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
