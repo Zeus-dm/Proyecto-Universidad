@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class MenuClientes extends javax.swing.JFrame {
     private int id_cliente = -1;
             
