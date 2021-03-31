@@ -13,6 +13,11 @@ public enum Texts {
         MOD_REGION("Mod. Región"),
             MODIFICAR_REGION("Modificar Región"),
             
+        SUCURSALES("Sucursales"),
+            AGR_SUCURSAL("Agr. Sucursal"),
+            
+            ELIM_SUCURSAL("Elim. Sucursal"),
+            
     CLIENTES("Clientes"),
         AGR_CLIENTE("Agr. Cliente"),
             AGREGAR_CLIENTE("Agregar Nuevo Cliente"),

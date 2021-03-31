@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PanelMenuProductos extends javax.swing.JPanel {
-    FramePrincipal fp = null;
+    private FramePrincipal fp = null;
     private int id_producto = -1;
     
     public PanelMenuProductos(FramePrincipal fp) throws SQLException {

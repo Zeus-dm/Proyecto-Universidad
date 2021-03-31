@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PanelMenuPrincipal extends javax.swing.JPanel {
-    FramePrincipal fp = null;
+    private FramePrincipal fp = null;
     private boolean click = true;    
     
     public PanelMenuPrincipal(FramePrincipal fp) {

@@ -61,4 +61,12 @@ public class FunRegion {
         }
         return newR ;
     }
+    
+    public static Region select(int id_region) throws SQLException{
+        JdbcRegion jr = new JdbcRegion();
+        
+        Region newR = (Region) jr.select(id_region);
+        
+        return newR;
+    }
 }

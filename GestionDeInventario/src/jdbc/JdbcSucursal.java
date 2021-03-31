@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.ArrayList;
 import domain.Sucursal;
 
-public class JdbcSucursal implements IGenericoDao, IGenericoSelectListDao, IGenericoSelectDao{
+public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.sucursal(id_region, nombre, direccion, telefono) VALUES(?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE gestion_inventario.sucursal SET id_region = ?, nombre = ?, direccion = ?, telefono = ? WHERE id_sucursal = ?";
     private static final String SQL_DELETE = "DELETE FROM gestion_inventario.sucursal WHERE id_sucursal = ?";
-    private static final String SQL_SELECT = "SELECT * FROM gestion_inventario.sucursal";
+    private static final String SQL_SELECT = "SELECT * FROM gestion_inventario.sucursal WHERE id_region = ?";
     private static final String SQL_ONE_SELECT = "SELECT * FROM gestion_inventario.sucursal WHERE id_sucursal = ?";
 
     public JdbcSucursal() {
@@ -90,8 +90,7 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectListDao, IGene
         }
     }
 
-    @Override
-    public List<IGenerico> select() throws SQLException {
+    public List<IGenerico> selectList(int id_region) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -102,6 +101,7 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectListDao, IGene
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_SELECT);
+            ps.setInt(1, id_region);
             rs = ps.executeQuery();
             
             while(rs.next()){

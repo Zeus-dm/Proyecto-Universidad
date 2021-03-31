@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PanelMenuRegiones extends javax.swing.JPanel {
-    FramePrincipal fp = null;
+    private FramePrincipal fp = null;
     
     public PanelMenuRegiones( FramePrincipal fp) throws SQLException {
         this.fp = fp;
@@ -683,7 +683,15 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
 
 //Tabla Menu Region    
     private void tablaRegionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaRegionesMouseClicked
-        // TODO add your handling code here:
+        try {
+            List<Region> regiones = FunRegion.listarRegiones();
+            int pos = tablaRegiones.getSelectedRow();
+            
+            PanelMenuSucursales pms = new PanelMenuSucursales(fp, regiones.get(pos).getIdRegion());
+            fp.cargarPanel(pms);
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelMenuRegiones.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tablaRegionesMouseClicked
 
 //Botones Agregar Region    
