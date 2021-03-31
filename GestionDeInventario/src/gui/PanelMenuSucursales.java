@@ -15,7 +15,7 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
     
     public PanelMenuSucursales(FramePrincipal fp, int id_region) throws SQLException {
         this.fp = fp;
-        this.region = FunRegion.select(id_region);
+        this.region = FunRegion.selectRegion(id_region);
         
         initComponents();
         
