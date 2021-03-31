@@ -2,7 +2,7 @@
 package gui;
 
 public enum Texts {
-    TITULO("Gualmarcito"),
+    TITULO("El Chefcito"),
     REGIONES("Regiones"),
         AGR_REGION("Agr. Región"),
             AGREGAR_REGION("Agregar Nueva Región"),

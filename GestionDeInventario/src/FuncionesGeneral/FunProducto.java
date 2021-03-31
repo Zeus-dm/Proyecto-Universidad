@@ -127,11 +127,15 @@ public class FunProducto {
     }
     
     public static Map<String,Producto> listarProducto(String min, String max, String textoBuscar) throws SQLException {
-        
         try{
+            
+            if( ( (min == null || min.isEmpty()) || (max == null || max.isEmpty()) ) && (textoBuscar != null || !textoBuscar.isEmpty()) ){
+                return listarProducto(textoBuscar);
+            }
+            
             int Imin = Integer.parseInt(min);
             int Imax = Integer.parseInt(max);
-            
+          
             if( (Imin == 0) && (Imax == 0) && (textoBuscar == null || textoBuscar.isEmpty()) ){
                 return listarProducto();
             }else if( (Imin == 0) && (Imax == 0) && (textoBuscar != null || !textoBuscar.isEmpty()) ){
