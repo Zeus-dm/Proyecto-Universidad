@@ -3,7 +3,9 @@ package FuncionesGeneral;
 
 import domain.IGenerico;
 import domain.JefeSucursal;
+import domain.Producto;
 import domain.Sucursal;
+import domain.SucursalProducto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,11 +126,24 @@ public class FunSucursal {
         return null ;
     }
     
-    public static void eliminarSucursal(int idSucursal) throws SQLException {
-        Sucursal newS = new Sucursal(idSucursal) ;
+    public static void eliminarSucursal(Sucursal sucursal) throws SQLException {
+        
+        List<SucursalProducto> listaSP = FunSucursalProducto.listarSucursalProductoS(sucursal.getIdSucursal());
+        
+        for (SucursalProducto sp : listaSP) {
+            Producto producto = FunProducto.selecProducto(sp.getIdProducto());
+            producto.setStockTotal(producto.getStockTotal() - sp.getStock());
+            if(producto.getStockTotal() == 0){
+                FunProducto.eliminarProducto(producto.getIdProducto());
+            }else{
+                FunProducto.actualizarProducto(producto);
+            }
+            FunSucursalProducto.eliminarSucursalProducto(sp.getIdSP());
+        }
+        
         JdbcSucursal js = new JdbcSucursal() ;
         
-        js.delete(newS);
+        js.delete(sucursal);
     }
     
     public static String modificarJefe(int idSucursal, String nombre, String edad) throws SQLException {

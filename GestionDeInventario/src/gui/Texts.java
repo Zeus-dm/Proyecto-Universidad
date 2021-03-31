@@ -15,8 +15,11 @@ public enum Texts {
             
         SUCURSALES("Sucursales"),
             AGR_SUCURSAL("Agr. Sucursal"),
+                AGREGAR_SUCURSAL("Agregar Nueva Sucursal"),
             
             ELIM_SUCURSAL("Elim. Sucursal"),
+                ELIMINAR_SUCURSAL("Eliminar Sucursal"),
+                SUCURSAL("Sucursal"),
             
     CLIENTES("Clientes"),
         AGR_CLIENTE("Agr. Cliente"),

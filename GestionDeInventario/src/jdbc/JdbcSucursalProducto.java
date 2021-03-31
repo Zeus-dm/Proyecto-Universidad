@@ -15,6 +15,7 @@ public class JdbcSucursalProducto implements IGenericoDao, IGenericoTwoSelectDao
     private static final String SQL_DELETE = "DELETE FROM gestion_inventario.sucursal_producto WHERE id_sucursal_producto = ?";
     private static final String SQL_ONE_SELECT = "SELECT * FROM gestion_inventario.sucursal_producto WHERE id_producto = ? AND id_sucursal = ?";
     private static final String SQL_PRODUCTO_SELECT = "SELECT * FROM gestion_inventario.sucursal_producto WHERE id_producto = ?";
+    private static final String SQL_SUCURSAL_SELECT = "SELECT * FROM gestion_inventario.sucursal_producto WHERE id_sucursal = ?";
 
     public JdbcSucursalProducto() {
     }
@@ -134,6 +135,40 @@ public class JdbcSucursalProducto implements IGenericoDao, IGenericoTwoSelectDao
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_PRODUCTO_SELECT);
             ps.setInt(1, idProducto);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                int idSP = rs.getInt("id_sucursal_producto");
+                int newIdProducto = rs.getInt("id_producto");
+                int newIdSucursal = rs.getInt("id_sucursal");
+                int stock = rs.getInt("stock");
+                
+                sp = new SucursalProducto(idSP, newIdProducto, newIdSucursal, stock);  
+                listaSucursalProductos.add(sp);
+            }
+        }finally{
+            Conexion.close(rs);
+            Conexion.close(ps);
+            if (this.userConn == null){
+                Conexion.close(conn);
+            }
+        }
+        
+        return listaSucursalProductos;
+    }
+    
+    public List<IGenerico> selectS(int idSucursal) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        SucursalProducto sp = null;
+        List<IGenerico> listaSucursalProductos = new ArrayList<>();
+        
+        try{
+            conn = this.userConn != null ? this.userConn : Conexion.getConnection();
+            ps = conn.prepareStatement(SQL_SUCURSAL_SELECT);
+            ps.setInt(1, idSucursal);
             rs = ps.executeQuery();
             
             while(rs.next()){

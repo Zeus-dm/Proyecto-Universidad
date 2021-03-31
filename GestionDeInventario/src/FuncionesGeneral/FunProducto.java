@@ -10,6 +10,19 @@ import jdbc.JdbcProducto;
 
 
 public class FunProducto {
+    public static void actualizarProducto(Producto producto) throws SQLException{
+        JdbcProducto jp = new JdbcProducto();
+        
+        jp.update(producto);
+    }
+    
+    public static void eliminarProducto(int id) throws SQLException{
+        JdbcProducto jp = new JdbcProducto() ;
+        Producto newP = new Producto(id);
+        
+        jp.delete(newP);
+    }
+    
     public static Producto selecProducto(int id) throws SQLException {
         JdbcProducto jp = new JdbcProducto() ;
         
