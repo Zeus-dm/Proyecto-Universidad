@@ -10,30 +10,8 @@ import jdbc.JdbcProducto;
 
 
 public class FunProducto {
-    public static void actualizarProducto(Producto producto) throws SQLException{
-        JdbcProducto jp = new JdbcProducto();
-        
-        jp.update(producto);
-    }
-    
-    public static void eliminarProducto(int id) throws SQLException{
-        JdbcProducto jp = new JdbcProducto() ;
-        Producto newP = new Producto(id);
-        
-        jp.delete(newP);
-    }
-    
-    public static Producto selecProducto(int id) throws SQLException {
-        JdbcProducto jp = new JdbcProducto() ;
-        
-        Producto newP = (Producto) jp.select(id) ;
-        
-        return newP ;
-    }
-    
-    public static String modificarProducto(int id, String nombre, String barCode, String precio, String descripcion) throws SQLException {
-        int precioAux = 0 ;
-        
+    private static String verificarDatos(int idProducto, String nombre, String barCode, String precio) throws SQLException{
+       
         if(nombre == null || nombre.isEmpty()) {
             return "*Error: Campo nombre vacío" ;
         }
@@ -44,10 +22,9 @@ public class FunProducto {
             return "*Error: Codigo de barras necesita 9 caracteres";
         }else{
             Map<String,Producto> mapa = FunProducto.listarProducto();
-            Producto prod = null;
-            
-            prod = mapa.get(barCode);
-            if(prod != null && id != prod.getIdProducto()){
+
+            Producto producto = mapa.get(barCode);
+            if(producto != null && idProducto != producto.getIdProducto()){
                 return "*Error: Codigo de barras ya existe";
             }
         }
@@ -56,8 +33,8 @@ public class FunProducto {
             return "*Error: Campo Precio vacío" ;
         }else {
             try {
-                precioAux = Integer.parseInt(precio) ;
-                if (precioAux == 0) {
+                int precioAux = Integer.parseInt(precio) ;
+                if (precioAux <= 0) {
                     return "*Error: Precio debe ser mayor a 0" ;
                 }
             }catch(NumberFormatException e) {
@@ -65,9 +42,33 @@ public class FunProducto {
             }
         }
         
-        JdbcProducto jp = new JdbcProducto() ;
+        return null;
+    }
+    
+    public static void actualizarProducto(Producto producto) throws SQLException{
+        JdbcProducto jp = new JdbcProducto();
         
-        Producto newP = (Producto) jp.select(id) ; 
+        jp.update(producto);
+    }
+    
+    public static void eliminarProducto(int idProducto) throws SQLException{
+        JdbcProducto jp = new JdbcProducto() ;
+        Producto newP = new Producto(idProducto);
+        
+        jp.delete(newP);
+    }
+
+    public static String modificarProducto(int idProducto, String nombre, String barCode, String precio, String descripcion) throws SQLException {
+        
+        String verificar = verificarDatos(idProducto, nombre, barCode, precio);
+        if(verificar != null){
+            return verificar;
+        }
+        int precioAux = Integer.parseInt(precio);
+        
+        JdbcProducto jp = new JdbcProducto() ;
+
+        Producto newP = (Producto) jp.select(idProducto) ;
         
         newP.setNombre(nombre);
         newP.setBarCode(barCode);
@@ -140,22 +141,17 @@ public class FunProducto {
     }
     
     public static Map<String,Producto> listarProducto(String min, String max, String textoBuscar) throws SQLException {
-        try{
-            
-            if( ( (min == null || min.isEmpty()) || (max == null || max.isEmpty()) ) && (textoBuscar != null || !textoBuscar.isEmpty()) ){
-                return listarProducto(textoBuscar);
-            }
-            
+        try {
             int Imin = Integer.parseInt(min);
             int Imax = Integer.parseInt(max);
           
             if( (Imin == 0) && (Imax == 0) && (textoBuscar == null || textoBuscar.isEmpty()) ){
                 return listarProducto();
-            }else if( (Imin == 0) && (Imax == 0) && (textoBuscar != null || !textoBuscar.isEmpty()) ){
+            }else if( (Imin == 0) && (Imax == 0) && (textoBuscar != null) ){
                 return listarProducto(textoBuscar);
             }else if( (Imin >= 0) && (Imax >= Imin) && (textoBuscar == null || textoBuscar.isEmpty()) ){
                 return listarProducto(Imin, Imax);
-            }else if( (Imin >= 0) && (Imax >= Imin) && (textoBuscar != null || !textoBuscar.isEmpty()) ){
+            }else if( (Imin >= 0) && (Imax >= Imin) && (textoBuscar != null) ){
                 Producto prod ;
         
                 Map<String,Producto> newP = new HashMap<>() ;
@@ -181,12 +177,21 @@ public class FunProducto {
         
                 return newP ;
             }
-        }catch(NumberFormatException ex){
-            ex.printStackTrace();
+        } catch(NumberFormatException ex){
+            if(textoBuscar != null){
+                return listarProducto(textoBuscar);
+            }
         }
         
         return listarProducto();
     }
     
+    public static Producto selecProducto(int idProducto) throws SQLException {
+        JdbcProducto jp = new JdbcProducto() ;
+        
+        Producto newP = (Producto) jp.select(idProducto) ;
+        
+        return newP ;
+    }
 }
 

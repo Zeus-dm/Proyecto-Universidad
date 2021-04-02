@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/jdbc/JdbcSucursalProducto.java</file>
+            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/FuncionesGeneral/FunCliente.java</file>
+            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/Texts.java</file>
             <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/PanelMenuSucursales.java</file>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/FuncionesGeneral/FunProducto.java</file>
+            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/Colors.java</file>
+            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/gui/PanelMenuClientes.java</file>
+            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/FuncionesGeneral/FunRegion.java</file>
             <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/FuncionesGeneral/FunSucursal.java</file>
             <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/test/Test2.java</file>
-            <file>file:/C:/Users/rafae/Desktop/Proyecto%20Universidad/GestionDeInventario/src/FuncionesGeneral/FunSucursalProducto.java</file>
         </group>
     </open-files>
 </project-private>

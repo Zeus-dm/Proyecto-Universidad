@@ -21,6 +21,18 @@ public enum Texts {
                 ELIMINAR_SUCURSAL("Eliminar Sucursal"),
                 SUCURSAL("Sucursal"),
             
+            JEFE_SUCURSAL("Jefe Sucursal"),
+            MOD_SUCURSAL("Mod. Sucursal"),
+                MODIFICAR_SUCURSAL("Modificar Sucursal"),
+                
+            AGR_JEFE("Agr. Jefe S."),
+                AGREGAR_JEFE("Agregar Nuevo Jefe de Sucursal"),
+                
+            MOD_JEFE("Mod. jefe S."),
+                MODIFICAR_JEFE("Modificar Jefe de Sucursal"),
+            
+            ELIM_JEFE("Elim. jefe S."),
+            
     CLIENTES("Clientes"),
         AGR_CLIENTE("Agr. Cliente"),
             AGREGAR_CLIENTE("Agregar Nuevo Cliente"),

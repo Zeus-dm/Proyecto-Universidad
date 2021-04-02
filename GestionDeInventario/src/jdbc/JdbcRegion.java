@@ -88,7 +88,6 @@ public class JdbcRegion implements IGenericoDao, IGenericoSelectListDao, IGeneri
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        Region region = null;
         List<IGenerico> listaRegiones = new ArrayList<>();
         
         try{
@@ -100,7 +99,7 @@ public class JdbcRegion implements IGenericoDao, IGenericoSelectListDao, IGeneri
                 int idRegion = rs.getInt("id_region");
                 String nombre = rs.getString("nombre");
                 
-                region = new Region(idRegion, nombre);
+                Region region = new Region(idRegion, nombre);
                 listaRegiones.add(region);
             }
         }finally{

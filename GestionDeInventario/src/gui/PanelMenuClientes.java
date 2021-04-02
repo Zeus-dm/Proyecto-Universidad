@@ -861,7 +861,7 @@ public class PanelMenuClientes extends javax.swing.JPanel {
 
 //Botones Menu Cliente
     private void btnAgrClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgrClienteActionPerformed
-        this.AgrCliente.setLocationRelativeTo(null);
+        this.AgrCliente.setLocationRelativeTo(fp);
         
         this.textNombre.setText("");
         this.textEdad.setText("");
@@ -893,7 +893,7 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             this.LuserTelefono.setText(""+clientes.get(pos).getTelefono());
             this.LuserEmail.setText(clientes.get(pos).getEmail());
             
-            this.SelectCliente.setLocationRelativeTo(null);
+            this.SelectCliente.setLocationRelativeTo(fp);
             this.SelectCliente.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuClientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -912,7 +912,6 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             this.mostrarClientes(FunCliente.listarClientes());
             
             this.AgrCliente.setVisible(false);
-            fp.setLocationRelativeTo(null);
         } catch (SQLException ex) {
             this.textErrorAgr.setText("* Error: Conexion SQL");
         }
@@ -920,7 +919,6 @@ public class PanelMenuClientes extends javax.swing.JPanel {
 
     private void btnCancelarAgrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAgrActionPerformed
         this.AgrCliente.setVisible(false);
-        fp.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCancelarAgrActionPerformed
 
 //Botones Seleccionar Cliente
@@ -930,8 +928,7 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             
             this.mostrarClientes(FunCliente.listarClientes());
             
-            this.SelectCliente.setVisible(false);
-            fp.setLocationRelativeTo(null);    
+            this.SelectCliente.setVisible(false);    
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -949,7 +946,7 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             this.textEmailMod.setText(cliente.getEmail());
             this.textErrorMod.setText("");
             
-            this.ModCliente.setLocationRelativeTo(null);
+            this.ModCliente.setLocationRelativeTo(SelectCliente);
             this.ModCliente.setVisible(true); 
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuClientes.class.getName()).log(Level.SEVERE, null, ex);
@@ -958,7 +955,6 @@ public class PanelMenuClientes extends javax.swing.JPanel {
 
     private void btnVolverSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverSelectActionPerformed
         this.SelectCliente.setVisible(false);
-        fp.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVolverSelectActionPerformed
 
 //Botones Modificar Cliente    
@@ -982,7 +978,6 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             this.mostrarClientes(FunCliente.listarClientes());
 
             this.ModCliente.setVisible(false);
-            this.SelectCliente.setLocationRelativeTo(null);
         } catch (SQLException ex) {
             this.textErrorMod.setText("* Error: Conexion SQL");
         }
@@ -990,7 +985,6 @@ public class PanelMenuClientes extends javax.swing.JPanel {
 
     private void btnCancelarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarModActionPerformed
         this.ModCliente.setVisible(false);
-        this.SelectCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCancelarModActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,10 +9,7 @@ import java.util.List;
 import jdbc.JdbcCliente;
 
 public class FunCliente {
-    public static String agregarCliente(String nombre, String edad, String direccion, String telefono, String email) throws SQLException {
-        int edadAux = 0 ;
-        int telefonoAux = 0 ;
-        
+    private static String verificarDatos(String nombre, String edad, String direccion, String telefono, String email){        
         if(nombre == null || nombre.isEmpty()) {
             return "*Error: Campo nombre vacío" ;
         }
@@ -21,7 +18,7 @@ public class FunCliente {
             return "*Error: Campo edad vacío" ;
         }else {
             try{
-                edadAux = Integer.parseInt(edad) ;
+                int edadAux = Integer.parseInt(edad) ;
                 if (edadAux<18 || edadAux>130) {
                     return "*Error: Campo edad  fuera de rango" ;
                 }
@@ -38,7 +35,7 @@ public class FunCliente {
             return "*Error: Campo telefono vacío" ;
         }else {
             try{
-                telefonoAux = Integer.parseInt(telefono) ;
+                int telefonoAux = Integer.parseInt(telefono) ;
                 if (telefono.length() != 8) {
                     return "*Error: Telefono debe tener 8 dígitos" ;
                 }
@@ -60,7 +57,18 @@ public class FunCliente {
             }
         }
         
-        Cliente newC = new Cliente(nombre, edadAux, direccion, telefonoAux, email);
+        return null;
+    }
+    
+    public static String agregarCliente(String nombre, String edad, String direccion, String telefono, String email) throws SQLException {
+        
+        String verificar = verificarDatos(nombre, edad, direccion, telefono, email);
+        if(verificar != null){
+            return verificar;
+        }
+        int edadAux = Integer.parseInt(edad);
+        
+        Cliente newC = new Cliente(nombre, edadAux, direccion, telefono, email);
         JdbcCliente jc = new JdbcCliente() ;
         
         jc.insert(newC) ;
@@ -68,72 +76,29 @@ public class FunCliente {
         return null ;
     }
     
-    public static void eliminarCliente(int id) throws SQLException {
-        Cliente newC = new Cliente(id) ;
+    public static void eliminarCliente(int idCliente) throws SQLException {
+        Cliente newC = new Cliente(idCliente) ;
         JdbcCliente jc = new JdbcCliente() ;
         
         jc.delete(newC);
     }
     
-    public static String modificarCliente(int id, String nombre, String edad, String direccion, String telefono, String email) throws SQLException {
-        int edadAux = 0 ;
-        int telefonoAux = 0 ;
+    public static String modificarCliente(int idCliente, String nombre, String edad, String direccion, String telefono, String email) throws SQLException {
         
-        if(nombre == null || nombre.isEmpty()) {
-            return "*Error: Campo nombre vacío" ;
+        String verificar = verificarDatos(nombre, edad, direccion, telefono, email);
+        if(verificar != null){
+            return verificar;
         }
-        
-        if(edad == null || edad.isEmpty()) {
-            return "*Error: Campo edad vacío" ;
-        }else {
-            try{
-                edadAux = Integer.parseInt(edad) ;
-                if (edadAux<18 || edadAux>130) {
-                    return "*Error: Campo edad fuera de rango" ;
-                }
-            }catch (NumberFormatException e) {
-                return "*Error: Campo edad no es un número" ;
-            }
-        }
-        
-        if(direccion == null || direccion.isEmpty()) {
-            return "*Error: Campo dirección vacío" ;
-        }
-        
-        if(telefono == null || telefono.isEmpty()) {
-            return "*Error: Campo telefono vacío" ;
-        }else { 
-            try{
-                telefonoAux = Integer.parseInt(telefono) ;
-                if (telefono.length() != 8) {
-                    return "*Error: Telefono debe tener 8 dígitos" ;
-                }
-            }catch (NumberFormatException e) {
-                return "*Error: Campo telefono no es un número" ;
-            }
-        }
-        
-        if(email == null || email.isEmpty()) {
-            return "*Error: Campo E-mail vacío" ;
-        }else {
-            String cadena[] = email.split("@") ;
-            if (cadena.length != 2){
-                return "*Error: E-mail inválido" ;
-            }else if(cadena[0] == null || cadena[0].isEmpty() || cadena[1] == null || cadena[1].isEmpty()) {
-                return "*Error: E-mail inválido" ;
-            }else if(!cadena[1].contains(".") || '.' == email.charAt(email.length()-1)) {
-                return "*Error: E-mail inválido" ;
-            }
-        }
+        int edadAux = Integer.parseInt(edad);
         
         JdbcCliente jc = new JdbcCliente() ;
         
-        Cliente newC = (Cliente) jc.select(id) ; 
+        Cliente newC = (Cliente) jc.select(idCliente) ; 
         
         newC.setNombre(nombre);
         newC.setEdad(edadAux);
         newC.setDireccion(direccion);
-        newC.setTelefono(telefonoAux);
+        newC.setTelefono(telefono);
         newC.setEmail(email);
         
         jc.update(newC);
@@ -147,16 +112,16 @@ public class FunCliente {
         
         List<IGenerico> nuevoG = jc.select() ;
         
-        for (IGenerico iGenerico : nuevoG) {
+        nuevoG.forEach(iGenerico -> {
             newC.add((Cliente)iGenerico) ;
-        }
+        });
         return newC ;
     }
     
-    public static Cliente selecCliente (int id) throws SQLException {
+    public static Cliente selecCliente (int idCliente) throws SQLException {
         JdbcCliente jc = new JdbcCliente() ;
         
-        Cliente newC = (Cliente) jc.select(id) ;
+        Cliente newC = (Cliente) jc.select(idCliente) ;
         
         return newC ;
     }
