@@ -803,7 +803,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
             
             this.mostrarSucursalStock(FunSucursalProducto.listarSucursalProducto(id_producto));
 
-            this.SelectProducto.setLocationRelativeTo(null);
+            this.SelectProducto.setLocationRelativeTo(fp);
             this.SelectProducto.setVisible(true);
         } catch(SQLException ex){
             Logger.getLogger(PanelMenuProductos.class.getName()).log(Level.SEVERE, null, ex);
@@ -813,7 +813,6 @@ public class PanelMenuProductos extends javax.swing.JPanel {
 //Botones Seleccionar Producto
     private void btnSelectVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectVolverActionPerformed
         this.SelectProducto.setVisible(false);
-        fp.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSelectVolverActionPerformed
 
     private void btnModProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModProductoActionPerformed
@@ -827,7 +826,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
             this.textDescripcionMod.setText(producto.getDescripcion());
             this.textErrorMod.setText("");
             
-            this.ModProducto.setLocationRelativeTo(null);
+            this.ModProducto.setLocationRelativeTo(SelectProducto);
             this.ModProducto.setVisible(true);
         } catch(SQLException ex){
             Logger.getLogger(PanelMenuProductos.class.getName()).log(Level.SEVERE, null, ex);
@@ -837,7 +836,6 @@ public class PanelMenuProductos extends javax.swing.JPanel {
 //Botones Modificar Producto
     private void btnCancelarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarModActionPerformed
         this.ModProducto.setVisible(false);
-        this.SelectProducto.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCancelarModActionPerformed
 
     private void btnAceptarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarModActionPerformed
@@ -862,7 +860,6 @@ public class PanelMenuProductos extends javax.swing.JPanel {
             this.mostrarProductos(FunProducto.listarProducto());
             
             this.ModProducto.setVisible(false);
-            this.SelectProducto.setLocationRelativeTo(null);
         } catch(SQLException ex){
             this.textErrorMod.setText("* Error: Conexion SQL");
         }

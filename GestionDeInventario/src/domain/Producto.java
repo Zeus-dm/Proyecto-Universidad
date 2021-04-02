@@ -1,12 +1,8 @@
 
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Producto implements IGenerico{
     private int idProducto ;
-    private List <Integer> idsSucursales = new ArrayList<>() ;
     private String nombre ;
     private String barCode ;
     private int stockTotal ;
@@ -41,14 +37,6 @@ public class Producto implements IGenerico{
         return idProducto;
     }
 
-    public String getIdsSucursales() {
-        String stringIdsSucursales = "";
-        for (Integer id : this.idsSucursales) {
-            stringIdsSucursales += id+",";
-        }
-        return stringIdsSucursales;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -67,13 +55,6 @@ public class Producto implements IGenerico{
 
     public String getDescripcion() {
         return descripcion;
-    }
-    
-    public void setIdsSucursales(String idsSucursales) {
-        String arrayIds[] = idsSucursales.split(",");
-        for (String arrayId : arrayIds) {
-            this.idsSucursales.add(Integer.parseInt(arrayId));
-        }
     }
 
     public void setNombre(String nombre) {
@@ -100,7 +81,6 @@ public class Producto implements IGenerico{
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Producto{idProducto=").append(idProducto);
-        sb.append(", idsSucursales=").append(idsSucursales);
         sb.append(", nombre=").append(nombre);
         sb.append(", barCode=").append(barCode);
         sb.append(", stockTotal=").append(stockTotal);
@@ -109,5 +89,4 @@ public class Producto implements IGenerico{
         sb.append('}');
         return sb.toString();
     }
-
 }

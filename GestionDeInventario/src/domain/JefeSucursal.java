@@ -8,8 +8,8 @@ public class JefeSucursal extends Persona implements IGenerico{
     public JefeSucursal() {   
     }
     
-    public JefeSucursal(int idJefe) {
-        this.idJefe = idJefe ;
+    public JefeSucursal(int idSucursal) {
+        this.idSucursal = idSucursal ;
     }
     
     public JefeSucursal(String nombre, int edad, int idSucursal) {

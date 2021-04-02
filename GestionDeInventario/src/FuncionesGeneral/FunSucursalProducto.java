@@ -9,15 +9,36 @@ import java.util.List;
 import jdbc.JdbcSucursalProducto;
 
 public class FunSucursalProducto {
-    public static List<SucursalProducto> listarSucursalProducto (int id_producto) throws SQLException {
+    public static void eliminarSucursalProducto(int idSP) throws SQLException{
+        JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
+        SucursalProducto sp = new SucursalProducto(idSP);
+        
+        jsp.delete(sp);
+    }
+    
+    public static List<SucursalProducto> listarSucursalProducto (int idProducto) throws SQLException {
         List<SucursalProducto> newSP = new ArrayList<>() ;
         JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
         
-        List<IGenerico> nuevoSP = jsp.select(id_producto);
+        List<IGenerico> listaSP = jsp.select(idProducto);
         
-        for (IGenerico iGenerico : nuevoSP) {
+        listaSP.forEach(iGenerico -> {
             newSP.add((SucursalProducto)iGenerico) ;
-        }
+        });
+        
+        return newSP ;
+    }
+    
+    public static List<SucursalProducto> listarSucursalProductoS (int idSucursal) throws SQLException {
+        List<SucursalProducto> newSP = new ArrayList<>() ;
+        JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
+        
+        List<IGenerico> listaSP = jsp.selectS(idSucursal);
+        
+        listaSP.forEach(iGenerico -> {
+            newSP.add((SucursalProducto)iGenerico) ;
+        });
+        
         return newSP ;
     }
 }

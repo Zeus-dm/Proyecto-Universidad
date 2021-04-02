@@ -36,7 +36,7 @@ public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGener
             ps.setString(1, cliente.getNombre());
             ps.setInt(2, cliente.getEdad());
             ps.setString(3, cliente.getDireccion());
-            ps.setInt(4, cliente.getTelefono());
+            ps.setString(4, cliente.getTelefono());
             ps.setString(5, cliente.getEmail());
             ps.executeUpdate();
         }finally{
@@ -60,7 +60,7 @@ public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGener
             ps.setString(1, cliente.getNombre());
             ps.setInt(2, cliente.getEdad());
             ps.setString(3, cliente.getDireccion());
-            ps.setInt(4, cliente.getTelefono());
+            ps.setString(4, cliente.getTelefono());
             ps.setString(5, cliente.getEmail());
             ps.setInt(6, cliente.getIdCliente());
             ps.executeUpdate();
@@ -98,7 +98,6 @@ public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGener
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        Cliente cliente = null;
         List<IGenerico> listaClientes = new ArrayList<>();
         
         try{
@@ -111,10 +110,10 @@ public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGener
                 String nombre = rs.getString("nombre");
                 int edad = rs.getInt("edad");
                 String direccion = rs.getString("direccion");
-                int telefono = rs.getInt("telefono");
+                String telefono = rs.getString("telefono");
                 String email = rs.getString("email");
                 
-                cliente = new Cliente(idCliente, nombre, edad, direccion, telefono, email);
+                Cliente cliente = new Cliente(idCliente, nombre, edad, direccion, telefono, email);
                 listaClientes.add(cliente);
             }
         }finally{
@@ -147,7 +146,7 @@ public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGener
                 String nombre = rs.getString("nombre");
                 int edad = rs.getInt("edad");
                 String direccion = rs.getString("direccion");
-                int telefono = rs.getInt("telefono");
+                String telefono = rs.getString("telefono");
                 String email = rs.getString("email");
                 
                 cliente = new Cliente(newIdCliente, nombre, edad, direccion, telefono, email);
@@ -162,5 +161,4 @@ public class JdbcCliente implements IGenericoDao, IGenericoSelectListDao, IGener
         
         return cliente;
     }
-    
 }

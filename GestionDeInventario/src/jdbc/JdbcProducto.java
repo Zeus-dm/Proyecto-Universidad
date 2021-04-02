@@ -10,8 +10,8 @@ import domain.Producto;
 public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSelectDao{
     private Connection userConn;
     
-    private static final String SQL_INSERT = "INSERT INTO gestion_inventario.producto(ids_sucursales, nombre, barcode, stock_total, precio, descripcion) VALUES(?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE gestion_inventario.producto SET ids_sucursales = ?, nombre = ?, barcode = ?, stock_total = ?, precio = ?, descripcion = ? WHERE id_producto = ?";
+    private static final String SQL_INSERT = "INSERT INTO gestion_inventario.producto(nombre, barcode, stock_total, precio, descripcion) VALUES(?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE gestion_inventario.producto SET nombre = ?, barcode = ?, stock_total = ?, precio = ?, descripcion = ? WHERE id_producto = ?";
     private static final String SQL_DELETE = "DELETE FROM gestion_inventario.producto WHERE id_producto = ?";
     private static final String SQL_SELECT = "SELECT * FROM gestion_inventario.producto";
     private static final String SQL_WHERE_SELECT = "SELECT * FROM gestion_inventario.producto WHERE precio >= ? AND precio <= ? ";
@@ -34,12 +34,11 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_INSERT);
-            ps.setString(1, producto.getIdsSucursales());
-            ps.setString(2, producto.getNombre());
-            ps.setString(3, producto.getBarCode());
-            ps.setInt(4, producto.getStockTotal());
-            ps.setInt(5, producto.getPrecio());
-            ps.setString(6, producto.getDescripcion());
+            ps.setString(1, producto.getNombre());
+            ps.setString(2, producto.getBarCode());
+            ps.setInt(3, producto.getStockTotal());
+            ps.setInt(4, producto.getPrecio());
+            ps.setString(5, producto.getDescripcion());
             ps.executeUpdate();
         }finally{
             Conexion.close(ps);
@@ -59,13 +58,12 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE);
-            ps.setString(1, producto.getIdsSucursales());
-            ps.setString(2, producto.getNombre());
-            ps.setString(3, producto.getBarCode());
-            ps.setInt(4, producto.getStockTotal());
-            ps.setInt(5, producto.getPrecio());
-            ps.setString(6, producto.getDescripcion());
-            ps.setInt(7, producto.getIdProducto());
+            ps.setString(1, producto.getNombre());
+            ps.setString(2, producto.getBarCode());
+            ps.setInt(3, producto.getStockTotal());
+            ps.setInt(4, producto.getPrecio());
+            ps.setString(5, producto.getDescripcion());
+            ps.setInt(6, producto.getIdProducto());
             ps.executeUpdate();
         }finally{
             Conexion.close(ps);
@@ -101,7 +99,6 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        Producto producto = null;
         Map<String,IGenerico> mapaProductos = new HashMap<>();
         
         try{
@@ -111,15 +108,13 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
             
             while(rs.next()){
                 int idProducto = rs.getInt("id_producto");
-                String idsSucursales = rs.getString("ids_Sucursales");
                 String nombre = rs.getString("nombre");
                 String barCode = rs.getString("barcode");
                 int stockTotal = rs.getInt("stock_total");
                 int precio = rs.getInt("precio");
                 String descripcion = rs.getString("descripcion");
                 
-                producto = new Producto(idProducto, nombre, barCode, stockTotal, precio, descripcion);
-                producto.setIdsSucursales(idsSucursales);
+                Producto producto = new Producto(idProducto, nombre, barCode, stockTotal, precio, descripcion);
                 mapaProductos.put(barCode, producto);
             }
         }finally{
@@ -139,7 +134,6 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        Producto producto = null;
         Map<String,IGenerico> mapaProductos = new HashMap<>();
         
         try{
@@ -151,15 +145,13 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
             
             while(rs.next()){
                 int idProducto = rs.getInt("id_producto");
-                String idsSucursales = rs.getString("ids_Sucursales");
                 String nombre = rs.getString("nombre");
                 String barCode = rs.getString("barcode");
                 int stockTotal = rs.getInt("stock_total");
                 int precio = rs.getInt("precio");
                 String descripcion = rs.getString("descripcion");
                 
-                producto = new Producto(idProducto, nombre, barCode, stockTotal, precio, descripcion);
-                producto.setIdsSucursales(idsSucursales);
+                Producto producto = new Producto(idProducto, nombre, barCode, stockTotal, precio, descripcion);
                 mapaProductos.put(barCode, producto);
             }
         }finally{
@@ -189,7 +181,6 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
             
             while(rs.next()){
                 int newIdProducto = rs.getInt("id_producto");
-                String idsSucursales = rs.getString("ids_sucursales");
                 String nombre = rs.getString("nombre");
                 String barCode = rs.getString("barcode");
                 int stockTotal = rs.getInt("stock_total");
@@ -197,7 +188,6 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
                 String descripcion = rs.getString("descripcion");
                 
                 producto = new Producto(newIdProducto, nombre, barCode, stockTotal, precio, descripcion);
-                producto.setIdsSucursales(idsSucursales);
             }  
         }finally{
             Conexion.close(rs);
@@ -209,5 +199,4 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
         
         return producto;
     }
-
 }

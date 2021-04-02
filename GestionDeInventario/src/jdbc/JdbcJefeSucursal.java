@@ -9,8 +9,8 @@ public class JdbcJefeSucursal implements IGenericoDao, IGenericoSelectDao{
     private Connection userConn;
     
     private static final String SQL_INSERT = "INSERT INTO gestion_inventario.jefe_sucursal(id_sucursal, nombre, edad) VALUES(?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE gestion_inventario.jefe_sucursal SET id_sucursal = ?, nombre = ?, edad = ? WHERE id_jefe_sucursal = ?";
-    private static final String SQL_DELETE = "DELETE FROM gestion_inventario.jefe_sucursal WHERE id_jefe_sucursal = ?";
+    private static final String SQL_UPDATE = "UPDATE gestion_inventario.jefe_sucursal SET nombre = ?, edad = ? WHERE id_sucursal = ?";
+    private static final String SQL_DELETE = "DELETE FROM gestion_inventario.jefe_sucursal WHERE id_sucursal = ?";
     private static final String SQL_ONE_SELECT = "SELECT * FROM gestion_inventario.jefe_sucursal WHERE id_sucursal = ?";
 
     public JdbcJefeSucursal() {
@@ -52,10 +52,9 @@ public class JdbcJefeSucursal implements IGenericoDao, IGenericoSelectDao{
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_UPDATE);
-            ps.setInt(1, jefe.getIdSucursal());
-            ps.setString(2, jefe.getNombre());
-            ps.setInt(3, jefe.getEdad());
-            ps.setInt(4, jefe.getIdJefe());
+            ps.setString(1, jefe.getNombre());
+            ps.setInt(2, jefe.getEdad());
+            ps.setInt(3, jefe.getIdSucursal());
             ps.executeUpdate();
         }finally{
             Conexion.close(ps);
@@ -75,7 +74,7 @@ public class JdbcJefeSucursal implements IGenericoDao, IGenericoSelectDao{
         try{
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_DELETE);
-            ps.setInt(1, jefe.getIdJefe());
+            ps.setInt(1, jefe.getIdSucursal());
             ps.executeUpdate();
         }finally{
             Conexion.close(ps);

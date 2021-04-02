@@ -8,7 +8,7 @@ public class Sucursal implements IGenerico{
     private int idRegion ;
     private String nombre ;
     private String direccion ;
-    private int telefono ;
+    private String telefono ;
     private JefeSucursal jefeSucursal ;
     private Map <String,Producto> productos ;
     
@@ -19,14 +19,14 @@ public class Sucursal implements IGenerico{
         this.idSucursal = idSucursal ;
     }
     
-    public Sucursal(int idRegion, String nombre, String direccion, int telefono) {
+    public Sucursal(int idRegion, String nombre, String direccion, String telefono) {
         this.idRegion = idRegion ;
         this.nombre = nombre ;
         this.direccion = direccion ;
         this.telefono = telefono ;
     }
     
-    public Sucursal(int idSucursal, int idRegion, String nombre, String direccion, int telefono) {
+    public Sucursal(int idSucursal, int idRegion, String nombre, String direccion, String telefono) {
         this.idSucursal = idSucursal ;
         this.idRegion = idRegion ;
         this.nombre = nombre ;
@@ -50,7 +50,7 @@ public class Sucursal implements IGenerico{
         return direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -74,7 +74,7 @@ public class Sucursal implements IGenerico{
         this.direccion = direccion;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

@@ -39,17 +39,17 @@ public class Test0 {
         //Se inicializan la sucursales y su respectivo Jefe de Sucursal, de la region Metropolitana (r1)
         List<Sucursal> sucursales1 = new ArrayList<>();
         
-        Sucursal s1 = new Sucursal(1, 1, "Sucursal 1", "Calle falsa 123", 11111111);
+        Sucursal s1 = new Sucursal(1, 1, "Sucursal 1", "Calle falsa 123", "11111111");
         JefeSucursal js1 = new JefeSucursal(1, "Jose", 31, 1);
         s1.setJefeSucursal(js1);
         s1.setProductos(m1);
         
-        Sucursal s2 = new Sucursal(2, 1, "Sucursal 2", "Calle verdadera 123", 11112222);
+        Sucursal s2 = new Sucursal(2, 1, "Sucursal 2", "Calle verdadera 123", "11112222");
         JefeSucursal js2 = new JefeSucursal(2, "Maria", 23, 2);
         s2.setJefeSucursal(js2);
         s2.setProductos(m1);
         
-        Sucursal s3 = new Sucursal(3, 1, "Sucursal 3", "Calle nose 123", 11113333);
+        Sucursal s3 = new Sucursal(3, 1, "Sucursal 3", "Calle nose 123", "11113333");
         JefeSucursal js3 = new JefeSucursal(3, "Jesus", 54, 3);
         s3.setJefeSucursal(js3);
         s3.setProductos(m2);
@@ -63,7 +63,7 @@ public class Test0 {
         //Se inicializa las sucursales de la region Valparaiso(r2)
         List<Sucursal> sucursales2 = new ArrayList<>();
         
-        Sucursal s4 = new Sucursal(4, 2, "Sucursal 4", "Calle Francia 321", 11114444);
+        Sucursal s4 = new Sucursal(4, 2, "Sucursal 4", "Calle Francia 321", "11114444");
         JefeSucursal js4 = new JefeSucursal(4, "Anacleto", 69, 4);
         s4.setJefeSucursal(js4);
         s4.setProductos(m2);

@@ -36,7 +36,7 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
             ps.setInt(1, sucursal.getIdRegion());
             ps.setString(2, sucursal.getNombre());
             ps.setString(3, sucursal.getDireccion());
-            ps.setInt(4, sucursal.getTelefono());
+            ps.setString(4, sucursal.getTelefono());
             ps.executeUpdate();
         }finally{
             Conexion.close(ps);
@@ -59,7 +59,7 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
             ps.setInt(1, sucursal.getIdRegion());
             ps.setString(2, sucursal.getNombre());
             ps.setString(3, sucursal.getDireccion());
-            ps.setInt(4, sucursal.getTelefono());
+            ps.setString(4, sucursal.getTelefono());
             ps.setInt(5, sucursal.getIdSucursal());
             ps.executeUpdate();
         }finally{
@@ -95,7 +95,6 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        Sucursal sucursal = null;
         List<IGenerico> listaSucursales = new ArrayList<>();
         
         try{
@@ -109,9 +108,9 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
                 int idRegion = rs.getInt("id_region");
                 String nombre = rs.getString("nombre");
                 String direccion = rs.getString("direccion");
-                int telefono = rs.getInt("telefono");
+                String telefono = rs.getString("telefono");
                 
-                sucursal = new Sucursal(idSucursal, idRegion, nombre, direccion, telefono);
+                Sucursal sucursal = new Sucursal(idSucursal, idRegion, nombre, direccion, telefono);
                 listaSucursales.add(sucursal);
             }
         }finally{
@@ -144,7 +143,7 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
                 int idRegion = rs.getInt("id_region");
                 String nombre = rs.getString("nombre");
                 String direccion = rs.getString("direccion");
-                int telefono = rs.getInt("telefono");
+                String telefono = rs.getString("telefono");
 
                 sucursal = new Sucursal(newIdSucursal, idRegion, nombre, direccion, telefono);
             }
@@ -158,5 +157,4 @@ public class JdbcSucursal implements IGenericoDao, IGenericoSelectDao{
         
         return sucursal;
     }
-
 }

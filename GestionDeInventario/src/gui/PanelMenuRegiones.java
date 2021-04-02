@@ -645,9 +645,11 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
 
 //Botones Menu Region    
     private void btnAgrRegionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgrRegionActionPerformed
-        this.AgrRegion.setLocationRelativeTo(null);
+        this.AgrRegion.setLocationRelativeTo(fp);
+        
         this.textNombre.setText("");
         this.textErrorAgr.setText("");
+        
         this.AgrRegion.setVisible(true);
     }//GEN-LAST:event_btnAgrRegionActionPerformed
     
@@ -655,7 +657,7 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
         try {
             this.ItemsComboElim(FunRegion.listarRegiones());
             
-            this.ElimRegion.setLocationRelativeTo(null);
+            this.ElimRegion.setLocationRelativeTo(fp);
             this.ElimRegion.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuRegiones.class.getName()).log(Level.SEVERE, null, ex);
@@ -669,7 +671,7 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
             this.textNombreMod.setText("");
             this.textErrorMod.setText("");
         
-            this.ModRegion.setLocationRelativeTo(null);
+            this.ModRegion.setLocationRelativeTo(fp);
             this.ModRegion.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuRegiones.class.getName()).log(Level.SEVERE, null, ex);
@@ -705,8 +707,7 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
             
             this.mostrarRegiones(FunRegion.listarRegiones());
             
-            this.AgrRegion.setVisible(false);
-            fp.setLocationRelativeTo(null);   
+            this.AgrRegion.setVisible(false); 
         } catch (SQLException ex) {
             this.textErrorAgr.setText("* Error: Conexion SQL");
         }
@@ -714,7 +715,6 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
 
     private void btnCancelarAgrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarAgrActionPerformed
         this.AgrRegion.setVisible(false);
-        fp.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCancelarAgrActionPerformed
 
 //Botones Eliminar Region
@@ -733,7 +733,6 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
             this.mostrarRegiones(FunRegion.listarRegiones());
             
             this.ElimRegion.setVisible(false);
-            fp.setLocationRelativeTo(null);
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuRegiones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -741,7 +740,6 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
 
     private void btnCancelarElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarElimActionPerformed
         this.ElimRegion.setVisible(false);
-        fp.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCancelarElimActionPerformed
 
 //Botones Modificar Region    
@@ -764,7 +762,6 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
             this.mostrarRegiones(FunRegion.listarRegiones());
             
             this.ModRegion.setVisible(false);
-            fp.setLocationRelativeTo(null);   
         } catch (SQLException ex) {
             this.textErrorMod.setText("Error: Conexion SQL");
         }
@@ -772,7 +769,6 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
 
     private void btnCancelarModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarModActionPerformed
         this.ModRegion.setVisible(false);
-        fp.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCancelarModActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
