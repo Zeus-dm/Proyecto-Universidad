@@ -107,6 +107,23 @@ public class FunProducto {
         
         jp.delete(newP);
     }
+    
+    public static void eliminarProducto(int idProducto, int idSucursal)throws SQLException {
+        SucursalProducto newSP = FunSucursalProducto.selectSP(idProducto, idSucursal) ;
+        
+        Producto newP = FunProducto.selecProducto(idProducto) ;
+        
+        newP.setStockTotal(newP.getStockTotal()-newSP.getStock());
+        
+        if(newP.getStockTotal()==0) {
+            FunProducto.eliminarProducto(idProducto);
+        }else {
+            FunProducto.actualizarProducto(newP);
+        }
+        
+        FunSucursalProducto.eliminarSucursalProducto(newSP.getIdSP());
+        
+    }
 
     public static String modificarProducto(int idProducto, String nombre, String barCode, String precio, String descripcion) throws SQLException {
         
@@ -288,6 +305,40 @@ public class FunProducto {
         Producto newP = (Producto) jp.select(idProducto) ;
         
         return newP ;
+    }
+    
+    public static String modificarStockEnTienda (int idSucursal, int idProducto, String stock) throws SQLException {
+        SucursalProducto newSP = FunSucursalProducto.selectSP(idProducto, idSucursal) ;
+        
+        int stockAux;
+        
+        try {
+            stockAux = Integer.parseInt(stock);
+            if( stockAux <= 0){
+                return "*Error: Stock debe ser mayor que 0";
+            }
+        } catch(NumberFormatException ex){
+            return "*Error: Ingrese solo numeros al precio" ;
+        }
+        
+        int nuevoStock = stockAux - newSP.getStock() ;
+        
+        Producto newP = FunProducto.selecProducto(idProducto) ;
+        
+        newP.setStockTotal(newP.getStockTotal()+nuevoStock);
+        
+        if(newP.getStockTotal()==0) {
+            FunProducto.eliminarProducto(idProducto);
+        }else {
+            FunProducto.actualizarProducto(newP);
+        }
+        
+        newSP.setStock(stockAux);
+        
+        FunSucursalProducto.actualizarSP(newSP);
+        
+        return null ;
+        
     }
 }
 

@@ -55,4 +55,11 @@ public class FunSucursalProducto {
     
         return newSP;
     }
+    
+    public static void actualizarSP(SucursalProducto sp) throws SQLException {
+        JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
+        
+        jsp.update(sp);
+        
+    }
 }
