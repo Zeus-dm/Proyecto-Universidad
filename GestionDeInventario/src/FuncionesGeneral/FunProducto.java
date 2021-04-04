@@ -113,16 +113,15 @@ public class FunProducto {
         
         Producto newP = FunProducto.selecProducto(idProducto) ;
         
-        newP.setStockTotal(newP.getStockTotal()-newSP.getStock());
+        newP.setStockTotal(newP.getStockTotal() - newSP.getStock());
         
-        if(newP.getStockTotal()==0) {
+        if(newP.getStockTotal() == 0) {
             FunProducto.eliminarProducto(idProducto);
         }else {
             FunProducto.actualizarProducto(newP);
         }
         
         FunSucursalProducto.eliminarSucursalProducto(newSP.getIdSP());
-        
     }
 
     public static String modificarProducto(int idProducto, String nombre, String barCode, String precio, String descripcion) throws SQLException {
@@ -308,37 +307,30 @@ public class FunProducto {
     }
     
     public static String modificarStockEnTienda (int idSucursal, int idProducto, String stock) throws SQLException {
-        SucursalProducto newSP = FunSucursalProducto.selectSP(idProducto, idSucursal) ;
-        
-        int stockAux;
-        
         try {
-            stockAux = Integer.parseInt(stock);
+            SucursalProducto newSP = FunSucursalProducto.selectSP(idProducto, idSucursal) ;
+            
+            int stockAux = Integer.parseInt(stock);
             if( stockAux <= 0){
                 return "*Error: Stock debe ser mayor que 0";
             }
+            
+            int nuevoStock = stockAux - newSP.getStock() ;
+        
+            Producto newP = FunProducto.selecProducto(idProducto) ;
+        
+            newP.setStockTotal(newP.getStockTotal()+nuevoStock);
+
+            FunProducto.actualizarProducto(newP);
+        
+            newSP.setStock(stockAux);
+        
+            FunSucursalProducto.actualizarSP(newSP);
+        
+            return null ;  
         } catch(NumberFormatException ex){
             return "*Error: Ingrese solo numeros al precio" ;
         }
-        
-        int nuevoStock = stockAux - newSP.getStock() ;
-        
-        Producto newP = FunProducto.selecProducto(idProducto) ;
-        
-        newP.setStockTotal(newP.getStockTotal()+nuevoStock);
-        
-        if(newP.getStockTotal()==0) {
-            FunProducto.eliminarProducto(idProducto);
-        }else {
-            FunProducto.actualizarProducto(newP);
-        }
-        
-        newSP.setStock(stockAux);
-        
-        FunSucursalProducto.actualizarSP(newSP);
-        
-        return null ;
-        
     }
 }
 

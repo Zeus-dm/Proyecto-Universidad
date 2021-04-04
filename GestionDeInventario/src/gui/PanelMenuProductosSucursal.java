@@ -124,6 +124,16 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
         btnElimProducto = new javax.swing.JButton();
         btnModStock = new javax.swing.JButton();
         btnSelectVolver = new javax.swing.JButton();
+        ModStockProducto = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
+        tituloModificarStock = new javax.swing.JLabel();
+        LproductoExistStock = new javax.swing.JLabel();
+        LstockExistStock = new javax.swing.JLabel();
+        textStockExistMod = new javax.swing.JTextField();
+        textErrorStock = new javax.swing.JLabel();
+        btnAceptarModStock = new javax.swing.JButton();
+        btnCancelarModStock = new javax.swing.JButton();
+        textnombreExistMod = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
@@ -589,7 +599,6 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
         SelectProducto.setTitle(Texts.TITULO.getTexto());
         SelectProducto.setMinimumSize(new java.awt.Dimension(445, 313));
         SelectProducto.setModal(true);
-        SelectProducto.setPreferredSize(new java.awt.Dimension(430, 273));
         SelectProducto.setResizable(false);
 
         jPanel4.setBackground(Color.decode(Colors.FONDO.getColor()));
@@ -801,6 +810,146 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
         SelectProductoLayout.setVerticalGroup(
             SelectProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+        );
+
+        ModStockProducto.setTitle(Texts.TITULO.getTexto());
+        ModStockProducto.setMinimumSize(new java.awt.Dimension(365, 290));
+        ModStockProducto.setModal(true);
+        ModStockProducto.setName("dialogModificarRegion"); // NOI18N
+        ModStockProducto.setResizable(false);
+
+        jPanel5.setBackground(Color.decode(Colors.FONDO.getColor()));
+        jPanel8.setBackground(Color.decode(Colors.FONDO.getColor())
+        );
+
+        tituloModificarStock.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        tituloModificarStock.setForeground(Color.decode(Colors.TITULO.getColor())
+        );
+        tituloModificarStock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloModificarStock.setText(Texts.MODIFICAR_STOCK.getTexto());
+
+        LproductoExistStock.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LproductoExistStock.setForeground(Color.decode(Colors.TEXTO.getColor()));
+        LproductoExistStock.setText(Texts.PRODUCTO.getTexto());
+        LproductoExistStock.setPreferredSize(new java.awt.Dimension(60, 26));
+
+        LstockExistStock.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LstockExistStock.setForeground(Color.decode(Colors.TEXTO.getColor()));
+        LstockExistStock.setText(Texts.STOCK.getTexto());
+        LstockExistStock.setPreferredSize(new java.awt.Dimension(60, 26));
+
+        textStockExistMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor())
+        );
+        textStockExistMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textStockExistMod.setForeground(Color.decode(Colors.TEXTO.getColor())
+        );
+        textStockExistMod.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())
+        ), javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 1, Color.decode(Colors.TEXTO_FONDO.getColor())
+        )));
+        textStockExistMod.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        textStockExistMod.setName(""); // NOI18N
+        textStockExistMod.setRequestFocusEnabled(false);
+        textStockExist.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
+        textStockExist.setForeground(Color.decode(Colors.TEXTO.getColor()));
+
+        textErrorStock.setForeground(Color.decode(Colors.TEXT_ERROR.getColor()));
+        textErrorStock.setText("* Posible Error");
+        textErrorExist.setForeground(Color.decode(Colors.TEXT_ERROR.getColor()));
+
+        btnAceptarModStock.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnAceptarModStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnAceptarModStock.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnAceptarModStock.setText(Texts.ACEPTAR.getTexto());
+        btnAceptarModStock.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnAceptarModStock.setFocusable(false);
+        btnAceptarModStock.setMaximumSize(new java.awt.Dimension(110, 30));
+        btnAceptarModStock.setMinimumSize(new java.awt.Dimension(110, 30));
+        btnAceptarModStock.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnAceptarModStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarModStockActionPerformed(evt);
+            }
+        });
+
+        btnCancelarModStock.setBackground(Color.decode(Colors.FONDO_BOTON.getColor()));
+        btnCancelarModStock.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCancelarModStock.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor()));
+        btnCancelarModStock.setText(Texts.CANCELAR.getTexto());
+        btnCancelarModStock.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())));
+        btnCancelarModStock.setFocusable(false);
+        btnCancelarModStock.setMaximumSize(new java.awt.Dimension(110, 30));
+        btnCancelarModStock.setMinimumSize(new java.awt.Dimension(110, 30));
+        btnCancelarModStock.setPreferredSize(new java.awt.Dimension(110, 30));
+        btnCancelarModStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarModStockActionPerformed(evt);
+            }
+        });
+
+        textnombreExistMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textnombreExistMod.setForeground(Color.decode(Colors.TEXTO.getColor())
+        );
+        textnombreExistMod.setText(" (Nombre Producto)");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tituloModificarStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textErrorStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(LstockExistStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(textStockExistMod, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(btnAceptarModStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addComponent(btnCancelarModStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(LproductoExistStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(textnombreExistMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 24, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(tituloModificarStock)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(LproductoExistStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textnombreExistMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textStockExistMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LstockExistStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textErrorStock)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptarModStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarModStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout ModStockProductoLayout = new javax.swing.GroupLayout(ModStockProducto.getContentPane());
+        ModStockProducto.getContentPane().setLayout(ModStockProductoLayout);
+        ModStockProductoLayout.setHorizontalGroup(
+            ModStockProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        ModStockProductoLayout.setVerticalGroup(
+            ModStockProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(Color.decode(Colors.FONDO.getColor()));
@@ -1215,16 +1364,61 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
 
 //Botones Seleccionar Producto
     private void btnElimProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimProductoActionPerformed
-        // TODO add your handling code here:
+        try {
+            FunProducto.eliminarProducto(id_producto, sucursal.getIdSucursal());
+            
+            this.mostrarProductos(FunProducto.listarProductos(sucursal.getIdSucursal(),this.textPrecioMin.getText(), this.textPrecioMax.getText(), this.textBuscar.getText()));
+            
+            this.SelectProducto.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelMenuProductosSucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnElimProductoActionPerformed
 
     private void btnModStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModStockActionPerformed
-        // TODO add your handling code here:
+        try {
+            this.ModStockProducto.setLocationRelativeTo(SelectProducto);
+            
+            Producto producto = FunProducto.selecProducto(id_producto);
+            SucursalProducto sp = FunSucursalProducto.selectSP(id_producto, sucursal.getIdSucursal());
+            
+            //Iniciar datos
+            this.textnombreExistMod.setText(producto.getNombre());
+            this.textStockExistMod.setText(""+sp.getStock());
+            this.textErrorStock.setText("");
+        
+            this.ModStockProducto.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelMenuProductosSucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnModStockActionPerformed
 
     private void btnSelectVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectVolverActionPerformed
         this.SelectProducto.setVisible(false);
     }//GEN-LAST:event_btnSelectVolverActionPerformed
+
+//Botones Modificar Stock en Tienda
+    private void btnAceptarModStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarModStockActionPerformed
+        try {
+            String ok = FunProducto.modificarStockEnTienda(sucursal.getIdSucursal(), id_producto, this.textStockExistMod.getText());
+            if(ok != null){
+                this.textErrorStock.setText(ok);
+                return;
+            }
+            
+            SucursalProducto sp = FunSucursalProducto.selectSP(id_producto, sucursal.getIdSucursal());
+            
+            this.LselectStock.setText(""+sp.getStock());
+            
+            this.ModStockProducto.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelMenuProductosSucursal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAceptarModStockActionPerformed
+
+    private void btnCancelarModStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarModStockActionPerformed
+        this.ModStockProducto.setVisible(false);
+    }//GEN-LAST:event_btnCancelarModStockActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1242,15 +1436,19 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
     private javax.swing.JLabel LnombreAgr;
     private javax.swing.JLabel Lprecio;
     private javax.swing.JLabel LproductoExist;
+    private javax.swing.JLabel LproductoExistStock;
     private javax.swing.JLabel LselectBarCode;
     private javax.swing.JTextPane LselectDescripcion;
     private javax.swing.JLabel LselectPrecio;
     private javax.swing.JLabel LselectStock;
     private javax.swing.JLabel LstockExist;
+    private javax.swing.JLabel LstockExistStock;
     private javax.swing.JLabel LstockTotalSelect;
+    private javax.swing.JDialog ModStockProducto;
     private javax.swing.JDialog SelectProducto;
     private javax.swing.JButton btnAceptarAgr;
     private javax.swing.JButton btnAceptarAgrExist;
+    private javax.swing.JButton btnAceptarModStock;
     private javax.swing.JButton btnAgrExistente;
     private javax.swing.JButton btnAgrNuevo;
     private javax.swing.JButton btnAgrProducto;
@@ -1258,6 +1456,7 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelarAgr;
     private javax.swing.JButton btnCancelarAgrExist;
+    private javax.swing.JButton btnCancelarModStock;
     private javax.swing.JButton btnElimProducto;
     private javax.swing.JButton btnModStock;
     private javax.swing.JButton btnSelectVolver;
@@ -1270,6 +1469,7 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1281,16 +1481,20 @@ public class PanelMenuProductosSucursal extends javax.swing.JPanel {
     private javax.swing.JTextPane textDescripcionAgr;
     private javax.swing.JLabel textErrorAgr;
     private javax.swing.JLabel textErrorExist;
+    private javax.swing.JLabel textErrorStock;
     private javax.swing.JTextField textNombreAgr;
     private javax.swing.JTextField textPrecioAgr;
     private javax.swing.JTextField textPrecioMax;
     private javax.swing.JTextField textPrecioMin;
     private javax.swing.JTextField textStockAgr;
     private javax.swing.JTextField textStockExist;
+    private javax.swing.JTextField textStockExistMod;
+    private javax.swing.JLabel textnombreExistMod;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel tituloAgr;
     private javax.swing.JLabel tituloAgregar;
     private javax.swing.JLabel tituloModificar;
+    private javax.swing.JLabel tituloModificarStock;
     private javax.swing.JLabel tituloNombre;
     // End of variables declaration//GEN-END:variables
 

@@ -60,6 +60,5 @@ public class FunSucursalProducto {
         JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
         
         jsp.update(sp);
-        
     }
 }

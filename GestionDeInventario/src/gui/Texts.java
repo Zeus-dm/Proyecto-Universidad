@@ -68,6 +68,7 @@ public enum Texts {
                 
             ELIM_PRODUCTO("Elim. Producto"),
             MOD_STOCK("Mod. Stock"),
+                MODIFICAR_STOCK("Modificar Stock"),
     
     REPORTES("Reportes"),
     SALIR("Salir"),
