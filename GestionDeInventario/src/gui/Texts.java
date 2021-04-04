@@ -53,7 +53,21 @@ public enum Texts {
             BARCODE("BarCode"),
             STOCK_TOTAL("Stock Total"),
             DESCRIPCION("Descripción"),
-        MODIFICAR_PRODUCTO("Modificar Producto"),
+            
+        MOD_PRODUCTO("Mod. Producto"),
+            MODIFICAR_PRODUCTO("Modificar Producto"),
+        
+        AGR_PRODUCTO("Agr. Producto"),
+            AGREGAR_PRODUCTO("Agregar Producto"),
+            NUEVO("Nuevo"),
+                AGREGAR_NUEVO_PRODUCTO("Agregar Nuevo Producto"),
+                STOCK("Stock"),
+            EXISTENTE("Existente"),
+                AGREGAR_EXISTENTE("Agregar Producto Existente"),
+                PRODUCTO("Producto"),
+                
+            ELIM_PRODUCTO("Elim. Producto"),
+            MOD_STOCK("Mod. Stock"),
     
     REPORTES("Reportes"),
     SALIR("Salir"),

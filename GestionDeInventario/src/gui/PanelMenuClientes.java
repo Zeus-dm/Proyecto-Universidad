@@ -466,12 +466,12 @@ public class PanelMenuClientes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LidTelefonoSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LuserTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                        .addComponent(LuserTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(LemailSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LuserEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(tituloNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tituloNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -887,7 +887,19 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             id_cliente = clientes.get(pos).getIdCliente();
             
             //inicia los datos del seleccionado
+            int tamano = 20;
+            
             this.tituloNombre.setText(clientes.get(pos).getNombre());
+            this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+            while(true){
+                if(this.tituloNombre.getPreferredSize().width > 231){
+                    this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+                }else{
+                    break;
+                }
+                tamano -= 1;
+            }
+            
             this.LuserEdad.setText(""+clientes.get(pos).getEdad());
             this.LuserDireccion.setText(clientes.get(pos).getDireccion());
             this.LuserTelefono.setText(""+clientes.get(pos).getTelefono());
@@ -969,7 +981,19 @@ public class PanelMenuClientes extends javax.swing.JPanel {
             Cliente cliente = FunCliente.selecCliente(id_cliente);
 
             //actualiza los datos del seleccionado
+            int tamano = 20;
+            
             this.tituloNombre.setText(cliente.getNombre());
+            this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+            while(true){
+                if(this.tituloNombre.getPreferredSize().width > 231){
+                    this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+                }else{
+                    break;
+                }
+                tamano -= 1;
+            }
+            
             this.LuserEdad.setText(""+cliente.getEdad());
             this.LuserDireccion.setText(cliente.getDireccion());
             this.LuserTelefono.setText(""+cliente.getTelefono());

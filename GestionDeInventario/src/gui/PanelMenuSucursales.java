@@ -24,7 +24,19 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
         
         initComponents();
         
+        int tamano = 22;
         this.titulo.setText(region.getNombre()+" - "+Texts.SUCURSALES.getTexto());
+        this.titulo.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+        
+        while(true){
+            if(this.titulo.getPreferredSize().width > 388){
+                this.titulo.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+            }else{
+                break;
+            }
+            tamano -= 1;
+        }
+        
         mostrarSucursales(FunSucursal.listarSucursales(id_region));
     }
     
@@ -534,7 +546,6 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
                         .addComponent(LidTelefonoSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LsucursalTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(tituloNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(linea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tituloJefe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -546,7 +557,8 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(LnombreSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LnombreJefe, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(LnombreJefe, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tituloNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1459,7 +1471,19 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
             id_sucursal = sucursales.get(pos).getIdSucursal();
             
             //iniciar datos
+            int tamano = 20;
             this.tituloNombre.setText(sucursales.get(pos).getNombre());
+            this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+        
+            while(true){
+                if(this.tituloNombre.getPreferredSize().width > 231){
+                    this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+                }else{
+                    break;
+                }
+                tamano -= 1;
+            }
+            
             this.LsucursalDireccion.setText(sucursales.get(pos).getDireccion());
             this.LsucursalTelefono.setText(sucursales.get(pos).getTelefono());
             
@@ -1508,7 +1532,14 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
 
 //Botones Seleccionar Sucursal Sin Jefe
     private void btnSucProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucProductosActionPerformed
-        // TODO add your handling code here:
+        try {
+            this.SelectSucursal.setVisible(false);
+            
+            PanelMenuProductosSucursal pmps = new PanelMenuProductosSucursal(fp,id_sucursal);
+            fp.cargarPanel(pmps);    
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelMenuSucursales.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSucProductosActionPerformed
 
     private void btnModSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModSucursalActionPerformed
@@ -1544,7 +1575,14 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
 
 //Botones Seleccionar Sucursal Con Jefe
     private void btnSucProductos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucProductos1ActionPerformed
-        // TODO add your handling code here:
+        try {
+            this.SelectSucursal.setVisible(false);
+            
+            PanelMenuProductosSucursal pmps = new PanelMenuProductosSucursal(fp,id_sucursal);
+            fp.cargarPanel(pmps);    
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelMenuSucursales.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSucProductos1ActionPerformed
 
     private void btnModSucursal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModSucursal1ActionPerformed
@@ -1611,7 +1649,19 @@ public class PanelMenuSucursales extends javax.swing.JPanel {
             Sucursal sucursal = FunSucursal.selecSucursal(id_sucursal);
             
             //actualiza los datos del seleccionado
+            int tamano = 20;
             this.tituloNombre.setText(sucursal.getNombre());
+            this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+        
+            while(true){
+                if(this.tituloNombre.getPreferredSize().width > 231){
+                    this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+                }else{
+                    break;
+                }
+                tamano -= 1;
+            }
+            
             this.LsucursalDireccion.setText(sucursal.getDireccion());
             this.LsucursalTelefono.setText(sucursal.getTelefono());
             

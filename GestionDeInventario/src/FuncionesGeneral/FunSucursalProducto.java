@@ -9,6 +9,13 @@ import java.util.List;
 import jdbc.JdbcSucursalProducto;
 
 public class FunSucursalProducto {
+    public static void agregarSucursalProducto(int idProducto, int idSucursal, int stock) throws SQLException{
+        JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
+        SucursalProducto sp = new SucursalProducto(idProducto, idSucursal, stock);
+        
+        jsp.insert(sp);
+    }
+    
     public static void eliminarSucursalProducto(int idSP) throws SQLException{
         JdbcSucursalProducto jsp = new JdbcSucursalProducto() ;
         SucursalProducto sp = new SucursalProducto(idSP);
@@ -40,5 +47,12 @@ public class FunSucursalProducto {
         });
         
         return newSP ;
+    }
+
+    public static SucursalProducto selectSP (int idProducto, int idSucursal) throws SQLException{
+        JdbcSucursalProducto jsp = new JdbcSucursalProducto();
+        SucursalProducto newSP = (SucursalProducto)jsp.select(idProducto, idSucursal);
+    
+        return newSP;
     }
 }

@@ -16,6 +16,7 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
     private static final String SQL_SELECT = "SELECT * FROM gestion_inventario.producto";
     private static final String SQL_WHERE_SELECT = "SELECT * FROM gestion_inventario.producto WHERE precio >= ? AND precio <= ? ";
     private static final String SQL_ONE_SELECT = "SELECT * FROM gestion_inventario.producto WHERE id_producto = ?";
+    private static final String SQL_ONE_SELECT_BARCODE = "SELECT * FROM gestion_inventario.producto WHERE barcode = ?";
 
     public JdbcProducto() {
     }
@@ -177,6 +178,40 @@ public class JdbcProducto implements IGenericoDao, IGenericoMapDao, IGenericoSel
             conn = this.userConn != null ? this.userConn : Conexion.getConnection();
             ps = conn.prepareStatement(SQL_ONE_SELECT);
             ps.setInt(1, idProducto);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                int newIdProducto = rs.getInt("id_producto");
+                String nombre = rs.getString("nombre");
+                String barCode = rs.getString("barcode");
+                int stockTotal = rs.getInt("stock_total");
+                int precio = rs.getInt("precio");
+                String descripcion = rs.getString("descripcion");
+                
+                producto = new Producto(newIdProducto, nombre, barCode, stockTotal, precio, descripcion);
+            }  
+        }finally{
+            Conexion.close(rs);
+            Conexion.close(ps);
+            if (this.userConn == null){
+                Conexion.close(conn);
+            }
+        }
+        
+        return producto;
+    }
+
+    public IGenerico select(String barcode) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        Producto producto = null;
+        
+        try{
+            conn = this.userConn != null ? this.userConn : Conexion.getConnection();
+            ps = conn.prepareStatement(SQL_ONE_SELECT_BARCODE);
+            ps.setString(1, barcode);
             rs = ps.executeQuery();
             
             while(rs.next()){
