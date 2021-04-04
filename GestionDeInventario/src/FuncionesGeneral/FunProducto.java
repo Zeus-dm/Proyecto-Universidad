@@ -3,8 +3,10 @@ package FuncionesGeneral;
 
 import domain.IGenerico;
 import domain.Producto;
+import domain.SucursalProducto;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import jdbc.JdbcProducto;
 
@@ -21,7 +23,7 @@ public class FunProducto {
         }else if( barCode.length() != 9){
             return "*Error: Codigo de barras necesita 9 caracteres";
         }else{
-            Map<String,Producto> mapa = FunProducto.listarProducto();
+            Map<String,Producto> mapa = FunProducto.listarProductos();
 
             Producto producto = mapa.get(barCode);
             if(producto != null && idProducto != producto.getIdProducto()){
@@ -49,6 +51,54 @@ public class FunProducto {
         JdbcProducto jp = new JdbcProducto();
         
         jp.update(producto);
+    }
+    
+    public static String agregarProducto(int idSucursal, int idProducto, String nombre, String barCode, String precio, String stock, String descripcion) throws SQLException{
+        
+        String verificar = verificarDatos(idProducto, nombre, barCode, precio);
+        if(verificar != null){
+            return verificar;
+        }
+        int precioAux = Integer.parseInt(precio);
+        
+        try {
+            int stockAux = Integer.parseInt(stock);
+            if( stockAux <= 0){
+                return "*Error: Stock debe ser mayor que 0";
+            }
+            Producto producto = new Producto(nombre, barCode, stockAux, precioAux, descripcion);
+            JdbcProducto jp = new JdbcProducto();
+            
+            jp.insert(producto);
+            
+            producto = (Producto)jp.select(barCode);
+            
+            FunSucursalProducto.agregarSucursalProducto(producto.getIdProducto(), idSucursal, stockAux);
+        } catch(NumberFormatException ex){
+            return "*Error: Ingrese solo numeros al precio" ;
+        }
+
+        return null;
+    }
+    
+    public static String agregarproducto(int idSucursal, int idproducto, String stock) throws SQLException{
+        try {
+            int stockAux = Integer.parseInt(stock);
+            if( stockAux <= 0){
+                return "*Error: Stock debe ser mayor que 0";
+            }
+            
+            FunSucursalProducto.agregarSucursalProducto(idproducto, idSucursal, stockAux);
+            
+            Producto producto = FunProducto.selecProducto(idproducto);
+            producto.setStockTotal( producto.getStockTotal() + stockAux );
+            
+            FunProducto.actualizarProducto(producto);
+        } catch(NumberFormatException ex){
+            return "*Error: Ingrese solo numeros al precio" ;
+        }
+        
+        return null;
     }
     
     public static void eliminarProducto(int idProducto) throws SQLException{
@@ -80,7 +130,7 @@ public class FunProducto {
         return null ;
     }
     
-    public static Map<String,Producto> listarProducto() throws SQLException {
+    public static Map<String,Producto> listarProductos() throws SQLException {
         Producto prod ;
         
         Map<String,Producto> newP = new HashMap<>() ;
@@ -97,7 +147,7 @@ public class FunProducto {
         return newP ;
     }
     
-    public static Map<String,Producto> listarProducto(int min, int max) throws SQLException {
+    public static Map<String,Producto> listarProductos(int min, int max) throws SQLException {
         Producto prod ;
         
         Map<String,Producto> newP = new HashMap<>() ;
@@ -114,7 +164,7 @@ public class FunProducto {
         return newP ;
     }
     
-    public static Map<String,Producto> listarProducto(String textoBuscar) throws SQLException {
+    public static Map<String,Producto> listarProductos(String textoBuscar) throws SQLException {
         Producto prod ;
         
         Map<String,Producto> newP = new HashMap<>() ;
@@ -140,17 +190,17 @@ public class FunProducto {
         return newP ;
     }
     
-    public static Map<String,Producto> listarProducto(String min, String max, String textoBuscar) throws SQLException {
+    public static Map<String,Producto> listarProductos(String min, String max, String textoBuscar) throws SQLException {
         try {
             int Imin = Integer.parseInt(min);
             int Imax = Integer.parseInt(max);
           
             if( (Imin == 0) && (Imax == 0) && (textoBuscar == null || textoBuscar.isEmpty()) ){
-                return listarProducto();
+                return listarProductos();
             }else if( (Imin == 0) && (Imax == 0) && (textoBuscar != null) ){
-                return listarProducto(textoBuscar);
+                return listarProductos(textoBuscar);
             }else if( (Imin >= 0) && (Imax >= Imin) && (textoBuscar == null || textoBuscar.isEmpty()) ){
-                return listarProducto(Imin, Imax);
+                return listarProductos(Imin, Imax);
             }else if( (Imin >= 0) && (Imax >= Imin) && (textoBuscar != null) ){
                 Producto prod ;
         
@@ -179,11 +229,57 @@ public class FunProducto {
             }
         } catch(NumberFormatException ex){
             if(textoBuscar != null){
-                return listarProducto(textoBuscar);
+                return listarProductos(textoBuscar);
             }
         }
         
-        return listarProducto();
+        return listarProductos();
+    }
+    
+    public static Map<String,Producto> listarProductos(int id_sucursal) throws SQLException{
+        List<SucursalProducto> listaSP = FunSucursalProducto.listarSucursalProductoS(id_sucursal);
+        
+        Map<String,Producto> newP = new HashMap<>();
+        
+        for (SucursalProducto sp : listaSP) {
+            Producto producto = FunProducto.selecProducto(sp.getIdProducto());
+            newP.put(producto.getBarCode(), producto);
+        }
+        
+        return newP;
+    }
+    
+    public static Map<String,Producto> listarProductos(int id_sucursal, String min, String max, String textoBuscar) throws SQLException{
+        Map<String,Producto> allProductos = FunProducto.listarProductos(min, max, textoBuscar);
+        Map<String,Producto> sucursalProductos = FunProducto.listarProductos(id_sucursal);
+        
+        Map<String,Producto> listaProductos = new HashMap<>();
+        
+        for (String key : allProductos.keySet()) {
+            Producto producto = sucursalProductos.get(key);
+            if(producto != null){
+                listaProductos.put(producto.getBarCode(), producto);
+            }
+        }
+        
+        return listaProductos;
+    }
+    
+    public static Map<String,Producto> listarProductosExist(int id_sucursal) throws SQLException{
+        Map<String,Producto> allProductos = FunProducto.listarProductos();
+        Map<String,Producto> sucursalProductos = FunProducto.listarProductos(id_sucursal);
+        
+        Map<String,Producto> listaProductos = new HashMap<>();
+        
+        for (String key : allProductos.keySet()) {
+            Producto producto = sucursalProductos.get(key);
+            if(producto == null){
+                producto = allProductos.get(key);
+                listaProductos.put(producto.getBarCode(), producto);
+            }
+        }
+        
+        return listaProductos;
     }
     
     public static Producto selecProducto(int idProducto) throws SQLException {

@@ -22,7 +22,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         this.fp = fp;
         
         initComponents();
-        mostrarProductos(FunProducto.listarProducto());
+        mostrarProductos(FunProducto.listarProductos());
     }
     
     private void mostrarProductos(Map<String,Producto> productos){
@@ -98,11 +98,11 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         tituloModificar = new javax.swing.JLabel();
         LnombreMod = new javax.swing.JLabel();
         textNombreMod = new javax.swing.JTextField();
-        LedadMod = new javax.swing.JLabel();
+        LbarCodeMod = new javax.swing.JLabel();
         textBarCodeMod = new javax.swing.JTextField();
-        LdireccionMod = new javax.swing.JLabel();
+        LprecioMod = new javax.swing.JLabel();
         textPrecioMod = new javax.swing.JTextField();
-        LtelefonoMod = new javax.swing.JLabel();
+        LdescripcionMod = new javax.swing.JLabel();
         textErrorMod = new javax.swing.JLabel();
         btnAceptarMod = new javax.swing.JButton();
         btnCancelarMod = new javax.swing.JButton();
@@ -239,7 +239,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         btnModProducto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnModProducto.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor())
         );
-        btnModProducto.setText("Mod. Producto");
+        btnModProducto.setText(Texts.MOD_PRODUCTO.getTexto());
         btnModProducto.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())
         ));
         btnModProducto.setFocusable(false);
@@ -257,7 +257,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         btnSelectVolver.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnSelectVolver.setForeground(Color.decode(Colors.TEXTO_BOTON.getColor())
         );
-        btnSelectVolver.setText("Volver");
+        btnSelectVolver.setText(Texts.VOLVER.getTexto());
         btnSelectVolver.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())
         ));
         btnSelectVolver.setFocusable(false);
@@ -284,9 +284,8 @@ public class PanelMenuProductos extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane3)
-                            .addComponent(tituloNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(LdescripcionSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -297,7 +296,8 @@ public class PanelMenuProductos extends javax.swing.JPanel {
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(LselectBarCode, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(LselectPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(LselectStock, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(LselectStock, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tituloNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -375,11 +375,11 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         textNombreMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textNombreMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
-        LedadMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LedadMod.setText(Texts.BARCODE.getTexto());
-        LedadMod.setMinimumSize(new java.awt.Dimension(60, 20));
-        LedadMod.setPreferredSize(new java.awt.Dimension(70, 26));
-        LedadMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+        LbarCodeMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LbarCodeMod.setText(Texts.BARCODE.getTexto());
+        LbarCodeMod.setMinimumSize(new java.awt.Dimension(60, 20));
+        LbarCodeMod.setPreferredSize(new java.awt.Dimension(70, 26));
+        LbarCodeMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textBarCodeMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textBarCodeMod.setText("(BarCode Producto)");
@@ -387,11 +387,11 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         textBarCodeMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textBarCodeMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
-        LdireccionMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LdireccionMod.setText(Texts.PRECIO.getTexto());
-        LdireccionMod.setMinimumSize(new java.awt.Dimension(60, 20));
-        LdireccionMod.setPreferredSize(new java.awt.Dimension(70, 26));
-        LdireccionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+        LprecioMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LprecioMod.setText(Texts.PRECIO.getTexto());
+        LprecioMod.setMinimumSize(new java.awt.Dimension(60, 20));
+        LprecioMod.setPreferredSize(new java.awt.Dimension(70, 26));
+        LprecioMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textPrecioMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         textPrecioMod.setText("(Precio Producto)");
@@ -399,12 +399,12 @@ public class PanelMenuProductos extends javax.swing.JPanel {
         textPrecioMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));
         textPrecioMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
-        LtelefonoMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LtelefonoMod.setText(Texts.DESCRIPCION.getTexto());
-        LtelefonoMod.setMaximumSize(new java.awt.Dimension(70, 20));
-        LtelefonoMod.setMinimumSize(new java.awt.Dimension(70, 20));
-        LtelefonoMod.setPreferredSize(new java.awt.Dimension(70, 26));
-        LtelefonoMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
+        LdescripcionMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LdescripcionMod.setText(Texts.DESCRIPCION.getTexto());
+        LdescripcionMod.setMaximumSize(new java.awt.Dimension(70, 20));
+        LdescripcionMod.setMinimumSize(new java.awt.Dimension(70, 20));
+        LdescripcionMod.setPreferredSize(new java.awt.Dimension(70, 26));
+        LdescripcionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));
 
         textErrorMod.setText("* Posible Error");
         textErrorMod.setForeground(Color.decode(Colors.TEXT_ERROR.getColor()));
@@ -474,9 +474,9 @@ public class PanelMenuProductos extends javax.swing.JPanel {
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel6Layout.createSequentialGroup()
                                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(LedadMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(LdireccionMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(LtelefonoMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(LbarCodeMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(LprecioMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(LdescripcionMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(textBarCodeMod)
@@ -506,15 +506,15 @@ public class PanelMenuProductos extends javax.swing.JPanel {
                     .addComponent(textNombreMod))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LedadMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbarCodeMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textBarCodeMod))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textPrecioMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LdireccionMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LprecioMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LtelefonoMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LdescripcionMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textErrorMod)
@@ -772,7 +772,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            this.mostrarProductos(FunProducto.listarProducto(this.textPrecioMin.getText(), this.textPrecioMax.getText(), this.textBuscar.getText()));
+            this.mostrarProductos(FunProducto.listarProductos(this.textPrecioMin.getText(), this.textPrecioMax.getText(), this.textBuscar.getText()));
         } catch (SQLException ex) {
             Logger.getLogger(PanelMenuProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -781,7 +781,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
 //Tabla Menu Productos 
     private void tablaProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaProductosMouseClicked
         try {
-            Map<String,Producto> productos = FunProducto.listarProducto(this.textPrecioMin.getText(), this.textPrecioMax.getText(), this.textBuscar.getText());
+            Map<String,Producto> productos = FunProducto.listarProductos(this.textPrecioMin.getText(), this.textPrecioMax.getText(), this.textBuscar.getText());
             int pos = tablaProductos.getSelectedRow();
             int cont = 0;
             for (Producto producto : productos.values()) {
@@ -795,7 +795,19 @@ public class PanelMenuProductos extends javax.swing.JPanel {
             Producto producto = FunProducto.selecProducto(id_producto);
             
             //iniciar Datos
+            int tamano = 20;
+            
             this.tituloNombre.setText(producto.getNombre());
+            this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+            while(true){
+                if(this.tituloNombre.getPreferredSize().width > 231){
+                    this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+                }else{
+                    break;
+                }
+                tamano -= 1;
+            }
+            
             this.LselectBarCode.setText("#"+producto.getBarCode());
             this.LselectPrecio.setText("$"+producto.getPrecio());
             this.LselectStock.setText(""+producto.getStockTotal());
@@ -849,7 +861,19 @@ public class PanelMenuProductos extends javax.swing.JPanel {
             Producto producto = FunProducto.selecProducto(id_producto);
             
             //actualiza los datos del seleccionado
+            int tamano = 20;
+            
             this.tituloNombre.setText(producto.getNombre());
+            this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+            while(true){
+                if(this.tituloNombre.getPreferredSize().width > 231){
+                    this.tituloNombre.setFont(new java.awt.Font("Segoe UI", 3, tamano));
+                }else{
+                    break;
+                }
+                tamano -= 1;
+            }
+            
             this.LselectBarCode.setText("#"+producto.getBarCode());
             this.LselectPrecio.setText("$"+producto.getPrecio());
             this.LselectStock.setText(""+producto.getStockTotal());
@@ -857,7 +881,7 @@ public class PanelMenuProductos extends javax.swing.JPanel {
             
             this.mostrarSucursalStock(FunSucursalProducto.listarSucursalProducto(id_producto));
             
-            this.mostrarProductos(FunProducto.listarProducto());
+            this.mostrarProductos(FunProducto.listarProductos());
             
             this.ModProducto.setVisible(false);
         } catch(SQLException ex){
@@ -867,20 +891,20 @@ public class PanelMenuProductos extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LPrecioSelect;
+    private javax.swing.JLabel LbarCodeMod;
     private javax.swing.JLabel LbarCodeSelect;
+    private javax.swing.JLabel LdescripcionMod;
     private javax.swing.JLabel LdescripcionSelect;
-    private javax.swing.JLabel LdireccionMod;
-    private javax.swing.JLabel LedadMod;
     private javax.swing.JLabel Lmax;
     private javax.swing.JLabel Lmin;
     private javax.swing.JLabel LnombreMod;
     private javax.swing.JLabel Lprecio;
+    private javax.swing.JLabel LprecioMod;
     private javax.swing.JLabel LselectBarCode;
     private javax.swing.JTextPane LselectDescripcion;
     private javax.swing.JLabel LselectPrecio;
     private javax.swing.JLabel LselectStock;
     private javax.swing.JLabel LstockTotalSelect;
-    private javax.swing.JLabel LtelefonoMod;
     private javax.swing.JDialog ModProducto;
     private javax.swing.JDialog SelectProducto;
     private javax.swing.JButton btnAceptarMod;

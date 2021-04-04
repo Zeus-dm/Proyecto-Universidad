@@ -51,9 +51,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="tituloNombre" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="LdescripcionSelect" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -68,6 +67,7 @@
                                                   <Component id="LselectStock" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Component id="tituloNombre" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -357,7 +357,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Color.decode(Colors.TEXTO_BOTON.getColor())&#xa;    " type="code"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Mod. Producto"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Texts.MOD_PRODUCTO.getTexto()" type="code"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())&#xa;)" type="code"/>
                 </Property>
@@ -387,7 +389,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Color.decode(Colors.TEXTO_BOTON.getColor())&#xa;    " type="code"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Volver"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="Texts.VOLVER.getTexto()" type="code"/>
+                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, Color.decode(Colors.BORDE.getColor())&#xa;)" type="code"/>
                 </Property>
@@ -464,9 +468,9 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="LedadMod" alignment="0" max="-2" attributes="0"/>
-                                                          <Component id="LdireccionMod" alignment="0" max="-2" attributes="0"/>
-                                                          <Component id="LtelefonoMod" alignment="0" max="-2" attributes="0"/>
+                                                          <Component id="LbarCodeMod" alignment="0" max="-2" attributes="0"/>
+                                                          <Component id="LprecioMod" alignment="0" max="-2" attributes="0"/>
+                                                          <Component id="LdescripcionMod" alignment="0" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -511,17 +515,17 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LedadMod" alignment="3" max="-2" attributes="0"/>
+                          <Component id="LbarCodeMod" alignment="3" max="-2" attributes="0"/>
                           <Component id="textBarCodeMod" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textPrecioMod" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="LdireccionMod" alignment="0" max="-2" attributes="0"/>
+                          <Component id="LprecioMod" alignment="0" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LtelefonoMod" alignment="0" max="-2" attributes="0"/>
+                          <Component id="LdescripcionMod" alignment="0" max="-2" attributes="0"/>
                           <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -587,7 +591,7 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="textNombreMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));&#xa;textNombreMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="LedadMod">
+            <Component class="javax.swing.JLabel" name="LbarCodeMod">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -603,7 +607,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LedadMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LbarCodeMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="textBarCodeMod">
@@ -620,7 +624,7 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="textBarCodeMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));&#xa;textBarCodeMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="LdireccionMod">
+            <Component class="javax.swing.JLabel" name="LprecioMod">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -636,7 +640,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LdireccionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LprecioMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="textPrecioMod">
@@ -653,7 +657,7 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="textPrecioMod.setBackground(Color.decode(Colors.TEXTO_FONDO.getColor()));&#xa;textPrecioMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="LtelefonoMod">
+            <Component class="javax.swing.JLabel" name="LdescripcionMod">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -672,7 +676,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LtelefonoMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="LdescripcionMod.setForeground(Color.decode(Colors.TEXTO.getColor()));"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="textErrorMod">

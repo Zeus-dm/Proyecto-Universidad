@@ -723,7 +723,6 @@ public class PanelMenuRegiones extends javax.swing.JPanel {
             List<Region> regiones = FunRegion.listarRegiones();
             if(regiones.isEmpty()){
                 this.ElimRegion.setVisible(false);
-                fp.setLocationRelativeTo(null);
                 return;
             }
             
